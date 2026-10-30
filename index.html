@@ -299,18 +299,134 @@ input[type=number],select{font:700 16px Manrope,sans-serif;padding:8px 10px;bord
 .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 100% 0%,rgba(255,255,255,.15),transparent);pointer-events:none}
 .card h2{letter-spacing:-.3px}
 
+/* ===================== MEGA DESIGN ===================== */
+body{background:
+  radial-gradient(900px 500px at 110% -10%,color-mix(in srgb,var(--gold) 16%,transparent),transparent 60%),
+  radial-gradient(800px 600px at -20% 30%,color-mix(in srgb,var(--acc) 12%,transparent),transparent 60%),
+  var(--bg);background-attachment:fixed;padding-bottom:110px}
+header{backdrop-filter:blur(14px);background:linear-gradient(120deg,rgba(15,81,50,.92),rgba(11,61,42,.92))}
+/* Плавающая навигация из двух кнопок */
+nav.tabs{left:50%;right:auto;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(320px,88vw);padding:6px;border-radius:26px;border:1px solid rgba(255,255,255,.25);
+  background:color-mix(in srgb,var(--card) 70%,transparent);backdrop-filter:blur(18px) saturate(1.6);box-shadow:0 14px 40px rgba(10,40,25,.25);gap:0}
+nav.tabs button{max-width:none;position:relative;z-index:1;font-size:13px;padding:8px 0;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:20px}
+nav.tabs button span{display:inline;font-size:20px}
+nav.tabs button.on{background:none;color:#fff}
+nav.tabs button.on span{transform:scale(1.15)}
+.tabind{position:absolute;top:6px;bottom:6px;left:6px;width:calc(50% - 6px);border-radius:20px;background:linear-gradient(135deg,#1d8a56,var(--felt2));box-shadow:0 6px 16px rgba(15,81,50,.45);transition:transform .45s cubic-bezier(.3,1.4,.4,1)}
+nav.tabs[data-on="games"] .tabind{transform:translateX(100%)}
+nav.tabs:not([data-on="theory"]):not([data-on="games"]) .tabind{opacity:0}
+
+/* ---------- Длинная теория ---------- */
+.tprog{position:fixed;top:64px;left:0;right:0;height:3px;z-index:6;background:transparent}
+.tprog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#f6a93b);box-shadow:0 0 8px var(--gold)}
+.cnav{position:sticky;top:64px;z-index:4;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:10px 2px;margin:-6px -16px 10px;padding-left:16px;padding-right:16px;
+  background:linear-gradient(var(--bg) 70%,transparent)}
+.cnav::-webkit-scrollbar{display:none}
+.cnav button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:6px 12px;font:700 13px Manrope,sans-serif;cursor:pointer;transition:all .25s}
+.cnav button.on{background:var(--acc);color:#fff;border-color:var(--acc);transform:scale(1.05)}
+.theory-hero{padding:28px 20px;min-height:180px}
+.theory-hero h2{font-size:28px;line-height:1.15}
+.suits-float span{position:absolute;font-size:60px;opacity:.16;animation:floaty 6s ease-in-out infinite}
+.suits-float span:nth-child(1){right:20px;top:10px}
+.suits-float span:nth-child(2){right:90px;top:70px;animation-delay:-1.5s;color:#ffb3b3;opacity:.25}
+.suits-float span:nth-child(3){right:24px;top:110px;animation-delay:-3s;color:#ffb3b3;opacity:.25}
+.suits-float span:nth-child(4){right:140px;top:6px;animation-delay:-4.5s}
+@keyframes floaty{50%{transform:translateY(-14px) rotate(8deg)}}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px 18px;margin:0 0 18px;box-shadow:var(--shadow);
+  opacity:0;transform:translateY(40px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);scroll-margin-top:120px}
+.sec.in,.finish.in{opacity:1;transform:none}
+.chap{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.cn{font-size:42px;font-weight:800;line-height:1;background:linear-gradient(135deg,var(--acc),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.ce{font-size:30px}
+.cdone{margin-left:auto;font-size:12px;color:var(--ok);font-weight:800}
+.sec h2{font-size:24px;margin:2px 0 12px}
+.finish{text-align:center;padding:30px 20px;border-radius:24px;background:linear-gradient(135deg,#ffd76a,#f6a93b);color:#1d2621;opacity:0;transform:translateY(40px);transition:all .7s}
+.finish h2{margin:6px 0}
+.widget{margin:16px -6px;padding:14px;border-radius:20px;background:linear-gradient(160deg,color-mix(in srgb,var(--acc) 10%,var(--card)),var(--card));border:2px dashed color-mix(in srgb,var(--acc) 40%,transparent)}
+.wtitle{font-weight:800;margin-bottom:8px}
+.wnew{margin-top:8px}
+.exq{margin:14px 0;padding:14px;border-radius:18px;background:var(--bg);border:1px solid var(--line);transition:all .3s}
+.exq.done{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 7%,var(--card))}
+.exhead{font-size:12px;font-weight:800;text-transform:uppercase;color:var(--gold);letter-spacing:.5px;margin-bottom:4px}
+.exopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:8px;margin-top:10px}
+.exopts button{padding:12px 4px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:800 17px Manrope,sans-serif;cursor:pointer;box-shadow:0 3px 0 var(--line);transition:transform .08s}
+.exopts button:active{transform:translateY(2px)}
+.exopts button.ok{background:var(--ok);border-color:var(--ok);color:#fff;animation:pop .35s}
+.exopts button.bad{background:var(--bad);border-color:var(--bad);color:#fff;animation:shake .4s}
+.exwhy{max-height:0;overflow:hidden;opacity:0;transition:all .5s}
+.exq.done .exwhy,.exq.tried .exwhy{max-height:200px;opacity:1;margin-top:10px}
+.exq.tried:not(.done) .exwhy{filter:blur(5px)}
+.seg{display:flex;background:var(--bg);border-radius:14px;padding:4px;margin:10px 0;gap:4px}
+.seg button{flex:1;border:0;background:none;color:var(--muted);padding:9px 4px;border-radius:10px;font:700 13px Manrope,sans-serif;cursor:pointer;transition:all .25s}
+.seg button.on{background:var(--card);color:var(--acc);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.slider{display:flex;align-items:center;gap:12px}
+.slider input{flex:1;height:30px}
+.sval{min-width:84px;text-align:right;font-weight:700;color:var(--muted)}
+.sval b{font-size:28px;color:var(--acc)}
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent}
+input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--gold))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-10px;border-radius:50%;background:#fff;border:3px solid var(--acc);box-shadow:0 3px 10px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-track{height:8px;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--gold))}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:3px solid var(--acc)}
+.bigbid{font-size:34px;font-weight:800;text-align:center;margin-top:10px;color:var(--acc);animation:pop .35s}
+.bigbid small{font-size:13px;color:var(--muted);font-weight:700}
+.bigwhy{text-align:center;color:var(--muted);font-size:14px;animation:pageIn .3s}
+.orderbox{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.orderbox button{width:58px;height:70px;border-radius:12px;border:2px solid var(--line);background:var(--card);font:800 24px Manrope,sans-serif;color:var(--ink);cursor:pointer;box-shadow:0 4px 0 var(--line);transition:all .2s}
+.orderbox button.ok{background:var(--ok);color:#fff;border-color:var(--ok);transform:translateY(-4px)}
+.orderbox button.ok .r{color:#fff}
+.orderbox button.bad{animation:shake .4s;border-color:var(--bad)}
+.pc.glow{box-shadow:0 0 0 2px var(--gold),0 0 14px var(--gold);z-index:1}
+.pc .badge{position:absolute;top:-8px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#1d2621;font:800 12px Manrope;display:grid;place-items:center;text-decoration:none;animation:pop .4s}
+.acerow{display:flex;justify-content:center;gap:10px}
+.pc.big{width:60px;height:86px;margin:0!important;cursor:pointer;filter:grayscale(1) brightness(.85);opacity:.6;transition:all .25s}
+.pc.big.on{filter:none;opacity:1;transform:translateY(-10px) rotate(-3deg);box-shadow:0 10px 20px rgba(0,0,0,.3)}
+.pc.big em{font-size:30px}
+.r11{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.r11 button{padding:12px 0;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:800 15px Manrope;cursor:pointer}
+.r11 button.on{background:var(--acc);color:#fff;border-color:var(--acc);transform:translateY(-4px)}
+.lights.live>div{transition:all .3s;opacity:.4;transform:scale(.97)}
+.lights.live>div.lit{opacity:1;transform:scale(1.02);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+
+/* ---------- Витрина игр ---------- */
+.blitzcard{display:block;position:relative;overflow:hidden;border-radius:28px;padding:24px 20px;margin-bottom:8px;color:#fff;text-decoration:none;min-height:190px;
+  background:radial-gradient(120% 140% at 0% 0%,#ffcf5a 0%,#f08a24 45%,#9c3d12 100%);box-shadow:0 18px 40px rgba(240,138,36,.4);
+  transform:perspective(700px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .2s;animation:pageIn .5s both}
+.blitzcard h2{color:#fff;font-size:32px;line-height:1.05;margin:0 0 8px;text-shadow:0 3px 12px rgba(0,0,0,.25)}
+.blitzcard p{margin:0;max-width:65%;opacity:.92}
+.bz-bg{position:absolute;right:-20px;bottom:-40px;font-size:190px;opacity:.35;animation:flicker 1.4s ease-in-out infinite}
+.bz-tag{position:absolute;right:16px;top:16px;background:#fff;color:#c2410c;font-weight:800;font-size:12px;border-radius:20px;padding:3px 10px;animation:pulse 1.2s infinite}
+.bz-best{margin-top:14px;display:inline-block;background:rgba(0,0,0,.2);border-radius:14px;padding:4px 12px;font-weight:800}
+.gsec{margin:22px 4px 10px;font-size:18px}
+.ggrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gcard{position:relative;overflow:hidden;border-radius:22px;padding:16px 14px 14px;min-height:140px;color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;
+  transform:perspective(600px) rotateX(var(--rx,0)) rotateY(var(--ry,0));transition:transform .2s,box-shadow .2s;box-shadow:0 10px 24px rgba(0,0,0,.15);animation:pageIn .45s both;animation-delay:calc(var(--i)*60ms)}
+.gcard:active{transform:scale(.96)}
+.gcard::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 100% 0%,rgba(255,255,255,.35),transparent 60%)}
+.gcard .gem{position:absolute;top:10px;right:10px;font-size:46px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25));transition:transform .3s}
+.gcard:hover .gem{transform:scale(1.15) rotate(-8deg)}
+.gcard b{font-size:17px;position:relative}.gcard small{opacity:.85;font-size:12px;line-height:1.3;position:relative}
+.c1{background:linear-gradient(135deg,#34c38f,#0f6b43)}
+.c2{background:linear-gradient(135deg,#4facfe,#2459c9)}
+.c3{background:linear-gradient(135deg,#a18cd1,#6c3fc8)}
+.c4{background:linear-gradient(135deg,#ff758c,#c2185b)}
+.c5{background:linear-gradient(135deg,#f6d365,#e08a1e)}
+.c6{background:linear-gradient(135deg,#1d2621,#0b3d2a);grid-column:span 2;min-height:120px}
+.c7{background:linear-gradient(135deg,#43e97b,#11998e)}
+.c8{background:linear-gradient(135deg,#fa709a,#f05a28)}
+.c9{background:linear-gradient(135deg,#30cfd0,#33608c)}
+.c10{background:linear-gradient(135deg,#c471f5,#7b2ff7)}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <header><button id="back" aria-label="Назад" hidden>←</button><span class="logo">♠<span style="color:#ff8a8a">♥</span></span><h1 id="title">Бридж SAYC</h1><button id="mechip" class="mechip" aria-label="Профиль"></button></header>
 <main id="app"></main>
-<nav class="tabs">
+<nav class="tabs" data-on="theory">
+  <i class="tabind"></i>
   <button data-tab="theory"><span>📖</span>Теория</button>
-  <button data-tab="quiz"><span>❓</span>Тесты</button>
-  <button data-tab="bid"><span>🤖</span>Торговля</button>
-  <button data-tab="memory"><span>🧠</span>Память</button>
-  <button data-tab="facts"><span>🃏</span>Карточки</button>
+  <button data-tab="games"><span>🎮</span>Игры</button>
 </nav>
 <script src="data.js"></script>
 <script src="theory.js"></script>
@@ -319,6 +435,7 @@ input[type=number],select{font:700 16px Manrope,sans-serif;padding:8px 10px;bord
 <script src="play.js"></script>
 <script src="gamify.js"></script>
 <script src="app.js"></script>
+<script src="hub.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
 </body>
 </html>

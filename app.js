@@ -56,70 +56,6 @@ function burst(el) {
 const tile = (id, em, title, sub, i, extra = '') => `<a href="#" class="tile" id="${id}" style="--i:${i}"><div class="em">${em}</div><div><b>${title}</b><small>${sub}</small></div>${extra}</a>`;
 const on = (id, f) => $(id).onclick = e => { e.preventDefault(); f(); };
 
-// ---------------- Теория ----------------
-function theoryList() {
-  const read = store.get('read', {});
-  const n = THEORY.filter(t => read[t.id]).length;
-  const pr = prof(), lv = levelOf(pr.xp), st = streakOf(pr.days);
-  render(`<div class="dash">
-    <a href="#" class="dcard lvl" id="dprof"><span class="ring" style="--p:${Math.round(100 * (pr.xp - xpFor(lv)) / (xpFor(lv + 1) - xpFor(lv)))}"><b>${lv}</b></span><div><b>${TITLES[Math.min(lv - 1, TITLES.length - 1)]}</b><small>${pr.xp} XP</small></div></a>
-    <a href="#" class="dcard fire" id="dprof2"><span class="big2">🔥</span><div><b>${st}</b><small>${st ? 'дней подряд' : 'начните серию'}</small></div></a>
-  </div>
-  <a href="#" class="blitzcta" id="dblitz"><span>⚡</span><div><b>Блиц · 60 секунд</b><small>Рекорд: ${pr.best}. Побьёте?</small></div><i>›</i></a>
-  <div class="hero"><h2>Торговля SAYC</h2><p>Простыми словами, с примерами. Прочитано ${n} из ${THEORY.length}.</p>
-  <div class="progress"><i style="width:${100 * n / THEORY.length}%"></i></div><div class="big">♠</div></div>
-  <div class="tiles">${THEORY.map((t, i) => tile('t_' + t.id, t.emoji, t.title, t.sub, i, read[t.id] ? '<span class="done">✓</span>' : '')).join('')}</div>`, 'Теория');
-  THEORY.forEach(t => on('t_' + t.id, () => theoryItem(t.id)));
-  on('dprof', profilePage); on('dprof2', profilePage); on('dblitz', blitzStart);
-}
-function theoryItem(id) {
-  const i = THEORY.findIndex(t => t.id === id), t = THEORY[i];
-  const read = store.get('read', {}); const fresh = !read[id]; read[id] = 1; store.set('read', read);
-  if (fresh) setTimeout(() => addXP(20), 400);
-  if (THEORY.every(x => read[x.id])) unlock('theory');
-  const next = THEORY[i + 1];
-  const exs = (t.ex || []).map((e, k) => `<div class="ex" id="ex${k}"><b>${e.q}</b>${e.hand ? handHtml(parseHand(e.hand)) : ''}
-    <button class="btn ghost" data-k="${k}">Показать ответ</button><div class="ans"><span class="bigans">${e.a}</span><p>${e.why}</p></div></div>`).join('');
-  render(`<div class="card"><h2>${t.emoji} ${t.title}</h2><div class="idea">${t.idea}</div>${t.body}
-  ${exs ? `<h3>🎯 Попробуйте сами</h3>${exs}` : ''}
-  ${t.more ? `<details><summary>Подробнее: таблица</summary>${t.more}</details>` : ''}${srcHtml(t.src)}</div>
-  ${next ? `<button class="btn block" id="nx">Дальше: ${next.title} →</button>` : `<button class="btn block" id="nx">К тестам →</button>`}`, 'Теория', theoryList);
-  $app.querySelectorAll('.flow>div').forEach((d, k) => d.style.setProperty('--i', k));
-  $app.querySelectorAll('.ex .btn').forEach(b => b.onclick = () => { $('ex' + b.dataset.k).classList.add('open'); b.remove(); });
-  $('nx').onclick = () => next ? theoryItem(next.id) : document.querySelector('[data-tab=quiz]').click();
-}
-
-// ---------------- Тесты ----------------
-function quizStart() {
-  const best = store.get('quizBest', null);
-  render(`<div class="hero"><h2>Тест по теории</h2><p>${QUIZ.length} вопросов по SAYC в случайном порядке.${best !== null ? ` Лучший результат: ${best}%.` : ''}</p><div class="big">❓</div></div>
-  <button class="btn block" id="go10">10 вопросов</button><button class="btn ghost block" id="goAll">Все вопросы</button>`, 'Тесты');
-  $('go10').onclick = () => quizRun(shuffle(QUIZ.slice()).slice(0, 10));
-  $('goAll').onclick = () => quizRun(shuffle(QUIZ.slice()));
-}
-function quizRun(qs, i = 0, score = 0) {
-  if (i >= qs.length) {
-    const pct = Math.round(100 * score / qs.length);
-    if (pct > store.get('quizBest', -1)) store.set('quizBest', pct);
-    if (pct === 100 && qs.length >= 10) unlock('quiz100');
-    render(`<div class="hero" style="text-align:center"><div style="font-size:56px">${pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '📚'}</div><h2>${score} из ${qs.length}</h2><p>${pct}% правильных</p></div>
-    <button class="btn block" id="again">Ещё раз</button>`, 'Тесты', quizStart);
-    if (pct >= 80) reward(20); $('again').onclick = quizStart; return;
-  }
-  const q = qs[i];
-  const order = shuffle(q.o.map((t, k) => k));
-  render(`<div class="card"><span class="pill">${i + 1} / ${qs.length}</span><span class="pill">✓ ${score}</span>
-  <div class="qbar"><i style="width:${100 * i / qs.length}%"></i></div>
-  <h3>${q.q}</h3><div class="opts">${order.map((k, n) => `<button class="opt" style="--i:${n}" data-k="${k}">${q.o[k]}</button>`).join('')}</div><div id="fb"></div></div>`, 'Тесты', quizStart);
-  $app.querySelectorAll('.opt').forEach(b => b.onclick = () => {
-    const ok = +b.dataset.k === q.a;
-    $app.querySelectorAll('.opt').forEach(x => { x.disabled = true; if (+x.dataset.k === q.a) x.classList.add('ok'); });
-    if (!ok) { b.classList.add('bad'); oops(); } else reward(10, b);
-    $('fb').innerHTML = red(`<div><div class="fb ${ok ? 'ok' : 'bad'}">${ok ? '✅ Верно!' : '❌ Неверно.'} ${q.e}</div><button class="btn block" id="nq">Дальше</button></div>`);
-    $('nq').onclick = () => quizRun(qs, i + 1, score + (ok ? 1 : 0));
-  });
-}
-
 // ---------------- Торговля ----------------
 function bidBox(last, onBid, dbl = {}) {
   let html = '<div class="bidbox">';
@@ -326,7 +262,7 @@ function factsMenu() {
   render(`<div class="hero"><h2>Флеш-карточки</h2><p>Вспомните ответ, переверните карточку и честно оцените себя. Что не помните — будет попадаться чаще.</p><div class="big">🃏</div></div>
   <div class="tiles">${FACTS.map((g, i) => tile('g' + i, ['🎲', '📝', '🔑'][i] || '🃏', g.group, g.items.length + ' карточек', i)).join('')}
   ${tile('gall', '🔀', 'Все вперемешку', 'Все карточки сразу', FACTS.length)}</div>
-  <details class="card"><summary>Все факты списком</summary>${FACTS.map(g => `<h3>${g.group}</h3><table>${g.items.map(([q, a]) => `<tr><td>${q}</td><td><b>${a}</b></td></tr>`).join('')}</table>${srcHtml([g.src])}`).join('')}</details>`, 'Карточки');
+  <details class="card"><summary>Все факты списком</summary>${FACTS.map(g => `<h3>${g.group}</h3><table>${g.items.map(([q, a]) => `<tr><td>${q}</td><td><b>${a}</b></td></tr>`).join('')}</table>${srcHtml([g.src])}`).join('')}</details>`, 'Карточки', () => gamesHub());
   FACTS.forEach((g, i) => on('g' + i, () => flash(g.items)));
   on('gall', () => flash(FACTS.flatMap(g => g.items)));
 }
@@ -346,12 +282,3 @@ function flash(items) {
   $('yes').onclick = () => go(true);
 }
 
-// ---------------- Навигация ----------------
-const TABS = { theory: theoryList, quiz: quizStart, bid: bidMenu, memory: memMenu, facts: factsMenu };
-document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => {
-  document.querySelectorAll('nav.tabs button').forEach(x => x.classList.toggle('on', x === b));
-  store.set('tab', b.dataset.tab); TABS[b.dataset.tab]();
-});
-meChip(); $('mechip').onclick = profilePage;
-const startTab = TABS[store.get('tab', 'theory')] ? store.get('tab', 'theory') : 'theory';
-document.querySelector(`nav.tabs button[data-tab="${startTab}"]`).click();

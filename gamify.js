@@ -3,7 +3,6 @@ const TITLES = ['Новичок', 'Ученик', 'Любитель', 'Игро�
 const ACH = {
   first: { e: '🌱', t: 'Первый шаг', d: 'Получить первый опыт' },
   theory: { e: '📚', t: 'Теоретик', d: 'Прочитать все темы' },
-  quiz100: { e: '💯', t: 'Отличник', d: '100% в тесте из 10+ вопросов' },
   blitz10: { e: '⚡', t: 'Разогрев', d: '10 верных ответов в блице' },
   blitz25: { e: '🌪️', t: 'Молния', d: '25 верных ответов в блице' },
   combo10: { e: '🔥', t: 'В ударе', d: 'Комбо ×10 в блице' },
@@ -100,6 +99,7 @@ function profilePage() {
   <div class="card"><h3 style="margin-top:0">Последние 7 дней</h3><div class="week">${week}</div></div>
   <div class="card"><h3 style="margin-top:0">Достижения · ${got}/${Object.keys(ACH).length}</h3><div class="achs">${Object.entries(ACH).map(([k, a], i) => `<div class="achv ${p.ach[k] ? 'on' : ''}" style="--i:${i}"><span>${a.e}</span><b>${a.t}</b><small>${a.d}</small></div>`).join('')}</div></div>
   <div class="card"><label class="switch"><input type="checkbox" id="snd" ${p.sound ? 'checked' : ''}><span></span> Звук и вибрация</label></div>`, 'Профиль', () => document.querySelector('nav.tabs button.on').click());
+  document.querySelectorAll('nav.tabs button').forEach(x => x.classList.remove('on'));
   $('snd').onchange = e => { const q = prof(); q.sound = e.target.checked; saveProf(q); if (q.sound) sfx('ok'); };
 }
 

@@ -156,7 +156,7 @@ function playStep() {
     setTimeout(() => {
       const t = $('trick'); if (t) t.classList.add(w % 2 === 0 ? 'gone-ns' : 'gone-ew');
       setTimeout(() => {
-        if (!P) return;
+        if (!P || !document.querySelector('.ptable')) return;
         P.tricks[w % 2]++; P.last = P.trick; P.lastWin = w; P.trick = []; P.turn = w; P.busy = false;
         if (!P.hands[0].length) return playEnd();
         playRender(); playStep();
@@ -167,7 +167,7 @@ function playStep() {
   if (controls(P.turn)) return;
   const me = P;
   P.busy = true;
-  setTimeout(() => { if (P !== me) return; P.busy = false; doPlay(P.turn, robotCard(P.turn)); }, 550);
+  setTimeout(() => { if (P !== me || !document.querySelector('.ptable')) return; P.busy = false; doPlay(P.turn, robotCard(P.turn)); }, 550);
 }
 function playEnd() {
   P.done = true;
