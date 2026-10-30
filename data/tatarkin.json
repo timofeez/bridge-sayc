@@ -5,13 +5,22 @@
   "dates": "30 октября - 1 ноября",
   "results_url": "https://bridgemoscow.ru/tournaments/results/m26top/m26tops.htm",
   "finished": false,
-  "checked": "2026-10-31T00:12:40+0300",
+  "checked": "2026-10-31T00:28:37+0300",
   "team": "Феликс Фелицис",
   "place": 6,
   "of": 21,
   "members": "Ильницкая Ангелина, Столяров Егор, Татаркин Иван, Улановский Леонид",
   "score": 35.54,
-  "round": 3
+  "imps": 14.0,
+  "round": 3,
+  "match": {
+   "opponent": "Дубль Ве",
+   "imps_for": 15,
+   "imps_against": 8,
+   "vp_for": 12.77,
+   "vp_against": 7.23,
+   "boards": 8
+  }
  },
  "live_track": [
   {
@@ -3249,5 +3258,5 @@
    "rating": 3625
   }
  ],
- "updated": "2026-10-30T21:13:46Z"
+ "updated": "2026-10-30T21:28:39Z"
 }

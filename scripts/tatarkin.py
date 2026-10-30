@@ -182,7 +182,8 @@ def standings_row(page):
             members = re.search(r"<div style='font-size:12px;'>(.*?)</div>", body, flags=re.S | re.I)
             nums = [float(x) for x in re.findall(r'<TD align=right[^>]*>(?:<[^>]+>)*\s*(-?\d+(?:\.\d+)?)', body, flags=re.I)]
             return {'place': place, 'of': len(places), 'team': text(team.group(1)) if team else None,
-                    'members': text(members.group(1)) if members else None, 'score': nums[0] if nums else None}
+                    'members': text(members.group(1)) if members else None, 'score': nums[0] if nums else None,
+                    'imps': nums[-1] if len(nums) > 1 else None}
     # запасной вариант: любая строка таблицы с фамилией
     for tr in re.findall(r'<tr[^>]*>(.*?)</tr>', page, flags=re.S | re.I):
         if 'Татаркин' in tr:
@@ -191,6 +192,28 @@ def standings_row(page):
             decs = [float(c.replace(',', '.')) for c in cells if re.fullmatch(r'-?\d+[.,]\d+', c)]
             return {'place': int(ints[0]) if ints else None, 'of': None, 'team': None, 'members': ', '.join(c for c in cells if 'Татаркин' in c) or None,
                     'score': max(decs) if decs else None}
+    return None
+
+
+def match_row(page, team):
+    """Последний сыгранный матч команды на странице тура: соперник, импы, VP."""
+    if not team:
+        return None
+    page = re.sub(r'onmouseover="[^"]*"', '', page)
+    for row in re.split(r'<TR class=', page, flags=re.I)[1:]:
+        names = [text(x) for x in re.findall(r'<B>(.*?)</B>', row, flags=re.S | re.I)]
+        if team not in names or len(names) < 2:
+            continue
+        me = names.index(team)
+        imps = [int(x) for x in re.findall(r'<a href="[^"]+">\s*(\d+)\s*</A>', row, flags=re.I)][-2:]
+        vps = [float(x) for x in re.findall(r'<b>\s*(\d+(?:\.\d+)?)\s*</b>', row, flags=re.I)][-2:]
+        boards = re.findall(r'<TD align=center>(\d+)</TD>', row, flags=re.I)
+        if len(imps) < 2:
+            return None
+        other = 1 - me
+        return {'opponent': names[other], 'imps_for': imps[me], 'imps_against': imps[other],
+                'vp_for': vps[me] if len(vps) == 2 else None, 'vp_against': vps[other] if len(vps) == 2 else None,
+                'boards': int(boards[0]) if boards else None}
     return None
 
 
@@ -241,6 +264,7 @@ def live_check():
                 live.update(row)
                 live['results_url'] = target
                 live['round'] = int(rounds[-1]) if rounds else None
+                live['match'] = match_row(res, live.get('team') or row.get('team'))
                 break
         return live
     return None
@@ -273,7 +297,7 @@ def main():
     if live and live.get('place'):
         if not track or track[0].get('tournament') != live['tournament']:
             track = []
-        point = {'tournament': live['tournament'], 't': live['checked'], 'place': live['place'], 'score': live.get('score'), 'round': live.get('round')}
+        point = {'tournament': live['tournament'], 't': live['checked'], 'place': live['place'], 'score': live.get('score'), 'imps': live.get('imps'), 'round': live.get('round')}
         if not track or (track[-1]['place'], track[-1].get('score')) != (point['place'], point['score']):
             track.append(point)
     out = {
