@@ -36,7 +36,7 @@ function historyPage() {
   render(`<div class="hero hist-hero"><div class="big">📜</div><h2>Мои сдачи</h2><p>${all.length ? `Сохранено ${all.length}. Нажмите, чтобы посмотреть торговлю и розыгрыш по ходам.` : 'Пока пусто. Сыграйте сдачу в «Полной игре», «Торговле с роботом» или «Сыграть сдачу».'}</p></div>
   <div class="hlist">${all.map((r, i) => `<a href="#" class="hrow" data-id="${r.id}" style="--i:${Math.min(i, 12)}">
     ${boardHtml(r.board || 1)}
-    <div class="hmid"><b>${resultText(r)}</b><small>${fmt(r.ts)} · ${r.mode === 'full' ? 'Полная игра' : r.mode === 'quiet' ? 'Торговля с роботом' : 'Розыгрыш'}${r.mistakes ? ` · ошибок: ${r.mistakes}` : ''}</small></div>
+    <div class="hmid"><b>${resultText(r)}</b><small>${fmt(r.ts)} · ${r.mode === 'full' ? 'Полная игра' : r.mode === 'quiet' ? 'Торговля с роботом' : r.mode === 'shared' ? 'По ссылке' : 'Розыгрыш'}${r.mistakes ? ` · ошибок: ${r.mistakes}` : ''}</small>${r.plays && r.plays.length && r.bid ? '<span class="hbadge">🧠 можно разобрать</span>' : ''}</div>
     ${r.score !== undefined ? `<span class="hscore ${r.score >= 0 ? 'pos' : 'neg'}">${r.score > 0 ? '+' : ''}${r.score}</span>` : '<span class="hscore">—</span>'}
   </a>`).join('')}</div>
   ${all.length ? '<button class="btn ghost block" id="hclear">🗑 Очистить историю</button>' : ''}`, 'Мои сдачи', gamesHub);
@@ -45,7 +45,7 @@ function historyPage() {
 }
 
 // ---------- Просмотр ----------
-function replay(id) {
+function replay(id, auto) {
   const r = histAll().find(x => x.id === id);
   if (!r) return historyPage();
   const plays = r.plays || [], trump = r.bid && strainOf(r.bid) < 4 ? strainOf(r.bid) : null;
@@ -69,7 +69,8 @@ function replay(id) {
     if ($('rplay')) $('rplay').textContent = timer ? '⏸' : '▶';
   };
   const stop = () => { clearInterval(timer); timer = null; };
-  render(`<div class="card">${boardInfo(r.board || 1)}
+  render(`${r.bid && plays.length ? `<button class="analyzecta" id="ranalyze"><span class="ac-ico">🧠</span><div><b>Разобрать мои ошибки</b><small>Идеальный розыгрыш и ход, где вы потеряли взятки</small></div><i>›</i></button><div id="ddout"></div>` : ''}
+  <div class="card">${boardInfo(r.board || 1)}
     <h2 style="margin:12px 0 4px">${resultText(r)}</h2>
     ${r.score !== undefined ? `<p class="muted" style="margin:0">Запись для СЮ: <b class="${r.score >= 0 ? 'pos' : 'neg'}">${r.score > 0 ? '+' : ''}${r.score}</b></p>` : ''}
     <h3>Торговля</h3>${auctionGrid(r.auction || [], dealerOf(r.board || 1), vulOf(r.board || 1))}</div>
@@ -77,7 +78,6 @@ function replay(id) {
   <div class="rinfo" id="rinfo"></div>
   ${plays.length ? `<input type="range" id="rslider" min="0" max="${plays.length}" value="${k}" class="rslider">
   <div class="rctl"><button id="r0">⏮</button><button id="rb">‹</button><button id="rplay" class="main">▶</button><button id="rf">›</button><button id="rend">⏭</button></div>` : ''}
-  ${r.bid && plays.length ? '<button class="btn block" id="ranalyze">🧠 Анализ: двойной болван</button><div id="ddout"></div>' : ''}
   ${r.bid ? '<button class="btn ghost block" id="rreplay">🃏 Разыграть эту сдачу заново</button>' : ''}
   <div class="sharerow"><button class="btn ghost" id="rshare">🔗 Поделиться</button><button class="btn ghost" id="rpbn">⬇ PBN</button><a class="btn ghost" id="rbbo" target="_blank" rel="noopener">BBO ↗</a></div>`, 'Просмотр сдачи', () => { stop(); historyPage(); });
   if (plays.length) {
@@ -94,8 +94,9 @@ function replay(id) {
       draw();
     };
   }
-  if ($('ranalyze')) $('ranalyze').onclick = () => { $('ranalyze').remove(); analyzeDeal(r, $('ddout'), i => { stop(); k = i; draw(); window.scrollTo({ top: $('rtable').offsetTop - 80, behavior: 'smooth' }); }); };
+  if ($('ranalyze')) $('ranalyze').onclick = () => { $('ranalyze').remove(); sfx('ok'); analyzeDeal(r, $('ddout'), i => { stop(); k = i; draw(); window.scrollTo({ top: $('rtable').offsetTop - 80, behavior: 'smooth' }); }); };
   $('rshare').onclick = () => shareDeal(r); $('rpbn').onclick = () => downloadPBN(r); $('rbbo').href = bboLink(r);
   if (r.bid) $('rreplay').onclick = () => { stop(); startPlay(r.hands.map(h => h.map(c => ({ ...c }))), r.bid, r.decl, r.dbl || '', r.auction, historyPage, r.board); };
   draw();
+  if (auto && $('ranalyze')) $('ranalyze').click();
 }

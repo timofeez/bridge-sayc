@@ -231,7 +231,9 @@ function playEnd() {
   const made = got >= need;
   const word = made ? (got === need ? 'ровно' : `+${got - need}`) : `без ${need - got}`;
   playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b class="score" data-count="${nsScore}" data-plus="1">0</b> (${vul ? 'в зоне' : 'до зоны'}).</div>
+  <button class="analyzecta" id="toAnalyze"><span class="ac-ico">🧠</span><div><b>Разобрать сдачу</b><small>Сколько можно было взять и где ошибка</small></div><i>›</i></button>
   <button class="btn block" id="again2">Новая сдача</button>`);
+  $('toAnalyze').onclick = () => replay(P.recId, true);
   if (P.onEnd) P.onEnd(got, nsScore);
   if (nsScore > 0) { reward(made ? 40 : 15); if (made && P.decl % 2 === 0) unlock('made'); if (made && P.level >= 6 && P.decl % 2 === 0) unlock('slam'); } else oops();
   $('again2').onclick = () => P.onAgain ? P.onAgain() : P.onBack();
