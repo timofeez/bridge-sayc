@@ -1,0 +1,13 @@
+{
+  "name": "Бридж SAYC — тренажёр",
+  "short_name": "Бридж SAYC",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f3",
+  "theme_color": "#0f5132",
+  "lang": "ru",
+  "icons": [
+    {"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+  ]
+}
