@@ -204,7 +204,7 @@ function gamesHub() {
   <a href="#" class="histcta" id="g_hist"><span>📜</span><div><b>Мои сдачи</b><small>${histAll().length ? `Сохранено: ${histAll().length}. Посмотреть торговлю и розыгрыш` : 'Здесь появятся сыгранные сдачи'}</small></div><i>›</i></a>
   <a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
   ${GAMES.map(g => `<h3 class="gsec">${g.sec}</h3><div class="ggrid">${g.items.map(([id, em, t, d, c], i) => `<a href="#" class="gcard ${c}" id="${id}" style="--i:${i}"><span class="gem">${em}</span><b>${t}</b><small>${d}</small></a>`).join('')}</div>`).join('')}`, 'Игры');
-  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_tt', tatarkinPage); $('g_an').onclick = () => { const last = histAll().find(x => x.plays && x.plays.length && x.bid); last ? replay(last.id, true) : playRandom(); }; on('g_daily', dailyPlay);
+  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_tt', tatarkinPage); $('g_an').onclick = () => dealLab();  on('g_daily', dailyPlay);
   GAMES.forEach(g => g.items.forEach(([id, , , , , f]) => on(id, f)));
   // Наклон карточек за пальцем/мышью
   $app.querySelectorAll('.gcard,.blitzcard').forEach(c => {

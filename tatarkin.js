@@ -47,7 +47,7 @@ function ttLine(points, opts = {}) {
     <defs><linearGradient id="g${opts.id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${opts.color}" stop-opacity=".45"/><stop offset="1" stop-color="${opts.color}" stop-opacity="0"/></linearGradient></defs>
     <path d="${area}" fill="url(#g${opts.id})" class="ttarea"/>
     <polyline points="${pts.map(p => p.join(',')).join(' ')}" fill="none" stroke="${opts.color}" stroke-width="2.5" class="ttln"/>
-    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="${i === pts.length - 1 ? 5 : 2.5}" fill="${opts.color}" class="${i === pts.length - 1 ? 'ttlast' : ''}"><title>${points[i].label}: ${points[i].y}</title></circle>`).join('')}
+    ${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="${i === pts.length - 1 ? 5 : 2.5}" fill="${opts.color}" class="${i === pts.length - 1 ? 'ttlast' : ''}" data-v="${points[i].y}${opts.unit || ''}" data-l="${points[i].label}"></circle>`).join('')}
     ${points.map((p, i) => i % step === 0 || i === points.length - 1 ? `<text x="${X(i)}" y="${H - 6}" text-anchor="middle" class="ttax">${p.short}</text>` : '').join('')}
     <text x="4" y="${opts.invert ? H - pad : pad / 2 + 4}" class="ttax">${opts.invert ? hi : hi}</text><text x="4" y="${opts.invert ? pad / 2 + 4 : H - pad}" class="ttax">${lo}</text>
   </svg>`;
@@ -114,11 +114,11 @@ async function tatarkinPage() {
   </div>
   <div class="card medals"><div><span>🥇</span><b data-count="${golds}">0</b></div><div><span>🥈</span><b data-count="${silv}">0</b></div><div><span>🥉</span><b data-count="${bron}">0</b></div></div>
   <div class="card"><h3 style="margin-top:0">📰 Сводка радара</h3>${facts.map((f, i) => `<p class="ttfact" style="--i:${i}">${f}</p>`).join('')}</div>
-  <div class="card"><h3 style="margin-top:0">📈 Рейтинг ФСБР</h3>${ttLine(ratingPts, { color: '#2fa36b', id: 'r' })}</div>
-  <div class="card"><h3 style="margin-top:0">🏔 Место в рейтинге <small class="muted">(выше — лучше)</small></h3>${ttLine(placePts, { color: '#7b2ff7', id: 'p', invert: true })}</div>
+  <div class="card"><h3 style="margin-top:0">📈 Рейтинг ФСБР</h3>${ttLine(ratingPts, { color: '#2fa36b', id: 'r', unit: '' })}</div>
+  <div class="card"><h3 style="margin-top:0">🏔 Место в рейтинге <small class="muted">(выше — лучше)</small></h3>${ttLine(placePts, { color: '#7b2ff7', id: 'p', invert: true, unit: '-е место' })}</div>
   <div class="card"><h3 style="margin-top:0">📅 Турниры по годам</h3><div class="ttyears">${yKeys.map((y, i) => `<div class="ty" style="--i:${i}"><div class="tycol" style="--h:${100 * years[y].n / yMax}%"><span class="tyg" style="--g:${100 * years[y].g / years[y].n}%"></span></div><b>${years[y].n}</b><small>'${String(y).slice(2)}</small></div>`).join('')}</div>
     <p class="muted">Золотом отмечены победы.</p></div>
-  <div class="card"><h3 style="margin-top:0">💰 Клубные мастерские баллы (накопительно)</h3>${ttLine(clubPts, { color: '#e0a82e', id: 'm' })}</div>
+  <div class="card"><h3 style="margin-top:0">💰 Клубные мастерские баллы (накопительно)</h3>${ttLine(clubPts, { color: '#e0a82e', id: 'm', unit: ' МБ' })}</div>
   <div class="card"><h3 style="margin-top:0">🤝 Партнёры и сокомандники</h3>${partners.slice(0, 8).map(([n, c], i) => `<div class="bar"><span>${n}</span><div><i class="g" style="--w:${100 * c / pMax}%;--i:${i}"></i></div><b>${c}</b></div>`).join('')}</div>
   <div class="card"><h3 style="margin-top:0">🗂 Все выступления</h3>
     <div class="ttchips"><button data-y="all" class="on">Все</button>${yKeys.slice().reverse().map(y => `<button data-y="${y}">${y}</button>`).join('')}</div>

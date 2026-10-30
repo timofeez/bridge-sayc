@@ -196,7 +196,8 @@ function statsPage() {
     .map(([k, t]) => { const s = store.get(k, { ok: 0, n: 0 }); return { t, ok: s.ok, n: s.n, p: s.n ? Math.round(100 * s.ok / s.n) : null }; });
   const hist = histAll().filter(r => r.got !== undefined && r.bid);
   const made = hist.filter(r => r.got >= 6 + lvlOf(r.bid) && r.decl % 2 === 0).length, declN = hist.filter(r => r.decl % 2 === 0).length;
-  const scores = hist.slice(0, 20).reverse().map(r => r.score || 0);
+  const last20 = hist.slice(0, 20).reverse(), scores = last20.map(r => r.score || 0);
+  const labels = last20.map(r => `${resultText(r)} · ${new Date(r.ts).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}`);
   const p = prof(), read = Object.keys(store.get('read', {})).length;
   const weakest = cats.filter(c => c.n >= 3).sort((a, b) => a.p - b.p)[0];
   // линия очков
@@ -204,7 +205,7 @@ function statsPage() {
   if (scores.length >= 2) {
     const W = 300, H = 90, mx = Math.max(...scores.map(Math.abs), 50);
     const pts = scores.map((v, i) => [i * W / (scores.length - 1), H / 2 - v / mx * (H / 2 - 6)]);
-    spark = `<svg viewBox="0 0 ${W} ${H}" class="spark"><line x1="0" x2="${W}" y1="${H / 2}" y2="${H / 2}" class="zero"/><polyline points="${pts.map(p => p.join(',')).join(' ')}" class="ln"/>${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" class="${scores[i] >= 0 ? 'pt pos' : 'pt neg'}"/>`).join('')}</svg>`;
+    spark = `<svg viewBox="0 0 ${W} ${H}" class="spark"><line x1="0" x2="${W}" y1="${H / 2}" y2="${H / 2}" class="zero"/><polyline points="${pts.map(p => p.join(',')).join(' ')}" class="ln"/>${pts.map((p, i) => `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" class="${scores[i] >= 0 ? 'pt pos' : 'pt neg'}" data-v="${scores[i] > 0 ? '+' : ''}${scores[i]}" data-l="${labels[i]}"/>`).join('')}</svg>`;
   }
   const pct = declN ? Math.round(100 * made / declN) : 0;
   render(`<div class="hero stats-hero"><div class="big">📊</div><h2>Статистика</h2><p>${weakest ? `Слабое место: <b>${weakest.t}</b> (${weakest.p}%). Потренируйте!` : 'Играйте больше — появятся выводы.'}</p></div>

@@ -78,7 +78,7 @@ function replay(id, auto) {
   <div class="rinfo" id="rinfo"></div>
   ${plays.length ? `<input type="range" id="rslider" min="0" max="${plays.length}" value="${k}" class="rslider">
   <div class="rctl"><button id="r0">⏮</button><button id="rb">‹</button><button id="rplay" class="main">▶</button><button id="rf">›</button><button id="rend">⏭</button></div>` : ''}
-  ${r.bid ? '<button class="btn ghost block" id="rreplay">🃏 Разыграть эту сдачу заново</button>' : ''}
+  ${r.bid ? '<button class="btn ghost block" id="rreplay">🃏 Разыграть эту сдачу заново</button><button class="btn ghost block" id="rlab">🙌 Сыграть по-своему (контракт, все места)</button>' : ''}
   <div class="sharerow"><button class="btn ghost" id="rshare">🔗 Поделиться</button><button class="btn ghost" id="rpbn">⬇ PBN</button><a class="btn ghost" id="rbbo" target="_blank" rel="noopener">BBO ↗</a></div>`, 'Просмотр сдачи', () => { stop(); historyPage(); });
   if (plays.length) {
     const go = n => { k = Math.max(0, Math.min(plays.length, n)); sfx('card'); draw(); };
@@ -96,6 +96,7 @@ function replay(id, auto) {
   }
   if ($('ranalyze')) $('ranalyze').onclick = () => { $('ranalyze').remove(); sfx('ok'); analyzeDeal(r, $('ddout'), i => { stop(); k = i; draw(); window.scrollTo({ top: $('rtable').offsetTop - 80, behavior: 'smooth' }); }); };
   $('rshare').onclick = () => shareDeal(r); $('rpbn').onclick = () => downloadPBN(r); $('rbbo').href = bboLink(r);
+  if (r.bid) $('rlab').onclick = () => { stop(); labSetup(r.hands.map(h => h.map(c => ({ ...c }))), r); };
   if (r.bid) $('rreplay').onclick = () => { stop(); startPlay(r.hands.map(h => h.map(c => ({ ...c }))), r.bid, r.decl, r.dbl || '', r.auction, historyPage, r.board); };
   draw();
   if (auto && $('ranalyze')) $('ranalyze').click();

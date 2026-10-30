@@ -78,28 +78,33 @@ function robotCard(seat) {
 }
 
 // ---------- Старт ----------
-function startPlay(hands, bid, decl, dbl, auction, onBack, board, recId) {
+function startPlay(hands, bid, decl, dbl, auction, onBack, board, recId, opts) {
   // Каждая разыгранная сдача попадает в «Мои сдачи»
-  if (!recId) recId = saveDeal({ mode: 'play', board, hands, auction: auction || [], bid, decl, dbl });
+  if (!recId) recId = saveDeal({ mode: opts && opts.all ? 'lab' : 'play', board, hands, auction: auction || [], bid, decl, dbl });
   const strain = strainOf(bid);
   const partnerSuit = {};
   (auction || []).forEach(a => { if (isLevel(a.bid) && strainOf(a.bid) < 4) [(a.seat + 2) % 4].forEach(p => { if (partnerSuit[p] === undefined) partnerSuit[p] = strainOf(a.bid); }); });
   P = {
     hands: hands.map(h => sortHand(h)), orig: hands.map(h => h.slice()), level: lvlOf(bid), strain, bid, dbl, decl,
     trump: strain === 4 ? null : strain, dummy: (decl + 2) % 4, turn: (decl + 1) % 4, trick: [], last: null,
-    tricks: [0, 0], played: new Set(), partnerSuit, onBack, auction, busy: false, first: true, board, wins: [], recId, log: [],
+    tricks: [0, 0], played: new Set(), partnerSuit, onBack, auction, busy: false, first: true, board, wins: [], recId, log: [], manualAll: !!(opts && opts.all),
   };
   P.userSide = decl % 2 === 0; // наша линия разыгрывает
   playRender(); playStep();
 }
-const controls = seat => seat === 2 || (P.userSide && seat === 0);
-const visible = seat => seat === 2 || (P.userSide && seat === 0) || (P.played.size > 0 && seat === P.dummy) || P.done;
+const controls = seat => P.manualAll || seat === 2 || (P.userSide && seat === 0);
+const visible = seat => P.manualAll || seat === 2 || (P.userSide && seat === 0) || (P.played.size > 0 && seat === P.dummy) || P.done;
 
 // ---------- Отрисовка ----------
 function seatHtml(seat) {
   const h = P.hands[seat], name = seatName(seat) + (seat === P.decl ? ' · разыгр.' : seat === P.dummy ? ' · болван' : '');
   const lbl = `<div class="plabel ${P.turn === seat && !P.done ? 'turn' : ''}">${name}</div>`;
   if (!visible(seat)) return lbl + `<div class="backs">${'<i></i>'.repeat(Math.min(h.length, 13))}</div>`;
+  if ((seat === 1 || seat === 3) && controls(seat) && P.turn === seat && !P.busy && !P.done) {
+    // Боковая рука в режиме «за всех»: карты — кнопки по мастям
+    const legal = legalCards(h, P.trick);
+    return lbl + `<div class="sidecards">${[3, 2, 1, 0].map(s => `<div>${h.map((c, i) => [c, i]).filter(([c]) => c.s === s).map(([c, i]) => `<button class="mcard${suitCls(c.s)}" data-seat="${seat}" data-i="${i}" ${legal.includes(c) ? '' : 'disabled'}>${rankName(c.r)}${SUITS[c.s]}</button>`).join('') || '<i>—</i>'}</div>`).join('')}</div>`;
+  }
   if (seat === 1 || seat === 3) return lbl + `<div class="mini side-mini${P.done ? ' reveal' : ''}">${[3, 2, 1, 0].map(s => `${SUITS[s]} ${h.filter(c => c.s === s).map(c => rankName(c.r)).join(' ') || '—'}`).join('<br>')}</div>`;
   const canPlay = controls(seat) && P.turn === seat && !P.busy && P.trick.length < 4;
   const legal = canPlay ? legalCards(h, P.trick) : [];
@@ -137,6 +142,7 @@ function playRender(msg = '') {
   <div class="pbtns"><button class="btn ghost" id="hint">💡 Подсказка</button><button class="btn ghost" id="lastT" ${P.last ? '' : 'disabled'}>Последняя взятка</button><button class="btn ghost" id="restart">↺ Заново</button></div>`,
   'Розыгрыш', P.onBack, true);
   $app.querySelectorAll('.pc.can').forEach(enableDrag);
+  $app.querySelectorAll('.mcard:not([disabled])').forEach(b => b.onclick = () => userPlay(+b.dataset.seat, +b.dataset.i));
   $('hint').onclick = () => {
     if (!controls(P.turn) || P.done) return;
     const c = robotCard(P.turn);
@@ -144,7 +150,7 @@ function playRender(msg = '') {
     if (el) { el.classList.add('hinted'); }
   };
   $('lastT').onclick = () => { if (P.last) $('pmsg').innerHTML = red(`<div><div class="fb">Последняя взятка: ${P.last.map(t => `${SEAT_SHORT[t.seat]} ${cardStr(t.card)}`).join(' · ')} → ${SEATS[P.lastWin]}</div></div>`); };
-  $('restart').onclick = () => { const again = P.onAgain; startPlay(P.orig, P.bid, P.decl, P.dbl, P.auction, P.onBack, P.board, P.recId); P.onAgain = again; };
+  $('restart').onclick = () => { const again = P.onAgain; startPlay(P.orig, P.bid, P.decl, P.dbl, P.auction, P.onBack, P.board, P.recId, { all: P.manualAll }); P.onAgain = again; };
 }
 
 // ---------- Ход игры ----------

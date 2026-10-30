@@ -33,7 +33,7 @@ async function robotChoose(seat) {
 async function analyzeDeal(r, box, onJump) {
   const trump = r.bid && strainOf(r.bid) < 4 ? strainOf(r.bid) : null;
   const plays = r.plays || [], declSide = r.decl % 2;
-  const userSeats = declSide === 0 ? [0, 2] : [2];
+  const userSeats = r.mode === 'lab' ? [0, 1, 2, 3] : declSide === 0 ? [0, 2] : [2];
   box.innerHTML = '<div class="ddbox"><div class="ddspin"></div><b>Считаю идеальный розыгрыш…</b><small>До 25 секунд для полной сдачи</small></div>';
   const par = await ddCall('analysis', 'solveTricks', [plainHands(r.hands), trump, (r.decl + 1) % 4, declSide, []], 25000);
   const need = 6 + lvlOf(r.bid);
