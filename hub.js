@@ -45,7 +45,7 @@ function theoryPage() {
     e.target.classList.add('in');
     const id = e.target.dataset.id; if (!id) return;
     $app.querySelectorAll('.cnav button').forEach(b => b.classList.toggle('on', b.dataset.go === id));
-    const on = $app.querySelector(`.cnav button[data-go="${id}"]`); if (on) on.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+    const on = $app.querySelector(`.cnav button[data-go="${id}"]`), nav = $('cnav'); if (on && nav) nav.scrollTo({ left: on.offsetLeft - nav.clientWidth / 2 + on.offsetWidth / 2, behavior: 'smooth' });
     const r = store.get('read', {});
     if (!r[id]) { r[id] = 1; store.set('read', r); setTimeout(() => addXP(20), 300); if (THEORY.every(x => r[x.id])) unlock('theory'); }
   }), { threshold: 0.25 });
@@ -212,6 +212,7 @@ document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => {
   document.querySelectorAll('nav.tabs button').forEach(x => x.classList.toggle('on', x === b));
   document.querySelector('nav.tabs').dataset.on = b.dataset.tab;
   store.set('tab', b.dataset.tab); TABS[b.dataset.tab]();
+  window.scrollTo({ top: 0, behavior: 'instant' });
 });
 meChip(); $('mechip').onclick = profilePage;
 const startTab = TABS[store.get('tab', 'theory')] ? store.get('tab', 'theory') : 'theory';
