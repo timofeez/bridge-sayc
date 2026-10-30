@@ -199,7 +199,8 @@ function playStep() {
     P.busy = true;
     const w = trickWinner(P.trick, P.trump);
     setTimeout(() => {
-      const t = $('trick'); if (t) t.classList.add(w % 2 === 0 ? 'gone-ns' : 'gone-ew');
+      const t = $('trick');
+      if (t) { t.classList.add('gone-' + ['n', 'e', 's', 'w'][w]); t.insertAdjacentHTML('beforeend', `<div class="plus1 ${['n', 'e', 's', 'w'][w]} ${w % 2 ? 'ew' : 'ns'}">+1</div>`); }
       setTimeout(() => {
         if (!P || !document.querySelector('.ptable')) return;
         P.tricks[w % 2]++; P.wins.push(w); P.last = P.trick; P.lastWin = w; P.trick = []; P.turn = w; P.busy = false;
@@ -222,7 +223,7 @@ function playEnd() {
   const nsScore = P.decl % 2 === 0 ? sc : -sc;
   const made = got >= need;
   const word = made ? (got === need ? 'ровно' : `+${got - need}`) : `без ${need - got}`;
-  playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b>${nsScore > 0 ? '+' : ''}${nsScore}</b> (${vul ? 'в зоне' : 'до зоны'}).</div>
+  playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b class="score" data-count="${nsScore}" data-plus="1">0</b> (${vul ? 'в зоне' : 'до зоны'}).</div>
   <button class="btn block" id="again2">Новая сдача</button>`);
   if (nsScore > 0) { reward(made ? 40 : 15); if (made && P.decl % 2 === 0) unlock('made'); if (made && P.level >= 6 && P.decl % 2 === 0) unlock('slam'); } else oops();
   $('again2').onclick = () => P.onAgain ? P.onAgain() : P.onBack();

@@ -22,14 +22,13 @@ const BACKS = [
 ];
 const FELTS = [['green', 'Клубное сукно', '#1a7a4c'], ['blue', 'Океан', '#2a6fb0'], ['wine', 'Бордо', '#9b2c3a'], ['graphite', 'Графит', '#4a4f55'], ['purple', 'Аметист', '#6d3fb0']];
 const AVATARS = ['🦉', '🦊', '🐼', '🐯', '🐸', '🦁', '🐙', '🦄', '🐧', '🐨', '🤠', '😎', '🧙', '👑'];
-const ROBOTS = { 0: '🦉 Нора', 1: '🦊 Эдик', 3: '🐼 Вера' };
 const look = () => store.get('look', { back: 'classic', felt: 'green', four: false, theme: 'auto', avatar: '😎', nick: 'Вы' });
 function applyLook() {
   const l = look(), r = document.documentElement;
   r.dataset.back = l.back; r.dataset.felt = l.felt; r.dataset.four = l.four ? '1' : '';
   if (l.theme === 'auto') delete r.dataset.theme; else r.dataset.theme = l.theme;
 }
-const seatName = s => s === 2 ? `${look().avatar} ${look().nick}` : ROBOTS[s];
+const seatName = s => s === 2 ? `${look().avatar} ${look().nick}` : SEATS[s];
 applyLook();
 
 function workshop() {
@@ -46,12 +45,14 @@ function workshop() {
   <div class="card"><h3 style="margin-top:0">🌗 Тема</h3>${seg('theme', [['auto', 'Как в системе'], ['light', 'Светлая'], ['dark', 'Тёмная']], l.theme)}</div>
   <div class="card"><h3 style="margin-top:0">🙂 Ваш аватар</h3><div class="avatars">${AVATARS.map(a => `<button class="${l.avatar === a ? 'on' : ''}">${a}</button>`).join('')}</div>
     <p><input id="nick" maxlength="14" value="${l.nick.replace(/"/g, '')}" placeholder="Ваше имя" class="nickin"></p>
-    <p class="muted">Ваши партнёры и противники: ${ROBOTS[0]}, ${ROBOTS[1]}, ${ROBOTS[3]}.</p></div>`, 'Мастерская', () => document.querySelector('nav.tabs button.on') ? document.querySelector('nav.tabs button.on').click() : gamesHub());
+    </div>
+  <div class="card"><label class="switch"><input type="checkbox" id="fxs" ${l.fx === false ? '' : 'checked'}><span></span> Плывущие масти на фоне</label></div>`, 'Мастерская', () => document.querySelector('nav.tabs button.on') ? document.querySelector('nav.tabs button.on').click() : gamesHub());
   const save = patch => { store.set('look', Object.assign(look(), patch)); applyLook(); sfx('card'); };
   $app.querySelectorAll('.backopt').forEach(b => b.onclick = () => { save({ back: b.dataset.k }); workshop(); });
   $app.querySelectorAll('.feltopt').forEach(b => b.onclick = () => { save({ felt: b.dataset.k }); workshop(); });
   $('four').onchange = e => save({ four: e.target.checked });
   wireSeg($app, () => save({ theme: segVal($app, 'theme') }));
   $app.querySelectorAll('.avatars button').forEach(b => b.onclick = () => { save({ avatar: b.textContent }); workshop(); });
+  $('fxs').onchange = e => { save({ fx: e.target.checked }); bgParticles(); };
   $('nick').onchange = e => save({ nick: e.target.value.trim() || 'Вы' });
 }

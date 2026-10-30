@@ -513,6 +513,62 @@ nav.tabs{touch-action:manipulation}
 .tdots i.ew{background:#d64045;box-shadow:0 0 6px #d64045;animation:pop .4s}
 .side-mini.reveal{animation:flipIn .5s ease both}
 
+/* ===== FX ===== */
+/* Заставка */
+.splash{position:fixed;inset:0;z-index:100;display:grid;place-items:center;align-content:center;gap:14px;
+  background:radial-gradient(120% 100% at 50% 30%,var(--felt-hi),var(--felt) 50%,var(--felt2));transition:opacity .6s,transform .6s}
+.splash.out{opacity:0;transform:scale(1.08)}
+.sp-suits{display:flex;gap:10px}
+.sp-suits span{width:56px;height:78px;border-radius:10px;background:#fff;color:#1d2621;display:grid;place-items:center;font-size:34px;box-shadow:0 10px 26px rgba(0,0,0,.35);
+  animation:spIn .7s cubic-bezier(.2,.9,.3,1.4) both}
+.sp-suits span.r{color:#d23a3f}
+.sp-suits span:nth-child(2){animation-delay:.1s}.sp-suits span:nth-child(3){animation-delay:.2s}.sp-suits span:nth-child(4){animation-delay:.3s}
+@keyframes spIn{from{transform:translateY(80px) rotateY(180deg) scale(.5);opacity:0}}
+.sp-title{color:#fff;font:800 28px Manrope,sans-serif;letter-spacing:.5px;animation:pageIn .6s .45s both;text-shadow:0 4px 18px rgba(0,0,0,.4)}
+/* Частицы фона */
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bgfx span{position:absolute;bottom:-80px;color:var(--acc);opacity:.07;animation:drift linear infinite}
+.bgfx span.r{color:var(--red)}
+@keyframes drift{from{transform:translateY(0) rotate(0)}to{transform:translateY(-120vh) rotate(360deg)}}
+body{position:relative;z-index:0}
+/* Волна */
+.btn,.opt,.tile,.gcard,.blitzcard,.wscta,.blitzcta,.bopt,.exopts button,.bidbox button,.seg button,.dcard,.backopt,.feltopt,nav.tabs button{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.25;transform:scale(0);animation:rip .6s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+/* Конфетти */
+.confetti{position:fixed;inset:0;width:100vw;height:100vh;z-index:90;pointer-events:none}
+/* Переливы */
+header{background-size:200% 100%!important;animation:hdr 8s ease-in-out infinite}
+@keyframes hdr{50%{background-position:100% 0}}
+.hero::after,.blitzcard::after,.gcard::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);animation:sweep 5s ease-in-out infinite;pointer-events:none}
+.gcard::after{animation-delay:calc(var(--i)*.4s)}
+@keyframes sweep{0%,70%{left:-60%}100%{left:130%}}
+/* Карты: блик при наведении, раздача с переворотом, свечение доступных */
+@keyframes dealIn{from{opacity:0;transform:translate(0,-70px) rotateY(90deg) rotate(-14deg) scale(.6)}60%{opacity:1}to{opacity:1;transform:none}}
+.pc::before{content:"";position:absolute;inset:0;border-radius:7px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.7) 45%,transparent 60%);background-size:250% 100%;background-position:150% 0;opacity:0;transition:opacity .2s;pointer-events:none}
+@media(hover:hover){.pc:hover::before{opacity:1;animation:cardShine .8s ease}}
+@keyframes cardShine{to{background-position:-50% 0}}
+.pc.can{animation:canGlow 1.6s ease-in-out infinite!important}
+@keyframes canGlow{50%{box-shadow:-2px 6px 10px rgba(0,0,0,.35),0 0 14px 2px rgba(255,215,106,.75)}}
+/* Взятка улетает к взявшему */
+.trick.gone-n .tc{transform:translateY(-150px) scale(.3);opacity:0}
+.trick.gone-s .tc{transform:translateY(150px) scale(.3);opacity:0}
+.trick.gone-w .tc{transform:translateX(-170px) scale(.3);opacity:0}
+.trick.gone-e .tc{transform:translateX(170px) scale(.3);opacity:0}
+.plus1{position:absolute;font:800 22px Manrope,sans-serif;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.4);animation:plusUp .9s ease-out forwards;pointer-events:none}
+.plus1.ns{color:#8df0b8}.plus1.ew{color:#ffb3b3}
+.plus1.n{left:calc(50% - 14px);top:0}.plus1.s{left:calc(50% - 14px);bottom:0}.plus1.w{left:4%;top:40%}.plus1.e{right:4%;top:40%}
+@keyframes plusUp{from{transform:scale(.4);opacity:0}30%{transform:scale(1.3);opacity:1}to{transform:translateY(-30px);opacity:0}}
+/* Счёт */
+.score{font-size:22px;display:inline-block;animation:pop .5s}
+/* Плитки и кнопки — пружинистые */
+.gcard,.tile,.blitzcard{transition:transform .25s cubic-bezier(.3,1.5,.5,1),box-shadow .25s}
+@media(hover:hover){.gcard:hover{box-shadow:0 16px 34px rgba(0,0,0,.25)}}
+.bidbox button:not(:disabled):hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
+/* Пульсирующая подсветка хода */
+.plabel.turn::before{content:"●";margin-right:4px;animation:pulse .8s infinite}
+.plabel{white-space:nowrap}.pw .plabel,.pe .plabel{font-size:10px;padding:2px 5px}.pw .plabel.turn::before,.pe .plabel.turn::before{display:none}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -532,6 +588,7 @@ nav.tabs{touch-action:manipulation}
 <script src="gamify.js"></script>
 <script src="app.js"></script>
 <script src="style.js"></script>
+<script src="fx.js"></script>
 <script src="hub.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
 </body>

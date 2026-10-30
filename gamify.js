@@ -68,7 +68,7 @@ function addXP(n, el) {
     setTimeout(() => {
       const m = document.createElement('div'); m.className = 'lvlup';
       m.innerHTML = `<div class="lvlcard"><div class="lvlnum">${after}</div><h2>Новый уровень!</h2><p>${TITLES[Math.min(after - 1, TITLES.length - 1)]}</p><button class="btn block">Круто!</button></div>`;
-      document.body.appendChild(m); burst(m.querySelector('.lvlcard')); burst(m.querySelector('.lvlcard'));
+      document.body.appendChild(m); confetti(200);
       m.querySelector('button').onclick = () => m.remove();
     }, 500);
   }
@@ -78,7 +78,7 @@ function unlock(id) {
   p.ach[id] = today(); saveProf(p);
   const a = ACH[id]; setTimeout(() => toast(`<span class="te">${a.e}</span><div><b>Достижение!</b><br>${a.t}</div>`, 'ach'), 700);
 }
-function reward(n, el) { burst(el); sfx('ok'); addXP(n, el); }
+function reward(n, el) { burst(el); sfx('ok'); addXP(n, el); if (n >= 25) confetti(n >= 40 ? 180 : 110); }
 function oops() { sfx('bad'); }
 
 // Чип профиля в шапке
@@ -166,9 +166,9 @@ function blitzEnd(B) {
   if (rec) { p.best = B.score; saveProf(p); }
   if (B.ok >= 10) unlock('blitz10'); if (B.ok >= 25) unlock('blitz25');
   render(`<div class="hero blitz-hero" style="text-align:center"><div style="font-size:56px">${rec ? '🏆' : '⏱️'}</div><h2>${rec ? 'Новый рекорд!' : 'Время вышло'}</h2>
-  <div class="bignum" style="color:#fff">${B.score}</div><p>Верных ответов: ${B.ok} · лучшее комбо: ${B.maxCombo}</p></div>
+  <div class="bignum" style="color:#fff" data-count="${B.score}">0</div><p>Верных ответов: ${B.ok} · лучшее комбо: ${B.maxCombo}</p></div>
   <button class="btn block pulse" id="again">Ещё раз</button><button class="btn ghost block" id="back2">К тренажёрам</button>`, 'Блиц', bidMenu);
   if (B.ok) reward(Math.max(5, Math.round(B.score / 4)));
-  if (rec) { burst(); setTimeout(burst, 300); }
+  if (rec) confetti(200);
   $('again').onclick = blitzStart; $('back2').onclick = bidMenu;
 }

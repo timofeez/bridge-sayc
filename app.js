@@ -142,7 +142,7 @@ function auctionHtml() {
 }
 function gameRender(fb = '') {
   const ex = G.expl.filter(x => !x.startsWith('<b>Юг')).slice(-4);
-  render(`<div class="card">${boardInfo(G.board)}<p class="muted" style="margin:6px 0 0">${G.mode === 'full' ? '⚔️ Полная игра' : '🤝 Противники пасуют'} · партнёр: ${seatName(0)}</p>${auctionHtml()}
+  render(`<div class="card">${boardInfo(G.board)}<p class="muted" style="margin:6px 0 0">${G.mode === 'full' ? '⚔️ Полная игра' : '🤝 Противники пасуют'} · вы — Юг, партнёр — Север</p>${auctionHtml()}
   ${ex.length ? `<details class="expl"><summary>Что означают заявки роботов</summary>${ex.map(x => `<p>${x}</p>`).join('')}</details>` : ''}
   ${handHtml(G.hands[2], 'Ваша рука')}<div id="fb">${fb}</div><div id="bb"></div></div>`, G.mode === 'full' ? 'Полная игра' : 'Торговля с роботом', bidMenu);
   if (!fb) $('bb').appendChild(bidBox(lastBid(), userBid, { x: canDouble(G.auction, 2), xx: canRedouble(G.auction, 2) }));
