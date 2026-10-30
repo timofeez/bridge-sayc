@@ -9,12 +9,12 @@ const store = {
 };
 // Красим ♥ и ♦ в красный (только в тексте, не в атрибутах)
 const red = html => html.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/[♥♦]/g, '<span class="r">$&</span>') + '<');
-function render(html, title, backTo) {
-  $app.innerHTML = red('<div class="page">' + html + '</div>');
+function render(html, title, backTo, quiet) {
+  $app.innerHTML = red(`<div class="${quiet ? '' : 'page'}">` + html + '</div>');
   $title.textContent = title;
   $back.hidden = !backTo;
   $back.onclick = backTo || null;
-  window.scrollTo(0, 0);
+  if (!quiet) window.scrollTo(0, 0);
 }
 const $ = id => document.getElementById(id);
 const srcHtml = keys => `<div class="src">Источники: ${keys.map(k => `<a href="${SOURCES[k].url}" target="_blank" rel="noopener">${SOURCES[k].name}</a>`).join('; ')}</div>`;
@@ -129,9 +129,11 @@ function bidMenu() {
   <div class="tiles">${tile('m1', '🚀', 'Открытие', `Что открыть с этой рукой? · ${a.ok}/${a.n}`, 0)}
   ${tile('m2', '💬', 'Ответ партнёру', `Партнёр открылся — ваш ответ · ${b.ok}/${b.n}`, 1)}
   ${tile('m3', '🤝', 'Торговля с роботом', `Противники всегда пасуют — чистая торговля пары · ${g.ok}/${g.n}`, 2)}
-  ${tile('m4', '⚔️', 'Полная игра', `Противники-роботы торгуются: открывают, входят, контрят · ${f.ok}/${f.n}`, 3)}</div>
+  ${tile('m4', '⚔️', 'Полная игра', `Противники-роботы торгуются: открывают, входят, контрят. Потом — розыгрыш · ${f.ok}/${f.n}`, 3)}
+  ${tile('m5', '🃏', 'Сыграть сдачу', 'Роботы торгуются, вы разыгрываете контракт картами', 4)}
+  ${tile('m6', '🧩', 'Конструктор руки', 'Соберите из колоды руку под заданное открытие', 5)}</div>
   <p class="muted">Робот оценивает ваши первые заявки по SAYC (открытие, ответ, повторная заявка, вход в торговлю, ответ на вход партнёра). В более глубоких ситуациях заявки не оцениваются.</p>`, 'Торговля');
-  on('m1', drillOpen); on('m2', drillResp); on('m3', () => gameStart('quiet')); on('m4', () => gameStart('full'));
+  on('m1', drillOpen); on('m2', drillResp); on('m3', () => gameStart('quiet')); on('m4', () => gameStart('full')); on('m5', playRandom); on('m6', buildHand);
 }
 function drillOpen() {
   let h; do { h = deal()[0]; } while (evalHand(h).hcp < 8 && Math.random() < .7);
@@ -220,7 +222,8 @@ function gameEnd() {
   ${handHtml(G.hands[0], `Север · ${n.hcp}`)}${handHtml(G.hands[2], `Юг (вы) · ${s.hcp}`)}
   <details class="expl"><summary>Пояснения ко всем заявкам</summary>${G.expl.map(x => `<p>${x}</p>`).join('')}</details>
   <details><summary>Руки противников</summary>${handHtml(G.hands[3], `Запад · ${evalHand(G.hands[3]).hcp}`)}${handHtml(G.hands[1], `Восток · ${evalHand(G.hands[1]).hcp}`)}</details></div>
-  <button class="btn block" id="nx">Новая сдача</button>`, 'Торговля с роботом', bidMenu);
+  ${lb ? '<button class="btn block" id="pl">▶ Разыграть эту сдачу</button>' : ''}<button class="btn ghost block" id="nx">Новая сдача</button>`, 'Торговля с роботом', bidMenu);
+  if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu); P.onAgain = () => gameStart(mode); };
   if (!mistakes) burst();
   $('nx').onclick = () => gameStart(G.mode);
 }

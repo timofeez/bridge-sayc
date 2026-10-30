@@ -173,6 +173,45 @@ input[type=range]{width:100%;accent-color:var(--acc)}
 input[type=number],select{font:700 16px Manrope,sans-serif;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
 .burst{position:fixed;pointer-events:none;font-size:22px;z-index:20;animation:fly 1s ease-out forwards}
 @keyframes fly{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}
+/* Стол розыгрыша */
+.fan.static .pc{animation:none}
+.pbar{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
+.pill.big{font-size:16px;background:var(--acc);color:#fff}
+.ptable{display:grid;grid-template-columns:70px 1fr 70px;grid-template-areas:"n n n" "w t e" "s s s";gap:6px;border-radius:20px;padding:10px 4px 12px;
+  background:radial-gradient(120% 120% at 50% 40%,#1a7a4c,var(--felt) 55%,var(--felt2));box-shadow:inset 0 2px 18px rgba(0,0,0,.4)}
+.pn{grid-area:n}.pw{grid-area:w}.pe{grid-area:e}.ps{grid-area:s}
+.pw,.pe{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.plabel{color:rgba(255,255,255,.75);font-size:11px;font-weight:800;text-align:center;text-transform:uppercase;letter-spacing:.4px;padding:2px 6px;border-radius:10px;margin:0 auto 2px;width:max-content;max-width:100%}
+.plabel.turn{background:var(--gold);color:#1d2621;animation:glow 1.2s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 12px var(--gold)}}
+.backs{display:flex;justify-content:center;padding:4px 0}
+.backs i{width:22px;height:32px;margin-left:-14px;border-radius:4px;border:1.5px solid #fff;background:repeating-linear-gradient(45deg,#8b2232 0 4px,#a83246 4px 8px);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.backs i:first-child{margin-left:0}
+.pw .backs,.pe .backs{flex-direction:column;align-items:center}
+.pw .backs i,.pe .backs i{margin-left:0;margin-top:-25px}.pw .backs i:first-child,.pe .backs i:first-child{margin-top:0}
+.side-mini{color:#fff;font-size:12px;line-height:1.5;text-align:left}
+.side-mini .r{color:#ffb3b3}
+.trick{grid-area:t;position:relative;height:170px}
+.tc{position:absolute;width:44px;height:62px;border-radius:7px;background:var(--pc-bg);color:var(--pc-ink);display:grid;place-items:center;font-weight:800;font-size:15px;box-shadow:0 3px 10px rgba(0,0,0,.35);transition:all .35s ease}
+.tc.rs,.tc .r{color:#d23a3f}
+.tc.n{left:calc(50% - 22px);top:0;animation:fromN .3s ease-out}
+.tc.s{left:calc(50% - 22px);bottom:0;animation:fromS .3s ease-out}
+.tc.w{left:6%;top:calc(50% - 31px);animation:fromW .3s ease-out}
+.tc.e{right:6%;top:calc(50% - 31px);animation:fromE .3s ease-out}
+@keyframes fromN{from{transform:translateY(-70px);opacity:0}}
+@keyframes fromS{from{transform:translateY(90px);opacity:0}}
+@keyframes fromW{from{transform:translateX(-70px);opacity:0}}
+@keyframes fromE{from{transform:translateX(70px);opacity:0}}
+.trick.gone-ns .tc{transform:translateY(120px) scale(.3);opacity:0}
+.trick.gone-ew .tc{transform:translateX(160px) scale(.3);opacity:0}
+.pc.can{cursor:pointer;transform:translateY(-6px);box-shadow:-2px 6px 10px rgba(0,0,0,.35)}
+.pc.can:active{transform:translateY(-14px) scale(1.05)}
+.pc.no{filter:brightness(.6)}
+.pc.hinted{outline:3px solid var(--gold);transform:translateY(-16px);animation:bob .6s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-22px)}}
+.pbtns{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.pbtns .btn{flex:1;justify-content:center;padding:10px 8px;font-size:14px}
+.pbtns .btn:disabled{opacity:.4}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -190,6 +229,7 @@ input[type=number],select{font:700 16px Manrope,sans-serif;padding:8px 10px;bord
 <script src="theory.js"></script>
 <script src="engine.js"></script>
 <script src="compete.js"></script>
+<script src="play.js"></script>
 <script src="app.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
 </body>

@@ -11,7 +11,7 @@
 
 ## Публикация на GitHub Pages
 1. Заведите аккаунт на github.com и создайте публичный репозиторий, например `bridge-sayc`.
-2. Загрузите в него 9 файлов: `index.html`, `app.js`, `engine.js`, `compete.js`, `data.js`, `theory.js`, `manifest.json`, `sw.js`, `icon.svg` (кнопка **Add file → Upload files**).
+2. Загрузите в него все файлы: `index.html`, `app.js`, `engine.js`, `compete.js`, `play.js`, `data.js`, `theory.js`, `manifest.json`, `sw.js`, `icon.svg` (кнопка **Add file → Upload files**).
 3. **Settings → Pages → Source: Deploy from a branch → main / (root) → Save.**
 4. Через минуту сайт будет по адресу `https://<ваш-логин>.github.io/bridge-sayc/`.
 
