@@ -2,25 +2,44 @@ name: Татаркин-радар
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # каждые 30 минут (во время турниров — «прямой эфир»)
+    # Будильник раз в час в «некруглые» минуты: такие запуски GitHub задерживает реже.
+    - cron: '7 * * * *'
+    - cron: '41 * * * *'
   workflow_dispatch:          # и вручную из вкладки Actions
 
 permissions:
   contents: write
 
+# Один робот за раз: если он уже следит за турниром, новый запуск ждёт, а не дублирует.
+concurrency:
+  group: tatarkin
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
-      - name: Собрать данные с bridgesport.ru
-        run: python3 scripts/tatarkin.py
-      - name: Сохранить, если что-то изменилось
+      - name: Следить за данными (во время турнира — каждые 10 минут)
         run: |
-          if [ -n "$(git status --porcelain data/)" ]; then
-            git config user.name "tatarkin-radar"
-            git config user.email "actions@users.noreply.github.com"
-            git add data/tatarkin.json
-            git commit -m "Татаркин-радар: обновление данных"
-            git push
-          fi
+          git config user.name "tatarkin-radar"
+          git config user.email "actions@users.noreply.github.com"
+          start=$(date +%s)
+          while true; do
+            python3 scripts/tatarkin.py || true
+            if [ -n "$(git status --porcelain data/)" ]; then
+              git add data/tatarkin.json
+              git commit -q -m "Татаркин-радар: обновление данных"
+              git pull -q --rebase -X ours || true
+              git push -q || true
+            fi
+            # Идёт ли сейчас турнир с Иваном? Если нет — заканчиваем до следующего будильника.
+            if ! python3 -c "import json,sys; l=json.load(open('data/tatarkin.json')).get('live'); sys.exit(0 if l and not l.get('finished') else 1)"; then
+              echo "Турнира сейчас нет — до следующего запуска."
+              break
+            fi
+            # Не дольше ~5,5 часа за один запуск (лимит GitHub — 6 часов); дальше подхватит следующий
+            if [ $(( $(date +%s) - start )) -gt 19500 ]; then break; fi
+            sleep 600
+          done

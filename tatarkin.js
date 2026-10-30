@@ -109,7 +109,7 @@ async function tatarkinPage() {
     <p class="oa-com">${ttLiveComment(L, track)}</p>` : '<p class="oa-com">Результаты ещё не опубликованы — радар ждёт первых протоколов.</p>'}
     ${track.length >= 2 ? `<div class="oa-chart">${ttLine(track.map(p => ({ y: p.place, label: (p.round ? 'тур ' + p.round : '') + (p.imps !== undefined && p.imps !== null ? ` · ${p.imps > 0 ? '+' : ''}${Math.round(p.imps)} IMP` : '') + ' · ' + new Date(p.t).toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }), short: p.round ? 'т' + p.round : '' })), { color: '#7dffb6', id: 'live', invert: true })}</div>` : ''}
     <div class="oa-links">${L.results_url ? `<a href="${L.results_url}" target="_blank" rel="noopener">Таблица турнира ↗</a>` : ''}<a href="${L.url}" target="_blank" rel="noopener">Страница турнира ↗</a></div>
-    <small class="oa-chk">Проверено ${new Date(L.checked).toLocaleString('ru-RU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })} · обновление каждые 30 мин</small></div>` : ''}
+    <small class="oa-chk">Проверено ${new Date(L.checked).toLocaleString('ru-RU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })} · во время турнира обновляется каждые 10 мин</small></div>` : ''}
   ${last ? `<div class="ttlive"><span class="livedot">${L ? 'ДО ЭТОГО' : 'LIVE'}</span><div><small>Последний завершённый турнир · ${ttDate(last.date)}</small><b>${last.name}</b><p>${last.partners ? 'С ' + last.partners + '. ' : ''}<b>${last.place ? last.place + '-е место' : ''} ${medal(last.place)}</b></p><em>${ttComment(last.place)}</em></div></div>` : ''}
   <div class="statgrid">
     <div class="stat"><b data-count="${I.rating || 0}">0</b><small>рейтинг ФСБР</small></div>
