@@ -1,0 +1,26 @@
+name: Татаркин-радар
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # каждые 30 минут (во время турниров — «прямой эфир»)
+  workflow_dispatch:          # и вручную из вкладки Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Собрать данные с bridgesport.ru
+        run: python3 scripts/tatarkin.py
+      - name: Сохранить, если что-то изменилось
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name "tatarkin-radar"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/tatarkin.json
+            git commit -m "Татаркин-радар: обновление данных"
+            git push
+          fi

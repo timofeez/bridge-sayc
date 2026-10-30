@@ -1,0 +1,3253 @@
+{
+ "live": {
+  "tournament": "Командный чемпионат Москвы 2026",
+  "url": "https://www.bridgesport.ru/tournaments/82774/",
+  "dates": "30 октября - 1 ноября",
+  "results_url": "https://bridgemoscow.ru/tournaments/results/m26top/m26tops.htm",
+  "finished": false,
+  "checked": "2026-10-31T00:11:57+0300",
+  "team": "Феликс Фелицис",
+  "place": 6,
+  "of": 21,
+  "members": "Ильницкая Ангелина, Столяров Егор, Татаркин Иван, Улановский Леонид",
+  "score": 35.54,
+  "round": 3
+ },
+ "live_track": [
+  {
+   "tournament": "Командный чемпионат Москвы 2026",
+   "t": "2026-10-31T00:11:57+0300",
+   "place": 6,
+   "score": 35.54,
+   "round": 3
+  }
+ ],
+ "player_id": 4899,
+ "name": "Татаркин Иван Владимирович",
+ "profile_url": "https://www.bridgesport.ru/players-and-ratings/search-player/4899/",
+ "info": {
+  "rank": -2.5,
+  "rating": 3625,
+  "place": 31,
+  "best_place": 27,
+  "pb": 109,
+  "mb": 12574,
+  "online_mb": 636,
+  "nick_gambler": "ИванЧай",
+  "nick_bbo": "ivankrut",
+  "city": "Москва"
+ },
+ "achievements": [
+  {
+   "date": "2021-09-26",
+   "year": 2021,
+   "name": "XXIII Юниорский парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/39477/",
+   "partners": "Столяров Е.Б.",
+   "place": 1,
+   "ro": 102,
+   "pb": 2,
+   "mb": 64
+  },
+  {
+   "date": "2022-02-13",
+   "year": 2022,
+   "name": "I Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39784/",
+   "partners": "Столяров Е.Б.",
+   "place": 1,
+   "ro": 97,
+   "pb": 2,
+   "mb": 60
+  },
+  {
+   "date": "2019-08-23",
+   "year": 2019,
+   "name": "6th World Youth Open Championships. U16 pairs",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 77,
+   "pb": 1,
+   "mb": 103
+  },
+  {
+   "date": "2022-10-16",
+   "year": 2022,
+   "name": "Командный чемпионат Москвы - 2022",
+   "link": "https://www.bridgesport.ru/tournaments/43443/",
+   "partners": "«Брат-2» Прохоров Д.О., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 2,
+   "ro": 191,
+   "pb": 4,
+   "mb": 205
+  },
+  {
+   "date": "2022-11-06",
+   "year": 2022,
+   "name": "XXIX Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/41383/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 263,
+   "pb": 5,
+   "mb": 380
+  },
+  {
+   "date": "2023-11-06",
+   "year": 2023,
+   "name": "XXX Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/48588/",
+   "partners": "Громов А.В.",
+   "place": 2,
+   "ro": 264,
+   "pb": 5,
+   "mb": 461
+  },
+  {
+   "date": "2024-04-29",
+   "year": 2024,
+   "name": "XXXII Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/59005/",
+   "partners": "«Галактика» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 2,
+   "ro": 230,
+   "pb": 5,
+   "mb": 300
+  },
+  {
+   "date": "2024-05-19",
+   "year": 2024,
+   "name": "XLII Парный чемпионат Москвы (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/55456/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 227,
+   "pb": 4,
+   "mb": 289
+  },
+  {
+   "date": "2025-02-16",
+   "year": 2025,
+   "name": "IV Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/64847/",
+   "partners": "Погорелова Е.А.",
+   "place": 2,
+   "ro": 101,
+   "pb": 1,
+   "mb": 72
+  },
+  {
+   "date": "2025-07-06",
+   "year": 2025,
+   "name": "Парный чемпионат Ярославской области (IMP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/72074/",
+   "partners": "Волков А.В.",
+   "place": 2,
+   "ro": 119,
+   "pb": 2,
+   "mb": 83
+  },
+  {
+   "date": "2025-08-24",
+   "year": 2025,
+   "name": "Парный чемпионат Тверской области (MP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/70209/",
+   "partners": "Волков А.В.",
+   "place": 2,
+   "ro": 135,
+   "pb": 3,
+   "mb": 98
+  },
+  {
+   "date": "2022-08-07",
+   "year": 2022,
+   "name": "XVII Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/40040/",
+   "partners": "Столяров Е.Б.",
+   "place": 3,
+   "ro": 239,
+   "pb": 5,
+   "mb": 345
+  },
+  {
+   "date": "2023-05-01",
+   "year": 2023,
+   "name": "XXXI Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/48029/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Аграчев А.Ф., Цветков Д.С., Столяров Е.Б., Татаркин И.В., Макарова А.А.",
+   "place": 3,
+   "ro": 170,
+   "pb": 3,
+   "mb": 155
+  },
+  {
+   "date": "2026-02-08",
+   "year": 2026,
+   "name": "XVII Парный чемпионат Москвы (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/80938/",
+   "partners": "Волков А.В.",
+   "place": 3,
+   "ro": 198,
+   "pb": 3,
+   "mb": 238
+  },
+  {
+   "date": "2026-02-15",
+   "year": 2026,
+   "name": "V Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/78684/",
+   "partners": "Волков А.В.",
+   "place": 3,
+   "ro": 74,
+   "pb": null,
+   "mb": 31
+  },
+  {
+   "date": "2026-05-05",
+   "year": 2026,
+   "name": "XXXIV Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/85853/",
+   "partners": "«Ален Делон» Хоничева Е.Ю., Аграчев А.Ф., Столяров Е.Б., Татаркин И.В.",
+   "place": 3,
+   "ro": 190,
+   "pb": 4,
+   "mb": 213
+  }
+ ],
+ "performances": [
+  {
+   "date": "2021-08-27",
+   "year": 2021,
+   "name": "Кубок Дона 2021. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/39732/",
+   "partners": "«Брат-2» Татаркин А.А., Курсакова Л.Н., Татаркин В.А., Татаркин И.В.",
+   "place": 1,
+   "ro": 163,
+   "pb": 3,
+   "mb": 219
+  },
+  {
+   "date": "2021-09-26",
+   "year": 2021,
+   "name": "XXIII Юниорский парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/39477/",
+   "partners": "Столяров Е.Б.",
+   "place": 1,
+   "ro": 102,
+   "pb": 2,
+   "mb": 64
+  },
+  {
+   "date": "2022-02-13",
+   "year": 2022,
+   "name": "I Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39784/",
+   "partners": "Столяров Е.Б.",
+   "place": 1,
+   "ro": 97,
+   "pb": 2,
+   "mb": 60
+  },
+  {
+   "date": "2023-03-26",
+   "year": 2023,
+   "name": "Весенний командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/39266/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Татаркин И.В., Макарова А.А.",
+   "place": 1,
+   "ro": 214,
+   "pb": 4,
+   "mb": 303
+  },
+  {
+   "date": "2025-06-08",
+   "year": 2025,
+   "name": "Московский экспресс. Июнь (MP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/72783/",
+   "partners": "Ильницкая А.В.",
+   "place": 1,
+   "ro": 54,
+   "pb": 1,
+   "mb": 142
+  },
+  {
+   "date": "2025-10-26",
+   "year": 2025,
+   "name": "Московский экспресс (MP). Октябрь 2025",
+   "link": "https://www.bridgesport.ru/tournaments/76881/",
+   "partners": "Волков А.В.",
+   "place": 1,
+   "ro": 39,
+   "pb": 1,
+   "mb": 98
+  },
+  {
+   "date": "2026-05-17",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 4. Санди таймз на макс",
+   "link": "https://www.bridgesport.ru/tournaments/82492/",
+   "partners": "Прохоров Д.О.",
+   "place": 1,
+   "ro": 211,
+   "pb": 4,
+   "mb": 270
+  },
+  {
+   "date": "2026-09-06",
+   "year": 2026,
+   "name": "Осенняя Москва 2026. Командный нокаут турнир с обором.",
+   "link": "https://www.bridgesport.ru/tournaments/82430/",
+   "partners": "«Феликс Фелицис» Улановский Л.М., Столяров Е.Б., Татаркин И.В., Ильницкая А.В.",
+   "place": 1,
+   "ro": 210,
+   "pb": 4,
+   "mb": 306
+  },
+  {
+   "date": "2019-08-23",
+   "year": 2019,
+   "name": "6th World Youth Open Championships. U16 pairs",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 77,
+   "pb": 1,
+   "mb": 103
+  },
+  {
+   "date": "2022-01-23",
+   "year": 2022,
+   "name": "XXVIII Кубок РиО",
+   "link": "https://www.bridgesport.ru/tournaments/39918/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 2,
+   "ro": 195,
+   "pb": 4,
+   "mb": 260
+  },
+  {
+   "date": "2022-09-18",
+   "year": 2022,
+   "name": "Осенняя Москва, парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/44061/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 134,
+   "pb": 2,
+   "mb": 156
+  },
+  {
+   "date": "2022-10-16",
+   "year": 2022,
+   "name": "Командный чемпионат Москвы - 2022",
+   "link": "https://www.bridgesport.ru/tournaments/43443/",
+   "partners": "«Брат-2» Прохоров Д.О., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 2,
+   "ro": 191,
+   "pb": 4,
+   "mb": 205
+  },
+  {
+   "date": "2022-11-06",
+   "year": 2022,
+   "name": "XXIX Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/41383/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 263,
+   "pb": 5,
+   "mb": 380
+  },
+  {
+   "date": "2023-01-15",
+   "year": 2023,
+   "name": "Арма-Тур январь 2023",
+   "link": "https://www.bridgesport.ru/tournaments/46821/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 130,
+   "pb": 2,
+   "mb": 149
+  },
+  {
+   "date": "2023-11-06",
+   "year": 2023,
+   "name": "XXX Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/48588/",
+   "partners": "Громов А.В.",
+   "place": 2,
+   "ro": 264,
+   "pb": 5,
+   "mb": 461
+  },
+  {
+   "date": "2023-12-24",
+   "year": 2023,
+   "name": "Вокруг Света. Лига Чемпионов",
+   "link": "https://www.bridgesport.ru/tournaments/53469/",
+   "partners": "Прохоров Д.О.",
+   "place": 2,
+   "ro": 135,
+   "pb": 3,
+   "mb": 107
+  },
+  {
+   "date": "2024-04-29",
+   "year": 2024,
+   "name": "XXXII Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/59005/",
+   "partners": "«Галактика» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 2,
+   "ro": 230,
+   "pb": 5,
+   "mb": 300
+  },
+  {
+   "date": "2024-05-19",
+   "year": 2024,
+   "name": "XLII Парный чемпионат Москвы (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/55456/",
+   "partners": "Столяров Е.Б.",
+   "place": 2,
+   "ro": 227,
+   "pb": 4,
+   "mb": 289
+  },
+  {
+   "date": "2025-02-16",
+   "year": 2025,
+   "name": "IV Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/64847/",
+   "partners": "Погорелова Е.А.",
+   "place": 2,
+   "ro": 101,
+   "pb": 1,
+   "mb": 72
+  },
+  {
+   "date": "2025-07-06",
+   "year": 2025,
+   "name": "Парный чемпионат Ярославской области (IMP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/72074/",
+   "partners": "Волков А.В.",
+   "place": 2,
+   "ro": 119,
+   "pb": 2,
+   "mb": 83
+  },
+  {
+   "date": "2025-08-24",
+   "year": 2025,
+   "name": "Парный чемпионат Тверской области (MP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/70209/",
+   "partners": "Волков А.В.",
+   "place": 2,
+   "ro": 135,
+   "pb": 3,
+   "mb": 98
+  },
+  {
+   "date": "2025-12-27",
+   "year": 2025,
+   "name": "Санди Таймз в ВИСТиБРИДЖ",
+   "link": "https://www.bridgesport.ru/tournaments/80826/",
+   "partners": "Осипова Е.Н.",
+   "place": 2,
+   "ro": 99,
+   "pb": 2,
+   "mb": 81
+  },
+  {
+   "date": "2026-01-25",
+   "year": 2026,
+   "name": "XXXII Кубок РиО",
+   "link": "https://www.bridgesport.ru/tournaments/80969/",
+   "partners": "«Бурана» Татаркин А.А., Погонов И.В., Курсакова Л.Н., Ваганов С.В., Татаркин И.В.",
+   "place": 2,
+   "ro": 183,
+   "pb": 4,
+   "mb": 216
+  },
+  {
+   "date": "2026-02-28",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 1. Швейцарка на макс",
+   "link": "https://www.bridgesport.ru/tournaments/82489/",
+   "partners": "Волков А.В.",
+   "place": 2,
+   "ro": 177,
+   "pb": 3,
+   "mb": 216
+  },
+  {
+   "date": "2026-08-23",
+   "year": 2026,
+   "name": "Sunday Times в Москве",
+   "link": "https://www.bridgesport.ru/tournaments/90831/",
+   "partners": "Шиков А.М.",
+   "place": 2,
+   "ro": 124,
+   "pb": 2,
+   "mb": 119
+  },
+  {
+   "date": "2021-12-19",
+   "year": 2021,
+   "name": "Арма-Тур декабрь 2021",
+   "link": "https://www.bridgesport.ru/tournaments/39712/",
+   "partners": "Столяров Е.Б.",
+   "place": 3,
+   "ro": 145,
+   "pb": 2,
+   "mb": 165
+  },
+  {
+   "date": "2022-06-05",
+   "year": 2022,
+   "name": "XXX Фестиваль \"Белые ночи\". Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/42362/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 3,
+   "ro": 156,
+   "pb": 3,
+   "mb": 169
+  },
+  {
+   "date": "2022-08-07",
+   "year": 2022,
+   "name": "XVII Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/40040/",
+   "partners": "Столяров Е.Б.",
+   "place": 3,
+   "ro": 239,
+   "pb": 5,
+   "mb": 345
+  },
+  {
+   "date": "2023-05-01",
+   "year": 2023,
+   "name": "XXXI Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/48029/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Аграчев А.Ф., Цветков Д.С., Столяров Е.Б., Татаркин И.В., Макарова А.А.",
+   "place": 3,
+   "ro": 170,
+   "pb": 3,
+   "mb": 155
+  },
+  {
+   "date": "2023-06-12",
+   "year": 2023,
+   "name": "XXX Командный чемпионат России. Западный полуфинал",
+   "link": "https://www.bridgesport.ru/tournaments/48599/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Столяров Е.Б., Татаркин И.В., Макарова А.А.",
+   "place": 3,
+   "ro": 136,
+   "pb": 2,
+   "mb": 122
+  },
+  {
+   "date": "2023-07-09",
+   "year": 2023,
+   "name": "Вокруг Света. Этап II. Бомбей. Первая лига",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 3,
+   "ro": 68,
+   "pb": null,
+   "mb": 51
+  },
+  {
+   "date": "2024-02-04",
+   "year": 2024,
+   "name": "Вокруг Старого Света 2024. Порту",
+   "link": "https://www.bridgesport.ru/tournaments/54845/",
+   "partners": "Столяров Е.Б.",
+   "place": 3,
+   "ro": 156,
+   "pb": 2,
+   "mb": 178
+  },
+  {
+   "date": "2024-07-07",
+   "year": 2024,
+   "name": "III Микстовый командный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/55458/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Татаркин И.В., Ильницкая А.В.",
+   "place": 3,
+   "ro": 139,
+   "pb": 2,
+   "mb": 132
+  },
+  {
+   "date": "2026-02-08",
+   "year": 2026,
+   "name": "XVII Парный чемпионат Москвы (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/80938/",
+   "partners": "Волков А.В.",
+   "place": 3,
+   "ro": 198,
+   "pb": 3,
+   "mb": 238
+  },
+  {
+   "date": "2026-02-15",
+   "year": 2026,
+   "name": "V Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/78684/",
+   "partners": "Волков А.В.",
+   "place": 3,
+   "ro": 74,
+   "pb": null,
+   "mb": 31
+  },
+  {
+   "date": "2026-05-05",
+   "year": 2026,
+   "name": "XXXIV Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/85853/",
+   "partners": "«Ален Делон» Хоничева Е.Ю., Аграчев А.Ф., Столяров Е.Б., Татаркин И.В.",
+   "place": 3,
+   "ro": 190,
+   "pb": 4,
+   "mb": 213
+  },
+  {
+   "date": "2026-08-28",
+   "year": 2026,
+   "name": "Командное первенство Валдая 2026. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/84536/",
+   "partners": "«Ален Делон» Чумаков А.Ю., Аграчев А.Ф., Татаркин И.В., Хвень Е.М.",
+   "place": 3,
+   "ro": 131,
+   "pb": 2,
+   "mb": 103
+  },
+  {
+   "date": "2022-08-14",
+   "year": 2022,
+   "name": "Арма-Тур август 2022",
+   "link": "https://www.bridgesport.ru/tournaments/41025/",
+   "partners": "Татаркин А.А.",
+   "place": 4,
+   "ro": 85,
+   "pb": null,
+   "mb": 104
+  },
+  {
+   "date": "2022-12-11",
+   "year": 2022,
+   "name": "XXI Индивидуальный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/45371/",
+   "partners": "",
+   "place": 4,
+   "ro": 118,
+   "pb": 1,
+   "mb": 106
+  },
+  {
+   "date": "2023-07-02",
+   "year": 2023,
+   "name": "II Микстовый командный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/46893/",
+   "partners": "«Брат 2» Курсакова Л.Н., Татаркин В.А., Татаркин И.В., Макарова А.А.",
+   "place": 4,
+   "ro": 121,
+   "pb": 1,
+   "mb": 99
+  },
+  {
+   "date": "2024-05-01",
+   "year": 2024,
+   "name": "XXXII Кубок России. Кубковый зачет",
+   "link": "https://www.bridgesport.ru/tournaments/60663/",
+   "partners": "«Галактика» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 4,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-09-21",
+   "year": 2025,
+   "name": "XXVII Юниорский парный чемпионат России (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/68270/",
+   "partners": "Волков А.В.",
+   "place": 4,
+   "ro": 66,
+   "pb": null,
+   "mb": 43
+  },
+  {
+   "date": "2026-05-05",
+   "year": 2026,
+   "name": "XXXIV Кубок России. Кубковый зачет",
+   "link": "https://www.bridgesport.ru/tournaments/88112/",
+   "partners": "«Ален Делон» Хоничева Е.Ю., Аграчев А.Ф., Столяров Е.Б., Татаркин И.В.",
+   "place": 4,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-09-08",
+   "year": 2019,
+   "name": "XXI Юниорский парный чемпионат России",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 58,
+   "pb": null,
+   "mb": 15
+  },
+  {
+   "date": "2021-04-04",
+   "year": 2021,
+   "name": "XII Парный чемпионат Москвы (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/39264/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 159,
+   "pb": 1,
+   "mb": 214
+  },
+  {
+   "date": "2022-03-20",
+   "year": 2022,
+   "name": "Весенняя Москва",
+   "link": "https://www.bridgesport.ru/tournaments/41392/",
+   "partners": "«Брат 2» Татаркин А.А., Курсакова Л.Н., Татаркин В.А., Татаркин И.В.",
+   "place": 5,
+   "ro": 54,
+   "pb": null,
+   "mb": 11
+  },
+  {
+   "date": "2022-03-27",
+   "year": 2022,
+   "name": "Арма-Тур март 2022",
+   "link": "https://www.bridgesport.ru/tournaments/40471/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 94,
+   "pb": null,
+   "mb": 62
+  },
+  {
+   "date": "2022-08-28",
+   "year": 2022,
+   "name": "Кубок Дона 2022. Парный конгресс (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/44728/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 82,
+   "pb": null,
+   "mb": 53
+  },
+  {
+   "date": "2023-02-12",
+   "year": 2023,
+   "name": "II Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/45373/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 59,
+   "pb": null,
+   "mb": 81
+  },
+  {
+   "date": "2023-04-23",
+   "year": 2023,
+   "name": "Командный чемпионат Ярославской области 2023",
+   "link": "https://www.bridgesport.ru/tournaments/47737/",
+   "partners": "«Брат 2» Курсакова Л.Н., Татаркин В.А., Татаркин И.В., Макарова А.А.",
+   "place": 5,
+   "ro": 68,
+   "pb": null,
+   "mb": 14
+  },
+  {
+   "date": "2024-06-23",
+   "year": 2024,
+   "name": "Вокруг Старого Света 2024. Бордо. Основной турнир",
+   "link": "https://www.bridgesport.ru/tournaments/63510/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 115,
+   "pb": null,
+   "mb": 86
+  },
+  {
+   "date": "2024-08-25",
+   "year": 2024,
+   "name": "Вокруг Старого Света 2024. Верона. Основной турнир",
+   "link": "https://www.bridgesport.ru/tournaments/65555/",
+   "partners": "Столяров Е.Б.",
+   "place": 5,
+   "ro": 127,
+   "pb": null,
+   "mb": 109
+  },
+  {
+   "date": "2024-09-22",
+   "year": 2024,
+   "name": "XXXI Командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/56413/",
+   "partners": "«302-бис» Казанцев О.Р., Гомеров П.А., Воробейчикова О.А., Яковлева М.Ю., Столяров Е.Б., Татаркин И.В.",
+   "place": 5,
+   "ro": 96,
+   "pb": 1,
+   "mb": 16
+  },
+  {
+   "date": "2026-01-06",
+   "year": 2026,
+   "name": "Рождество - 2026 в Санкт Петербурге. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/76606/",
+   "partners": "«Ален Делон» Аграчев А.Ф., Татаркин И.В., Волков А.В., Хвень Е.М.",
+   "place": 5,
+   "ro": 95,
+   "pb": null,
+   "mb": 53
+  },
+  {
+   "date": "2026-05-02",
+   "year": 2026,
+   "name": "XXXIV Кубок России. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/85852/",
+   "partners": "Хоничева Е.Ю.",
+   "place": 5,
+   "ro": 177,
+   "pb": 2,
+   "mb": 157
+  },
+  {
+   "date": "2021-02-23",
+   "year": 2021,
+   "name": "XXII Юниорский парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/38827/",
+   "partners": "Столяров Е.Б.",
+   "place": 6,
+   "ro": 31,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2022-02-27",
+   "year": 2022,
+   "name": "Весенний командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/49036/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 6,
+   "ro": 78,
+   "pb": null,
+   "mb": 32
+  },
+  {
+   "date": "2022-05-22",
+   "year": 2022,
+   "name": "Арма-Тур май 2022",
+   "link": "https://www.bridgesport.ru/tournaments/42359/",
+   "partners": "Столяров Е.Б.",
+   "place": 6,
+   "ro": 60,
+   "pb": null,
+   "mb": 93
+  },
+  {
+   "date": "2022-06-13",
+   "year": 2022,
+   "name": "XXIX Командный чемпионат России. Западный полуфинал",
+   "link": "https://www.bridgesport.ru/tournaments/41326/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 6,
+   "ro": 58,
+   "pb": null,
+   "mb": 16
+  },
+  {
+   "date": "2022-08-26",
+   "year": 2022,
+   "name": "Кубок Дона 2022. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/44727/",
+   "partners": "«Брат-2» Курсакова Л.Н., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 6,
+   "ro": 38,
+   "pb": null,
+   "mb": 5
+  },
+  {
+   "date": "2023-01-08",
+   "year": 2023,
+   "name": "Новогодний командный турнир \"Зимняя Москва - 2023\"",
+   "link": "https://www.bridgesport.ru/tournaments/46217/",
+   "partners": "«БРАТ-2» Прохоров Д.О., Татаркин В.А., Воронов А.Г., Татаркин И.В.",
+   "place": 6,
+   "ro": 71,
+   "pb": null,
+   "mb": 24
+  },
+  {
+   "date": "2023-08-20",
+   "year": 2023,
+   "name": "Вокруг Света. Этап III. Гонконг. Премьер-лига",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 6,
+   "ro": 46,
+   "pb": null,
+   "mb": 7
+  },
+  {
+   "date": "2023-09-24",
+   "year": 2023,
+   "name": "Вокруг Света. Этап IV. Йокогама. Премьер-лига",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 6,
+   "ro": 48,
+   "pb": null,
+   "mb": 7
+  },
+  {
+   "date": "2024-01-21",
+   "year": 2024,
+   "name": "XXX Кубок РиО",
+   "link": "https://www.bridgesport.ru/tournaments/55490/",
+   "partners": "«Млечный путь» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 6,
+   "ro": 82,
+   "pb": null,
+   "mb": 15
+  },
+  {
+   "date": "2024-11-17",
+   "year": 2024,
+   "name": "Командный чемпионат Москвы - 2024",
+   "link": "https://www.bridgesport.ru/tournaments/55463/",
+   "partners": "«Броненосец» Татаркин А.А., Курсакова Л.Н., Ваганов С.В., Харламов В.С., Потемкин Н.А., Татаркин И.В.",
+   "place": 6,
+   "ro": 98,
+   "pb": null,
+   "mb": 33
+  },
+  {
+   "date": "2025-05-05",
+   "year": 2025,
+   "name": "XXXIII Кубок России. Паттон",
+   "link": "https://www.bridgesport.ru/tournaments/73799/",
+   "partners": "«17 лет» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Хвень Е.М.",
+   "place": 6,
+   "ro": 73,
+   "pb": null,
+   "mb": 3
+  },
+  {
+   "date": "2025-07-26",
+   "year": 2025,
+   "name": "Мегакубок Москвы - 10. Санди Таймз",
+   "link": "https://www.bridgesport.ru/tournaments/68592/",
+   "partners": "Татаркин А.А.",
+   "place": 6,
+   "ro": 94,
+   "pb": null,
+   "mb": 52
+  },
+  {
+   "date": "2026-06-28",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 5. Парный конгресс на макс",
+   "link": "https://www.bridgesport.ru/tournaments/82493/",
+   "partners": "Прохоров Д.О.",
+   "place": 6,
+   "ro": 109,
+   "pb": null,
+   "mb": 106
+  },
+  {
+   "date": "2026-08-30",
+   "year": 2026,
+   "name": "Командное первенство Валдая 2026. BAM",
+   "link": "https://www.bridgesport.ru/tournaments/84537/",
+   "partners": "«Ален Делон» Чумаков А.Ю., Аграчев А.Ф., Татаркин И.В., Хвень Е.М.",
+   "place": 6,
+   "ro": 74,
+   "pb": null,
+   "mb": 20
+  },
+  {
+   "date": "2023-10-01",
+   "year": 2023,
+   "name": "XXX Командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/48587/",
+   "partners": "«Брат-2» Прохоров Д.О., Татаркин А.А., Татаркин В.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 7,
+   "ro": 59,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2024-04-21",
+   "year": 2024,
+   "name": "VI Московский Паттон",
+   "link": "https://www.bridgesport.ru/tournaments/55455/",
+   "partners": "«Млечный путь» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 7,
+   "ro": 43,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2024-06-09",
+   "year": 2024,
+   "name": "XXXI Командный чемпионат России. Западный полуфинал",
+   "link": "https://www.bridgesport.ru/tournaments/55914/",
+   "partners": "«Галактика» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 7,
+   "ro": 54,
+   "pb": null,
+   "mb": 9
+  },
+  {
+   "date": "2025-01-08",
+   "year": 2025,
+   "name": "Новогодний командный турнир \"Зимняя Москва - 2025\"",
+   "link": "https://www.bridgesport.ru/tournaments/65946/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Аграчев А.Ф., Столяров Е.Б., Татаркин И.В.",
+   "place": 7,
+   "ro": 53,
+   "pb": null,
+   "mb": 6
+  },
+  {
+   "date": "2025-09-28",
+   "year": 2025,
+   "name": "XXXII Командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/68269/",
+   "partners": "«302-бис» Прохоров Д.О., Воробейчикова О.А., Яковлева М.Ю., Столяров Е.Б., Татаркин И.В., Волков А.В.",
+   "place": 7,
+   "ro": 61,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2024-01-08",
+   "year": 2024,
+   "name": "Новогодний командный турнир \"Зимняя Москва - 2024\"",
+   "link": "https://www.bridgesport.ru/tournaments/54562/",
+   "partners": "«Млечный путь» Галактионов Д.А., Друц В.М., Столяров Е.Б., Татаркин И.В.",
+   "place": 8,
+   "ro": 53,
+   "pb": null,
+   "mb": 9
+  },
+  {
+   "date": "2024-03-31",
+   "year": 2024,
+   "name": "Командный чемпионат Ярославской области 2024",
+   "link": "https://www.bridgesport.ru/tournaments/58048/",
+   "partners": "«ОБРАТНЫЙ ПОТОК» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Ильницкая А.В.",
+   "place": 8,
+   "ro": 34,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2026-01-04",
+   "year": 2026,
+   "name": "Рождество - 2026 в Санкт Петербурге. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/76604/",
+   "partners": "Волков А.В.",
+   "place": 8,
+   "ro": 91,
+   "pb": null,
+   "mb": 63
+  },
+  {
+   "date": "2026-08-02",
+   "year": 2026,
+   "name": "XXI Летний парный чемпионат России. Финал B",
+   "link": "https://www.bridgesport.ru/tournaments/91583/",
+   "partners": "Хвень Е.М.",
+   "place": 8,
+   "ro": 86,
+   "pb": null,
+   "mb": 59
+  },
+  {
+   "date": "2022-04-03",
+   "year": 2022,
+   "name": "Времена года-2022. Весна (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/39927/",
+   "partners": "Столяров Е.Б.",
+   "place": 9,
+   "ro": 85,
+   "pb": null,
+   "mb": 122
+  },
+  {
+   "date": "2022-06-03",
+   "year": 2022,
+   "name": "XXX Фестиваль \"Белые ночи\". Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/42361/",
+   "partners": "Столяров Е.Б.",
+   "place": 9,
+   "ro": 107,
+   "pb": null,
+   "mb": 137
+  },
+  {
+   "date": "2023-01-22",
+   "year": 2023,
+   "name": "XXIX Кубок РиО",
+   "link": "https://www.bridgesport.ru/tournaments/46050/",
+   "partners": "«Женщины и дети» Воробейчикова О.А., Яковлева М.Ю., Столяров Е.Б., Татаркин И.В.",
+   "place": 9,
+   "ro": 62,
+   "pb": null,
+   "mb": 11
+  },
+  {
+   "date": "2023-05-03",
+   "year": 2023,
+   "name": "XXXI Кубок России. Паттон",
+   "link": "https://www.bridgesport.ru/tournaments/48031/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Аграчев А.Ф., Цветков Д.С., Столяров Е.Б., Татаркин И.В., Макарова А.А.",
+   "place": 9,
+   "ro": 55,
+   "pb": null,
+   "mb": 14
+  },
+  {
+   "date": "2025-02-09",
+   "year": 2025,
+   "name": "Московский экспресс. Февраль (MP) 2025",
+   "link": "https://www.bridgesport.ru/tournaments/70313/",
+   "partners": "Погорелова Е.А.",
+   "place": 9,
+   "ro": 5,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2026-03-07",
+   "year": 2026,
+   "name": "XXXI Микстовый командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/83357/",
+   "partners": "«Авторадио» Аграчев А.Ф., Татаркин И.В., Погорелова Е.А., Валяева С.А.",
+   "place": 9,
+   "ro": 79,
+   "pb": null,
+   "mb": 13
+  },
+  {
+   "date": "2026-09-27",
+   "year": 2026,
+   "name": "XXXIII Командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/82772/",
+   "partners": "«Авангард» Шуднев А.М., Скородумов Д.П., Постовалов И.А., Столяров Е.Б., Татаркин И.В., Шиков А.М.",
+   "place": 9,
+   "ro": 33,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2015-09-20",
+   "year": 2015,
+   "name": "XVII Юниорский парный чемпионат России",
+   "link": null,
+   "partners": "Соколова Е.А.",
+   "place": 10,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2018-04-08",
+   "year": 2018,
+   "name": "III Московский Паттон",
+   "link": null,
+   "partners": "«ОТМОРОЗКИ» Татаркин А.А., Малахевич А.А., Татаркин В.А., Татаркин И.В.",
+   "place": 10,
+   "ro": 24,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2021-06-06",
+   "year": 2021,
+   "name": "Парный чемпионат Воронежской области (MP) 2021",
+   "link": "https://www.bridgesport.ru/tournaments/39307/",
+   "partners": "Столяров Е.Б.",
+   "place": 10,
+   "ro": 14,
+   "pb": null,
+   "mb": 6
+  },
+  {
+   "date": "2022-06-19",
+   "year": 2022,
+   "name": "Парный чемпионат Ярославской области (IMP) 2022",
+   "link": "https://www.bridgesport.ru/tournaments/42762/",
+   "partners": "Столяров Е.Б.",
+   "place": 10,
+   "ro": 36,
+   "pb": null,
+   "mb": 50
+  },
+  {
+   "date": "2023-05-03",
+   "year": 2023,
+   "name": "XXXI Кубок России. Кубковый зачет",
+   "link": "https://www.bridgesport.ru/tournaments/50619/",
+   "partners": "«Серый кардинал» Прохоров Д.О., Аграчев А.Ф., Цветков Д.С., Столяров Е.Б., Татаркин И.В., Макарова А.А.",
+   "place": 10,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2024-11-04",
+   "year": 2024,
+   "name": "XXXI Зимний парный чемпионат России (МР)",
+   "link": "https://www.bridgesport.ru/tournaments/55908/",
+   "partners": "Прохоров Д.О.",
+   "place": 10,
+   "ro": 137,
+   "pb": 1,
+   "mb": 103
+  },
+  {
+   "date": "2025-07-13",
+   "year": 2025,
+   "name": "Мегакубок Москвы - 9. Швейцарка с финалом на ИМПы",
+   "link": "https://www.bridgesport.ru/tournaments/68591/",
+   "partners": "Волков А.В.",
+   "place": 10,
+   "ro": 79,
+   "pb": null,
+   "mb": 22
+  },
+  {
+   "date": "2026-04-19",
+   "year": 2026,
+   "name": "XXXIII Командный чемпионат России. Западный полуфинал",
+   "link": "https://www.bridgesport.ru/tournaments/82529/",
+   "partners": "«Ален Делон» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Волков А.В.",
+   "place": 10,
+   "ro": 31,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2026-07-17",
+   "year": 2026,
+   "name": "Самара Трофи - 2026. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/88269/",
+   "partners": "«Boney M» Аграчев А.Ф., Татаркин И.В., Самохина К.А., Хвень Е.М., Погорелова Е.А., Валяева С.А.",
+   "place": 10,
+   "ro": 28,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2021-05-03",
+   "year": 2021,
+   "name": "XXIX Кубок России. Паттон",
+   "link": "https://www.bridgesport.ru/tournaments/39407/",
+   "partners": "«RUSSIA JR» Столяров Е.Б., Бабошина А.В., Игнатьева А.Д., Татаркин И.В., Юн И.В., Макарова А.А.",
+   "place": 11,
+   "ro": 41,
+   "pb": null,
+   "mb": 7
+  },
+  {
+   "date": "2022-05-04",
+   "year": 2022,
+   "name": "XXX Кубок России. Паттон",
+   "link": "https://www.bridgesport.ru/tournaments/42390/",
+   "partners": "«MARINES CREW» Малыгин А.С., Шеховцова М.Н., Столяров Е.Б., Татаркин И.В.",
+   "place": 11,
+   "ro": 38,
+   "pb": null,
+   "mb": 6
+  },
+  {
+   "date": "2022-11-20",
+   "year": 2022,
+   "name": "XXIII Микстовый парный чемпионат Москвы (MPs)",
+   "link": "https://www.bridgesport.ru/tournaments/43444/",
+   "partners": "Ильницкая А.В.",
+   "place": 11,
+   "ro": 83,
+   "pb": null,
+   "mb": 36
+  },
+  {
+   "date": "2024-10-13",
+   "year": 2024,
+   "name": "Парный чемпионат Ярославской области (MP) 2024",
+   "link": "https://www.bridgesport.ru/tournaments/64828/",
+   "partners": "Аграчев А.Ф.",
+   "place": 11,
+   "ro": 30,
+   "pb": null,
+   "mb": 49
+  },
+  {
+   "date": "2026-07-12",
+   "year": 2026,
+   "name": "V Микстовый командный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/82498/",
+   "partners": "«Лорен-Дитрих» Аграчев А.Ф., Татаркин И.В., Погорелова Е.А., Валяева С.А.",
+   "place": 11,
+   "ro": 45,
+   "pb": null,
+   "mb": 5
+  },
+  {
+   "date": "2022-10-02",
+   "year": 2022,
+   "name": "XXIX Командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/41845/",
+   "partners": "«Rio de Janeiro» Павлушко О.В., Прохоров Д.О., Гомеров П.А., Яковлева М.Ю., Столяров Е.Б., Татаркин И.В.",
+   "place": 12,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-05-05",
+   "year": 2025,
+   "name": "XXXIII Кубок России. Кубковый зачет",
+   "link": "https://www.bridgesport.ru/tournaments/74074/",
+   "partners": "«17 лет» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Хвень Е.М.",
+   "place": 12,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-11-16",
+   "year": 2025,
+   "name": "Командный чемпионат Москвы - 2025",
+   "link": "https://www.bridgesport.ru/tournaments/68188/",
+   "partners": "«+1/-1» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Волков А.В.",
+   "place": 12,
+   "ro": 47,
+   "pb": null,
+   "mb": 3
+  },
+  {
+   "date": "2026-05-24",
+   "year": 2026,
+   "name": "ХХI Парный чемпионат Санкт-Петербурга (IMP) 2026",
+   "link": "https://www.bridgesport.ru/tournaments/77625/",
+   "partners": "Хоничева Е.Ю.",
+   "place": 12,
+   "ro": 49,
+   "pb": null,
+   "mb": 29
+  },
+  {
+   "date": "2026-07-25",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 6. Санди Таймз на импы",
+   "link": "https://www.bridgesport.ru/tournaments/82494/",
+   "partners": "Хвень Е.М.",
+   "place": 12,
+   "ro": 67,
+   "pb": null,
+   "mb": 14
+  },
+  {
+   "date": "2020-07-19",
+   "year": 2020,
+   "name": "Самара Трофи - 2020. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/38795/",
+   "partners": "Лесничий П.П.",
+   "place": 13,
+   "ro": 41,
+   "pb": null,
+   "mb": 11
+  },
+  {
+   "date": "2025-08-17",
+   "year": 2025,
+   "name": "Мегакубок Москвы - 11. Парный конгресс на макс с финалом",
+   "link": "https://www.bridgesport.ru/tournaments/68593/",
+   "partners": "Волков А.В.",
+   "place": 13,
+   "ro": 63,
+   "pb": null,
+   "mb": 10
+  },
+  {
+   "date": "2015-07-19",
+   "year": 2015,
+   "name": "Самара Трофи - 2015. Командный турнир",
+   "link": null,
+   "partners": "«Сын 3» Меньшикова М.Ю., Яковлев Г.Г., Аушев П.С., Лотошников В.В., Татаркин И.В.",
+   "place": 14,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-01-08",
+   "year": 2022,
+   "name": "Новогодний командный турнир \"Зимняя Москва - 2022\"",
+   "link": "https://www.bridgesport.ru/tournaments/39856/",
+   "partners": "«Брат 2» Татаркин А.А., Курсакова Л.Н., Татаркин В.А., Татаркин И.В.",
+   "place": 14,
+   "ro": 20,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2022-09-18",
+   "year": 2022,
+   "name": "Осенняя Москва, командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/44062/",
+   "partners": "«Rio de Janeiro» Прохоров Д.О., Гомеров П.А., Столяров Е.Б., Татаркин И.В.",
+   "place": 14,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2024-05-01",
+   "year": 2024,
+   "name": "XXXII Кубок России. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/59004/",
+   "partners": "Столяров Е.Б.",
+   "place": 14,
+   "ro": 99,
+   "pb": null,
+   "mb": 32
+  },
+  {
+   "date": "2018-05-05",
+   "year": 2018,
+   "name": "Мемориал Сергея Кирича",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 15,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-08-25",
+   "year": 2021,
+   "name": "Кубок Дона 2021. Мемориальный турнир (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/39731/",
+   "partners": "Татаркин В.А.",
+   "place": 15,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-08-29",
+   "year": 2021,
+   "name": "Кубок Дона 2021. Парный конгресс (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39733/",
+   "partners": "Татаркин В.А.",
+   "place": 15,
+   "ro": 32,
+   "pb": null,
+   "mb": 25
+  },
+  {
+   "date": "2025-11-04",
+   "year": 2025,
+   "name": "XXXII Зимний парный чемпионат России. Финал B",
+   "link": "https://www.bridgesport.ru/tournaments/80503/",
+   "partners": "Волков А.В.",
+   "place": 15,
+   "ro": 59,
+   "pb": null,
+   "mb": 64
+  },
+  {
+   "date": "2017-07-09",
+   "year": 2017,
+   "name": "Самара Трофи - 2017. Командный турнир",
+   "link": null,
+   "partners": "«Шанс» Меньшикова М.Ю., Яковлев Г.Г., Золотарев С.Я., Татаркин И.В.",
+   "place": 16,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2018-05-05",
+   "year": 2018,
+   "name": "XXVI Кубок России. Командный турнир",
+   "link": null,
+   "partners": "«Брат 2» Татаркин А.А., Курсакова Л.Н., Татаркин В.А., Малкова М.Н., Лесничий П.П., Татаркин И.В.",
+   "place": 16,
+   "ro": 10,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-04-15",
+   "year": 2022,
+   "name": "XXVII Микстовый командный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/42227/",
+   "partners": "«Турецкий гамбит» Фрамполь О.Д., Столяров Е.Б., Татаркин И.В., Самохина К.А.",
+   "place": 16,
+   "ro": 32,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2022-05-01",
+   "year": 2022,
+   "name": "XXX Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/42103/",
+   "partners": "«MARINES CREW» Малыгин А.С., Шеховцова М.Н., Столяров Е.Б., Татаркин И.В.",
+   "place": 16,
+   "ro": 23,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2022-06-26",
+   "year": 2022,
+   "name": "Времена года-2022. Лето (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39928/",
+   "partners": "Столяров Е.Б.",
+   "place": 16,
+   "ro": 56,
+   "pb": null,
+   "mb": 13
+  },
+  {
+   "date": "2022-09-04",
+   "year": 2022,
+   "name": "Времена года-2022. Осень (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39930/",
+   "partners": "Столяров Е.Б.",
+   "place": 16,
+   "ro": 50,
+   "pb": null,
+   "mb": 10
+  },
+  {
+   "date": "2022-10-09",
+   "year": 2022,
+   "name": "Осенний парный турнир по бриджу (IMPs)",
+   "link": "https://www.bridgesport.ru/tournaments/45008/",
+   "partners": "Столяров Е.Б.",
+   "place": 16,
+   "ro": 13,
+   "pb": null,
+   "mb": 35
+  },
+  {
+   "date": "2024-02-18",
+   "year": 2024,
+   "name": "III Юниорский парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/51543/",
+   "partners": "Пустовойтов Л.А.",
+   "place": 16,
+   "ro": 25,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2026-01-10",
+   "year": 2026,
+   "name": "Новогодний командный турнир \"Зимняя Москва - 2026\"",
+   "link": "https://www.bridgesport.ru/tournaments/78533/",
+   "partners": "«Ален Делон» Аграчев А.Ф., Татаркин И.В., Волков А.В., Хвень Е.М.",
+   "place": 16,
+   "ro": 9,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2018-05-05",
+   "year": 2018,
+   "name": "XXVI Кубок России. Паттон",
+   "link": null,
+   "partners": "«Брат - 2» Татаркин А.А., Курсакова Л.Н., Татаркин В.А., Малкова М.Н., Лесничий П.П., Татаркин И.В.",
+   "place": 17,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-03-17",
+   "year": 2019,
+   "name": "XXIV Микстовый командный чемпионат России",
+   "link": null,
+   "partners": "«Юниоры» Вышеславов И.В., Антипова Е.С., Татаркин И.В., Матушко С.Г., Сташенкова Е.Д., Юн И.В.",
+   "place": 17,
+   "ro": 10,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-04-25",
+   "year": 2021,
+   "name": "Весенний командный турнир",
+   "link": null,
+   "partners": "«Russia JR» Столяров Е.Б., Татаркин И.В., Юн И.В., Макарова А.А.",
+   "place": 17,
+   "ro": 4,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-07-10",
+   "year": 2022,
+   "name": "Времена года-2022. Лето (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/39929/",
+   "partners": "Столяров Е.Б.",
+   "place": 17,
+   "ro": 50,
+   "pb": null,
+   "mb": 55
+  },
+  {
+   "date": "2025-08-03",
+   "year": 2025,
+   "name": "XX Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/77256/",
+   "partners": "Столяров Е.Б.",
+   "place": 17,
+   "ro": 93,
+   "pb": null,
+   "mb": 41
+  },
+  {
+   "date": "2026-04-26",
+   "year": 2026,
+   "name": "Кубок Розенблюма - 2026",
+   "link": "https://www.bridgesport.ru/tournaments/78869/",
+   "partners": "Улановский Л.М.",
+   "place": 17,
+   "ro": 46,
+   "pb": null,
+   "mb": 96
+  },
+  {
+   "date": "2021-11-14",
+   "year": 2021,
+   "name": "XXVIII Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/39368/",
+   "partners": "Столяров Е.Б.",
+   "place": 18,
+   "ro": 86,
+   "pb": null,
+   "mb": 19
+  },
+  {
+   "date": "2022-08-24",
+   "year": 2022,
+   "name": "Кубок Дона 2022. Мемориальный турнир (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/44726/",
+   "partners": "Столяров Е.Б.",
+   "place": 18,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-08-10",
+   "year": 2025,
+   "name": "Московский экспресс (MP) 2025. №7",
+   "link": "https://www.bridgesport.ru/tournaments/72900/",
+   "partners": "Волков А.В.",
+   "place": 18,
+   "ro": null,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2026-03-29",
+   "year": 2026,
+   "name": "Московский экспресс (MP) 2026. №5",
+   "link": "https://www.bridgesport.ru/tournaments/83297/",
+   "partners": "Валяева С.А.",
+   "place": 18,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2018-05-27",
+   "year": 2018,
+   "name": "XXVI Фестиваль \"Белые ночи\". Командный турнир",
+   "link": null,
+   "partners": "«Отморозки» Татаркин А.А., Курсакова Л.Н., Малахевич А.А., Татаркин В.А., Татаркин И.В.",
+   "place": 20,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-05-30",
+   "year": 2021,
+   "name": "XXIX Фестиваль \"Белые ночи\". Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/39495/",
+   "partners": "«Russia JR» Столяров Е.Б., Татаркин И.В., Юн И.В., Макарова А.А.",
+   "place": 20,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-10-03",
+   "year": 2021,
+   "name": "Осенний парный турнир по бриджу (IMPs)",
+   "link": "https://www.bridgesport.ru/tournaments/39627/",
+   "partners": "Столяров Е.Б.",
+   "place": 20,
+   "ro": 17,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2025-05-05",
+   "year": 2025,
+   "name": "XXXIII Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/72140/",
+   "partners": "«17 лет» Аграчев А.Ф., Столяров Е.Б., Татаркин И.В., Хвень Е.М.",
+   "place": 20,
+   "ro": 13,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-05-29",
+   "year": 2022,
+   "name": "I Микстовый командный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/41140/",
+   "partners": "«НГШ» Фрамполь О.Д., Столяров Е.Б., Татаркин И.В., Самохина К.А.",
+   "place": 21,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2026-04-05",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 3. Парный паттон.",
+   "link": "https://www.bridgesport.ru/tournaments/82491/",
+   "partners": "Волков А.В.",
+   "place": 21,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2020-11-08",
+   "year": 2020,
+   "name": "Зимний парный турнир в Звенигороде (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/38725/",
+   "partners": "Столяров Е.Б.",
+   "place": 22,
+   "ro": 84,
+   "pb": 1,
+   "mb": 164
+  },
+  {
+   "date": "2025-05-02",
+   "year": 2025,
+   "name": "XXXIII Кубок России. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/72141/",
+   "partners": "Столяров Е.Б.",
+   "place": 22,
+   "ro": 63,
+   "pb": null,
+   "mb": 41
+  },
+  {
+   "date": "2021-05-01",
+   "year": 2021,
+   "name": "XXIX Кубок России. Командный турнир",
+   "link": "https://www.bridgesport.ru/tournaments/39406/",
+   "partners": "«RUSSIA JR» Столяров Е.Б., Бабошина А.В., Игнатьева А.Д., Татаркин И.В.",
+   "place": 23,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2015-07-19",
+   "year": 2015,
+   "name": "Самара Трофи - 2015. Парный конгресс",
+   "link": null,
+   "partners": "Меньшикова М.Ю.",
+   "place": 25,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-05-02",
+   "year": 2022,
+   "name": "XXX Кубок России. Парный конгресс памяти Сергея Кирича",
+   "link": "https://www.bridgesport.ru/tournaments/42102/",
+   "partners": "Столяров Е.Б.",
+   "place": 25,
+   "ro": 48,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2025-08-31",
+   "year": 2025,
+   "name": "IV Микстовый командный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/68186/",
+   "partners": "«Крипер» Татаркин И.В., Волков А.В., Погорелова Е.А., Валяева С.А.",
+   "place": 25,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-05-04",
+   "year": 2021,
+   "name": "XXIX Кубок России. Парный конгресс памяти Сергея Кирича",
+   "link": "https://www.bridgesport.ru/tournaments/39408/",
+   "partners": "Столяров Е.Б.",
+   "place": 26,
+   "ro": 46,
+   "pb": null,
+   "mb": 4
+  },
+  {
+   "date": "2024-08-04",
+   "year": 2024,
+   "name": "XIX Летний парный чемпионат России. Финал B",
+   "link": "https://www.bridgesport.ru/tournaments/64803/",
+   "partners": "Столяров Е.Б.",
+   "place": 26,
+   "ro": 30,
+   "pb": null,
+   "mb": 10
+  },
+  {
+   "date": "2022-04-17",
+   "year": 2022,
+   "name": "XXVII Микстовый парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/42226/",
+   "partners": "Самохина К.А.",
+   "place": 27,
+   "ro": 46,
+   "pb": null,
+   "mb": 3
+  },
+  {
+   "date": "2023-08-13",
+   "year": 2023,
+   "name": "XVIII Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/46513/",
+   "partners": "Макарова А.А.",
+   "place": 29,
+   "ro": 51,
+   "pb": null,
+   "mb": 113
+  },
+  {
+   "date": "2017-07-09",
+   "year": 2017,
+   "name": "Самара Трофи - 2017. Парный конгресс",
+   "link": null,
+   "partners": "Меньшикова М.Ю.",
+   "place": 30,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2017-11-06",
+   "year": 2017,
+   "name": "XXV Зимний парный чемпионат России (MP)",
+   "link": null,
+   "partners": "Хюппенен Ю.Н.",
+   "place": 30,
+   "ro": 39,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2026-05-31",
+   "year": 2026,
+   "name": "XLIV Парный чемпионат Москвы(MP)",
+   "link": "https://www.bridgesport.ru/tournaments/82496/",
+   "partners": "Улановский Л.М.",
+   "place": 30,
+   "ro": 41,
+   "pb": null,
+   "mb": 3
+  },
+  {
+   "date": "2026-07-19",
+   "year": 2026,
+   "name": "Самара Трофи - 2026. Парный конгресс",
+   "link": "https://www.bridgesport.ru/tournaments/88270/",
+   "partners": "Аграчев А.Ф.",
+   "place": 30,
+   "ro": 5,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2026-09-20",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 7. Швейцарка на импы",
+   "link": "https://www.bridgesport.ru/tournaments/82495/",
+   "partners": "Казанцев О.Р.",
+   "place": 30,
+   "ro": 6,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2020-09-13",
+   "year": 2020,
+   "name": "\"Sunday Times\" в Санкт-Петербурге 2020",
+   "link": "https://www.bridgesport.ru/tournaments/38836/",
+   "partners": "Столяров Е.Б.",
+   "place": 31,
+   "ro": 20,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-03-17",
+   "year": 2019,
+   "name": "XXIV Микстовый парный чемпионат России",
+   "link": null,
+   "partners": "Антипова Е.С.",
+   "place": 33,
+   "ro": 29,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-11-04",
+   "year": 2019,
+   "name": "XXVII Зимний парный чемпионат России (MP)",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 34,
+   "ro": 37,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2026-03-22",
+   "year": 2026,
+   "name": "Мегакубок Москвы - 2. Парный конгресс на ИМПы.",
+   "link": "https://www.bridgesport.ru/tournaments/82490/",
+   "partners": "Волков А.В.",
+   "place": 34,
+   "ro": null,
+   "pb": null,
+   "mb": 17
+  },
+  {
+   "date": "2023-03-12",
+   "year": 2023,
+   "name": "Весенний парный турнир по бриджу (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/46885/",
+   "partners": "Аграчев А.Ф.",
+   "place": 35,
+   "ro": null,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2024-04-07",
+   "year": 2024,
+   "name": "Московский Sunday Times 7x4 2024",
+   "link": "https://www.bridgesport.ru/tournaments/54945/",
+   "partners": "Столяров Е.Б.",
+   "place": 35,
+   "ro": null,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2021-09-12",
+   "year": 2021,
+   "name": "VI Единый Московский Мемориал",
+   "link": "https://www.bridgesport.ru/tournaments/39692/",
+   "partners": "Столяров Е.Б.",
+   "place": 37,
+   "ro": 12,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2022-03-07",
+   "year": 2022,
+   "name": "XV Микстовый парный чемпионат Санкт-Петербурга",
+   "link": "https://www.bridgesport.ru/tournaments/39871/",
+   "partners": "Самохина К.А.",
+   "place": 37,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2023-05-01",
+   "year": 2023,
+   "name": "XXXI Кубок России. Парный конгресс памяти Сергея Кирича",
+   "link": "https://www.bridgesport.ru/tournaments/48030/",
+   "partners": "Макарова А.А.",
+   "place": 37,
+   "ro": 21,
+   "pb": null,
+   "mb": 8
+  },
+  {
+   "date": "2023-04-09",
+   "year": 2023,
+   "name": "Московский Sunday Times 7x4 2023",
+   "link": "https://www.bridgesport.ru/tournaments/47406/",
+   "partners": "Макарова А.А.",
+   "place": 38,
+   "ro": 2,
+   "pb": null,
+   "mb": 1
+  },
+  {
+   "date": "2021-03-08",
+   "year": 2021,
+   "name": "XXVI Микстовый парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/39303/",
+   "partners": "Юн И.В.",
+   "place": 39,
+   "ro": 21,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2016-05-22",
+   "year": 2016,
+   "name": "XXXV Парный чемпионат Москвы (MP)",
+   "link": null,
+   "partners": "Курсакова Л.Н.",
+   "place": 40,
+   "ro": null,
+   "pb": null,
+   "mb": 59
+  },
+  {
+   "date": "2018-05-05",
+   "year": 2018,
+   "name": "XXVI Кубок России. Парный конгресс",
+   "link": null,
+   "partners": "Татаркин В.А.",
+   "place": 40,
+   "ro": 2,
+   "pb": null,
+   "mb": 15
+  },
+  {
+   "date": "2022-05-15",
+   "year": 2022,
+   "name": "XL Парный чемпионат Москвы (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/40273/",
+   "partners": "Аграчев А.Ф.",
+   "place": 40,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2026-03-09",
+   "year": 2026,
+   "name": "XXXI Микстовый парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/83358/",
+   "partners": "Валяева С.А.",
+   "place": 41,
+   "ro": 11,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-05-19",
+   "year": 2019,
+   "name": "XXXVIII Парный чемпионат Москвы (MP)",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 42,
+   "ro": null,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2022-02-06",
+   "year": 2022,
+   "name": "XIII Парный чемпионат Москвы (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/40274/",
+   "partners": "Столяров Е.Б.",
+   "place": 42,
+   "ro": null,
+   "pb": null,
+   "mb": 46
+  },
+  {
+   "date": "2023-02-26",
+   "year": 2023,
+   "name": "XXVIII Микстовый парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/47679/",
+   "partners": "Макарова А.А.",
+   "place": 42,
+   "ro": 15,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2020-08-09",
+   "year": 2020,
+   "name": "Летний турнир в Демино 2020 (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/38723/",
+   "partners": "Столяров Е.Б.",
+   "place": 43,
+   "ro": 73,
+   "pb": null,
+   "mb": 46
+  },
+  {
+   "date": "2025-11-04",
+   "year": 2025,
+   "name": "XXXII Зимний парный чемпионат России (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/80502/",
+   "partners": "Волков А.В.",
+   "place": 44,
+   "ro": 18,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-11-21",
+   "year": 2021,
+   "name": "XXII Микстовый парный чемпионат Москвы",
+   "link": "https://www.bridgesport.ru/tournaments/39629/",
+   "partners": "Самохина К.А.",
+   "place": 46,
+   "ro": null,
+   "pb": null,
+   "mb": 6
+  },
+  {
+   "date": "2020-02-09",
+   "year": 2020,
+   "name": "XI Парный чемпионат Москвы (IMP)",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 48,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2019-11-24",
+   "year": 2019,
+   "name": "V Единый Московский Мемориал",
+   "link": null,
+   "partners": "Столяров Е.Б.",
+   "place": 51,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2024-08-04",
+   "year": 2024,
+   "name": "XIX Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/64802/",
+   "partners": "Столяров Е.Б.",
+   "place": 51,
+   "ro": 6,
+   "pb": null,
+   "mb": 25
+  },
+  {
+   "date": "2026-08-02",
+   "year": 2026,
+   "name": "XXI Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/91584/",
+   "partners": "Хвень Е.М.",
+   "place": 52,
+   "ro": 3,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2021-08-08",
+   "year": 2021,
+   "name": "XVI Летний парный чемпионат России",
+   "link": "https://www.bridgesport.ru/tournaments/39367/",
+   "partners": "Столяров Е.Б.",
+   "place": 55,
+   "ro": 61,
+   "pb": null,
+   "mb": 28
+  },
+  {
+   "date": "2015-03-09",
+   "year": 2015,
+   "name": "XX Микстовый парный чемпионат России",
+   "link": null,
+   "partners": "Миронова Ю.А.",
+   "place": 56,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-10-19",
+   "year": 2025,
+   "name": "XXVI Микстовый парный чемпионат Москвы (MPs)",
+   "link": "https://www.bridgesport.ru/tournaments/68187/",
+   "partners": "Валяева С.А.",
+   "place": 57,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2025-02-02",
+   "year": 2025,
+   "name": "XVI Парный чемпионат Москвы (IMP)",
+   "link": "https://www.bridgesport.ru/tournaments/68184/",
+   "partners": "Тарасов Д.Д.",
+   "place": 60,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2017-08-06",
+   "year": 2017,
+   "name": "XIII Летний парный чемпионат России",
+   "link": null,
+   "partners": "Курсакова Л.Н.",
+   "place": 67,
+   "ro": 14,
+   "pb": null,
+   "mb": 2
+  },
+  {
+   "date": "2018-08-05",
+   "year": 2018,
+   "name": "XIV Летний парный чемпионат России",
+   "link": null,
+   "partners": "Татаркин А.А.",
+   "place": 67,
+   "ro": 8,
+   "pb": null,
+   "mb": 15
+  },
+  {
+   "date": "2018-11-05",
+   "year": 2018,
+   "name": "XXVI Зимний парный чемпионат России (MP)",
+   "link": null,
+   "partners": "Данилевский А.В.",
+   "place": 79,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  },
+  {
+   "date": "2016-11-06",
+   "year": 2016,
+   "name": "XXIV Зимний парный чемпионат России (MP)",
+   "link": null,
+   "partners": "Потемкин А.Н.",
+   "place": 87,
+   "ro": null,
+   "pb": null,
+   "mb": null
+  }
+ ],
+ "club_mb": [
+  {
+   "month": "2026-08",
+   "source": "Москва клубный",
+   "mb": 149,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-07",
+   "source": "Москва клубный",
+   "mb": 39,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-07",
+   "source": "Самара Трофи - 2026. Приветственный турнир",
+   "mb": 12,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-06",
+   "source": "Москва клубный",
+   "mb": 322,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-04",
+   "source": "Москва клубный",
+   "mb": 11,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-04",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 52
+  },
+  {
+   "month": "2026-03",
+   "source": "Москва клубный",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-03",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 1
+  },
+  {
+   "month": "2026-02",
+   "source": "Москва клубный",
+   "mb": 20,
+   "online_mb": 0
+  },
+  {
+   "month": "2026-01",
+   "source": "Москва клубный",
+   "mb": 1,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-12",
+   "source": "Москва клубный",
+   "mb": 50,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-10",
+   "source": "Москва клубный",
+   "mb": 24,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-09",
+   "source": "Москва клубный",
+   "mb": 3,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-08",
+   "source": "Москва клубный",
+   "mb": 8,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-07",
+   "source": "Москва клубный",
+   "mb": 122,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-07",
+   "source": "X Летний юниорский бриджевый лагерь",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-06",
+   "source": "Москва клубный",
+   "mb": 7,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-05",
+   "source": "Москва клубный",
+   "mb": 126,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-03",
+   "source": "Москва клубный",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-03",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 1
+  },
+  {
+   "month": "2025-02",
+   "source": "Москва клубный",
+   "mb": 48,
+   "online_mb": 0
+  },
+  {
+   "month": "2025-01",
+   "source": "Москва клубный",
+   "mb": 1,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-12",
+   "source": "Москва клубный",
+   "mb": 28,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-12",
+   "source": "Москва клубный, индивидуальные турниры",
+   "mb": 67,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-10",
+   "source": "Москва клубный",
+   "mb": 88,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-09",
+   "source": "Москва клубный",
+   "mb": 26,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-08",
+   "source": "Москва клубный",
+   "mb": 19,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-07",
+   "source": "Москва клубный",
+   "mb": 49,
+   "online_mb": 0
+  },
+  {
+   "month": "2024-01",
+   "source": "Москва клубный",
+   "mb": 84,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-12",
+   "source": "Москва клубный",
+   "mb": 21,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-11",
+   "source": "Москва клубный",
+   "mb": 31,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-08",
+   "source": "Москва клубный",
+   "mb": 3,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-07",
+   "source": "Москва клубный",
+   "mb": 17,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-07",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 21
+  },
+  {
+   "month": "2023-06",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 19
+  },
+  {
+   "month": "2023-06",
+   "source": "Москва клубный",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2023-02",
+   "source": "Москва клубный",
+   "mb": 76,
+   "online_mb": 0
+  },
+  {
+   "month": "2022-12",
+   "source": "Москва клубный",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2022-11",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 48
+  },
+  {
+   "month": "2022-08",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 66
+  },
+  {
+   "month": "2022-07",
+   "source": "Москва клубный",
+   "mb": 67,
+   "online_mb": 0
+  },
+  {
+   "month": "2022-07",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 5
+  },
+  {
+   "month": "2022-06",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 46
+  },
+  {
+   "month": "2022-05",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 1
+  },
+  {
+   "month": "2022-04",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 67
+  },
+  {
+   "month": "2022-03",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 64
+  },
+  {
+   "month": "2022-02",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 14
+  },
+  {
+   "month": "2022-01",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 5
+  },
+  {
+   "month": "2021-12",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 9
+  },
+  {
+   "month": "2021-10",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 7
+  },
+  {
+   "month": "2021-07",
+   "source": "Челябинск клубный",
+   "mb": 4,
+   "online_mb": 0
+  },
+  {
+   "month": "2021-05",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 52
+  },
+  {
+   "month": "2021-04",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 20
+  },
+  {
+   "month": "2021-03",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 5
+  },
+  {
+   "month": "2021-02",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 16
+  },
+  {
+   "month": "2021-01",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 15
+  },
+  {
+   "month": "2020-12",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 31
+  },
+  {
+   "month": "2020-10",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 28
+  },
+  {
+   "month": "2020-09",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 5
+  },
+  {
+   "month": "2020-08",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 1
+  },
+  {
+   "month": "2020-06",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 29
+  },
+  {
+   "month": "2020-04",
+   "source": "Gambler клубный",
+   "mb": 0,
+   "online_mb": 1
+  },
+  {
+   "month": "2020-03",
+   "source": "Москва клубный",
+   "mb": 16,
+   "online_mb": 0
+  },
+  {
+   "month": "2019-12",
+   "source": "Москва клубный",
+   "mb": 43,
+   "online_mb": 0
+  },
+  {
+   "month": "2019-10",
+   "source": "Москва клубный",
+   "mb": 6,
+   "online_mb": 0
+  },
+  {
+   "month": "2019-09",
+   "source": "Москва клубный",
+   "mb": 117,
+   "online_mb": 0
+  },
+  {
+   "month": "2019-06",
+   "source": "Москва клубный",
+   "mb": 3,
+   "online_mb": 0
+  },
+  {
+   "month": "2019-03",
+   "source": "Москва клубный",
+   "mb": 5,
+   "online_mb": 0
+  },
+  {
+   "month": "2018-12",
+   "source": "Москва клубный",
+   "mb": 4,
+   "online_mb": 0
+  },
+  {
+   "month": "2018-07",
+   "source": "Москва клубный",
+   "mb": 2,
+   "online_mb": 0
+  },
+  {
+   "month": "2016-05",
+   "source": "Москва клубный",
+   "mb": 60,
+   "online_mb": 0
+  }
+ ],
+ "rating_history": [
+  {
+   "date": "2017-10-01",
+   "place": 546,
+   "rating": 14
+  },
+  {
+   "date": "2017-11-01",
+   "place": 546,
+   "rating": 14
+  },
+  {
+   "date": "2017-12-01",
+   "place": 546,
+   "rating": 14
+  },
+  {
+   "date": "2018-01-01",
+   "place": 418,
+   "rating": 53
+  },
+  {
+   "date": "2018-02-01",
+   "place": 418,
+   "rating": 53
+  },
+  {
+   "date": "2018-03-01",
+   "place": 420,
+   "rating": 53
+  },
+  {
+   "date": "2018-04-01",
+   "place": 418,
+   "rating": 53
+  },
+  {
+   "date": "2018-05-01",
+   "place": 386,
+   "rating": 77
+  },
+  {
+   "date": "2018-06-01",
+   "place": 371,
+   "rating": 89
+  },
+  {
+   "date": "2018-07-01",
+   "place": 371,
+   "rating": 89
+  },
+  {
+   "date": "2018-08-01",
+   "place": 370,
+   "rating": 89
+  },
+  {
+   "date": "2018-09-01",
+   "place": 367,
+   "rating": 94
+  },
+  {
+   "date": "2018-10-01",
+   "place": 368,
+   "rating": 94
+  },
+  {
+   "date": "2018-11-01",
+   "place": 365,
+   "rating": 94
+  },
+  {
+   "date": "2018-12-01",
+   "place": 379,
+   "rating": 84
+  },
+  {
+   "date": "2019-01-01",
+   "place": 385,
+   "rating": 84
+  },
+  {
+   "date": "2019-02-01",
+   "place": 384,
+   "rating": 84
+  },
+  {
+   "date": "2019-03-01",
+   "place": 384,
+   "rating": 84
+  },
+  {
+   "date": "2019-04-01",
+   "place": 336,
+   "rating": 123
+  },
+  {
+   "date": "2019-05-01",
+   "place": 340,
+   "rating": 117
+  },
+  {
+   "date": "2019-06-01",
+   "place": 341,
+   "rating": 114
+  },
+  {
+   "date": "2019-07-01",
+   "place": 343,
+   "rating": 114
+  },
+  {
+   "date": "2019-08-01",
+   "place": 341,
+   "rating": 114
+  },
+  {
+   "date": "2019-09-01",
+   "place": 294,
+   "rating": 185
+  },
+  {
+   "date": "2019-10-01",
+   "place": 274,
+   "rating": 243
+  },
+  {
+   "date": "2019-11-01",
+   "place": 274,
+   "rating": 243
+  },
+  {
+   "date": "2019-12-01",
+   "place": 267,
+   "rating": 271
+  },
+  {
+   "date": "2020-01-01",
+   "place": 266,
+   "rating": 271
+  },
+  {
+   "date": "2020-02-01",
+   "place": 266,
+   "rating": 271
+  },
+  {
+   "date": "2020-03-01",
+   "place": 266,
+   "rating": 271
+  },
+  {
+   "date": "2020-04-01",
+   "place": 267,
+   "rating": 261
+  },
+  {
+   "date": "2020-05-01",
+   "place": 267,
+   "rating": 261
+  },
+  {
+   "date": "2020-06-01",
+   "place": 267,
+   "rating": 261
+  },
+  {
+   "date": "2020-07-01",
+   "place": 262,
+   "rating": 252
+  },
+  {
+   "date": "2020-08-01",
+   "place": 250,
+   "rating": 293
+  },
+  {
+   "date": "2020-09-01",
+   "place": 231,
+   "rating": 341
+  },
+  {
+   "date": "2020-10-01",
+   "place": 227,
+   "rating": 347
+  },
+  {
+   "date": "2020-11-01",
+   "place": 228,
+   "rating": 347
+  },
+  {
+   "date": "2020-12-01",
+   "place": 211,
+   "rating": 412
+  },
+  {
+   "date": "2021-01-01",
+   "place": 211,
+   "rating": 412
+  },
+  {
+   "date": "2021-02-01",
+   "place": 209,
+   "rating": 412
+  },
+  {
+   "date": "2021-03-01",
+   "place": 204,
+   "rating": 443
+  },
+  {
+   "date": "2021-04-01",
+   "place": 200,
+   "rating": 454
+  },
+  {
+   "date": "2021-05-01",
+   "place": 164,
+   "rating": 611
+  },
+  {
+   "date": "2021-06-01",
+   "place": 158,
+   "rating": 695
+  },
+  {
+   "date": "2021-07-01",
+   "place": 159,
+   "rating": 705
+  },
+  {
+   "date": "2021-08-01",
+   "place": 162,
+   "rating": 699
+  },
+  {
+   "date": "2021-09-01",
+   "place": 129,
+   "rating": 894
+  },
+  {
+   "date": "2021-10-01",
+   "place": 120,
+   "rating": 976
+  },
+  {
+   "date": "2021-11-01",
+   "place": 119,
+   "rating": 976
+  },
+  {
+   "date": "2021-12-01",
+   "place": 122,
+   "rating": 1022
+  },
+  {
+   "date": "2022-01-01",
+   "place": 110,
+   "rating": 1146
+  },
+  {
+   "date": "2022-02-01",
+   "place": 91,
+   "rating": 1310
+  },
+  {
+   "date": "2022-03-01",
+   "place": 83,
+   "rating": 1435
+  },
+  {
+   "date": "2022-04-01",
+   "place": 80,
+   "rating": 1489
+  },
+  {
+   "date": "2022-05-01",
+   "place": 80,
+   "rating": 1532
+  },
+  {
+   "date": "2022-06-01",
+   "place": 78,
+   "rating": 1594
+  },
+  {
+   "date": "2022-07-01",
+   "place": 71,
+   "rating": 1725
+  },
+  {
+   "date": "2022-08-01",
+   "place": 73,
+   "rating": 1718
+  },
+  {
+   "date": "2022-09-01",
+   "place": 67,
+   "rating": 1933
+  },
+  {
+   "date": "2022-10-01",
+   "place": 62,
+   "rating": 2022
+  },
+  {
+   "date": "2022-11-01",
+   "place": 59,
+   "rating": 2128
+  },
+  {
+   "date": "2022-12-01",
+   "place": 54,
+   "rating": 2339
+  },
+  {
+   "date": "2023-01-01",
+   "place": 52,
+   "rating": 2405
+  },
+  {
+   "date": "2023-02-01",
+   "place": 50,
+   "rating": 2463
+  },
+  {
+   "date": "2023-03-01",
+   "place": 49,
+   "rating": 2543
+  },
+  {
+   "date": "2023-04-01",
+   "place": 43,
+   "rating": 2700
+  },
+  {
+   "date": "2023-05-01",
+   "place": 43,
+   "rating": 2726
+  },
+  {
+   "date": "2023-06-01",
+   "place": 41,
+   "rating": 2855
+  },
+  {
+   "date": "2023-07-01",
+   "place": 42,
+   "rating": 2911
+  },
+  {
+   "date": "2023-08-01",
+   "place": 38,
+   "rating": 2938
+  },
+  {
+   "date": "2023-09-01",
+   "place": 41,
+   "rating": 2921
+  },
+  {
+   "date": "2023-10-01",
+   "place": 40,
+   "rating": 2913
+  },
+  {
+   "date": "2023-11-01",
+   "place": 44,
+   "rating": 2870
+  },
+  {
+   "date": "2023-12-01",
+   "place": 40,
+   "rating": 3001
+  },
+  {
+   "date": "2024-01-01",
+   "place": 39,
+   "rating": 3060
+  },
+  {
+   "date": "2024-02-01",
+   "place": 40,
+   "rating": 3033
+  },
+  {
+   "date": "2024-03-01",
+   "place": 36,
+   "rating": 3180
+  },
+  {
+   "date": "2024-04-01",
+   "place": 38,
+   "rating": 3144
+  },
+  {
+   "date": "2024-05-01",
+   "place": 38,
+   "rating": 3135
+  },
+  {
+   "date": "2024-06-01",
+   "place": 27,
+   "rating": 3493
+  },
+  {
+   "date": "2024-07-01",
+   "place": 28,
+   "rating": 3505
+  },
+  {
+   "date": "2024-08-01",
+   "place": 30,
+   "rating": 3531
+  },
+  {
+   "date": "2024-09-01",
+   "place": 29,
+   "rating": 3562
+  },
+  {
+   "date": "2024-10-01",
+   "place": 29,
+   "rating": 3565
+  },
+  {
+   "date": "2024-11-01",
+   "place": 30,
+   "rating": 3526
+  },
+  {
+   "date": "2024-12-01",
+   "place": 32,
+   "rating": 3479
+  },
+  {
+   "date": "2025-01-01",
+   "place": 34,
+   "rating": 3470
+  },
+  {
+   "date": "2025-02-01",
+   "place": 34,
+   "rating": 3434
+  },
+  {
+   "date": "2025-03-01",
+   "place": 33,
+   "rating": 3471
+  },
+  {
+   "date": "2025-04-01",
+   "place": 35,
+   "rating": 3427
+  },
+  {
+   "date": "2025-05-01",
+   "place": 34,
+   "rating": 3354
+  },
+  {
+   "date": "2025-06-01",
+   "place": 35,
+   "rating": 3279
+  },
+  {
+   "date": "2025-07-01",
+   "place": 39,
+   "rating": 3211
+  },
+  {
+   "date": "2025-08-01",
+   "place": 36,
+   "rating": 3282
+  },
+  {
+   "date": "2025-09-01",
+   "place": 35,
+   "rating": 3312
+  },
+  {
+   "date": "2025-10-01",
+   "place": 37,
+   "rating": 3269
+  },
+  {
+   "date": "2025-11-01",
+   "place": 38,
+   "rating": 3234
+  },
+  {
+   "date": "2025-12-01",
+   "place": 44,
+   "rating": 3069
+  },
+  {
+   "date": "2026-01-01",
+   "place": 43,
+   "rating": 3077
+  },
+  {
+   "date": "2026-02-01",
+   "place": 38,
+   "rating": 3198
+  },
+  {
+   "date": "2026-03-01",
+   "place": 34,
+   "rating": 3397
+  },
+  {
+   "date": "2026-04-01",
+   "place": 34,
+   "rating": 3350
+  },
+  {
+   "date": "2026-05-01",
+   "place": 35,
+   "rating": 3299
+  },
+  {
+   "date": "2026-06-01",
+   "place": 30,
+   "rating": 3526
+  },
+  {
+   "date": "2026-07-01",
+   "place": 30,
+   "rating": 3472
+  },
+  {
+   "date": "2026-08-01",
+   "place": 30,
+   "rating": 3496
+  },
+  {
+   "date": "2026-09-01",
+   "place": 29,
+   "rating": 3545
+  },
+  {
+   "date": "2026-10-01",
+   "place": 31,
+   "rating": 3625
+  }
+ ],
+ "updated": "2026-10-30T21:11:59Z"
+}

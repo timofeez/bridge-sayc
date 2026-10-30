@@ -199,11 +199,12 @@ function gamesHub() {
   const p = prof(), dl = dailyStatus();
   render(`<a href="#" class="dailycard" id="g_daily"><div class="dc-cal"><small>${new Date().toLocaleDateString('ru-RU', { month: 'short' })}</small><b>${new Date().getDate()}</b></div><div><b>Сдача дня</b><small>${dl ? `Сыграно: ${bidRu(dl.bid)}, взято ${dl.got} · ${dl.score > 0 ? '+' : ''}${dl.score}` : 'Одна сдача для всех — сыграйте сегодня!'}</small></div><i>${dl ? '✓' : '›'}</i></a>
   ${(() => { const last = histAll().find(x => x.plays && x.plays.length && x.bid); return `<button class="analyzecta" id="g_an"><span class="ac-ico">🧠</span><div><b>Разбор сдач</b><small>${last ? `Последняя: ${resultText(last)}. Узнайте, где были ошибки` : 'Сыграйте сдачу — и робот-эксперт покажет идеальный розыгрыш и ваши ошибки'}</small></div><span class="ac-new">NEW</span><i>›</i></button>`; })()}
+  <a href="#" class="ttcta" id="g_tt"><div class="radar"><i></i><span class="blip"></span></div><div><b>Татаркин-радар</b><small>Где играет Иван Татаркин и на каком месте. Обновляется сам</small></div><i>›</i></a>
   <a href="#" class="wscta" id="g_ws"><span class="cardback" data-b="${look().back}"></span><span class="cardback" data-b="${look().back}"></span><div><b>🎨 Мастерская</b><small>Рубашки, сукно, колода, аватар</small></div><i>›</i></a>
   <a href="#" class="histcta" id="g_hist"><span>📜</span><div><b>Мои сдачи</b><small>${histAll().length ? `Сохранено: ${histAll().length}. Посмотреть торговлю и розыгрыш` : 'Здесь появятся сыгранные сдачи'}</small></div><i>›</i></a>
   <a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
   ${GAMES.map(g => `<h3 class="gsec">${g.sec}</h3><div class="ggrid">${g.items.map(([id, em, t, d, c], i) => `<a href="#" class="gcard ${c}" id="${id}" style="--i:${i}"><span class="gem">${em}</span><b>${t}</b><small>${d}</small></a>`).join('')}</div>`).join('')}`, 'Игры');
-  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); $('g_an').onclick = () => { const last = histAll().find(x => x.plays && x.plays.length && x.bid); last ? replay(last.id, true) : playRandom(); }; on('g_daily', dailyPlay);
+  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_tt', tatarkinPage); $('g_an').onclick = () => { const last = histAll().find(x => x.plays && x.plays.length && x.bid); last ? replay(last.id, true) : playRandom(); }; on('g_daily', dailyPlay);
   GAMES.forEach(g => g.items.forEach(([id, , , , , f]) => on(id, f)));
   // Наклон карточек за пальцем/мышью
   $app.querySelectorAll('.gcard,.blitzcard').forEach(c => {

@@ -633,7 +633,7 @@ header{background-size:200% 100%!important;animation:hdr 8s ease-in-out infinite
 h1,h2,.bignum,.cn,.bigbid,.sp-title,.lvlnum,.countdown,.bscore b,.ddpar span,.stat b,.dc-cal b,.board b,.donut b{font-family:Unbounded,Onest,system-ui,sans-serif;letter-spacing:-.02em}
 h2{font-weight:700}
 .hero h2,.blitzcard h2{font-weight:800}
-header h1{font-size:16px;font-weight:700}
+header h1{font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .pc b,.tc,.bigcard,.pcbig{font-family:Unbounded,Onest,sans-serif;font-weight:700}
 /* ===== Вёрстка без съезжаний ===== */
 html,body{overflow-x:clip;max-width:100%}
@@ -659,6 +659,61 @@ table{display:block;overflow-x:auto;max-width:100%}
 .analyzecta i{margin-left:auto;font-style:normal;font-size:28px;font-weight:800}
 .analyzecta>div{padding-right:22px}.analyzecta .ac-new{position:absolute;right:10px;top:8px;background:#fff;color:#7b2ff7;font:800 10px Onest;border-radius:10px;padding:2px 8px;animation:pulse 1.2s infinite}
 .hbadge{display:inline-block;margin-top:4px;padding:2px 8px;border-radius:10px;background:linear-gradient(120deg,#7b2ff7,#c471f5);color:#fff;font-size:11px;font-weight:700}
+/* ===== Татаркин-радар ===== */
+.radar{position:relative;width:46px;height:46px;flex:none;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle,transparent 30%,rgba(95,255,170,.25) 31%,transparent 33%,transparent 62%,rgba(95,255,170,.25) 63%,transparent 65%),radial-gradient(circle,#0c3b24,#05170e);box-shadow:0 0 0 2px rgba(95,255,170,.5)}
+.radar i{position:absolute;inset:0;background:conic-gradient(from 0deg,rgba(95,255,170,.7),transparent 25%);animation:spin 2.4s linear infinite;border-radius:50%}
+.radar .blip{position:absolute;width:7px;height:7px;border-radius:50%;background:#7dffb6;left:62%;top:30%;box-shadow:0 0 8px #7dffb6;animation:blip 2.4s linear infinite}
+@keyframes blip{0%,10%{opacity:1;transform:scale(1.4)}60%,100%{opacity:.15;transform:scale(1)}}
+.radar.big{width:150px;height:150px;position:absolute;right:-20px;top:-20px;opacity:.55}
+.ttcta{display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:12px;border-radius:22px;text-decoration:none;color:#d8ffe9;background:linear-gradient(120deg,#05170e,#0c3b24 60%,#145c38);box-shadow:0 10px 26px rgba(5,23,14,.4);position:relative;overflow:hidden;animation:pageIn .4s both}
+.ttcta b{display:block;font:700 16px Unbounded,Onest,sans-serif;color:#fff}.ttcta small{font-size:12px;opacity:.85}
+.ttcta>i{margin-left:auto;font-style:normal;font-size:26px;font-weight:800}
+.ttload{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:80px;text-align:center}
+.ttload .radar{width:120px;height:120px}
+.tthero{position:relative;overflow:hidden;border-radius:26px;padding:22px 18px;margin-bottom:12px;color:#d8ffe9;background:radial-gradient(120% 140% at 100% 0%,#145c38,#0c3b24 45%,#05170e);box-shadow:var(--shadow)}
+.tthero h2{color:#fff;margin:10px 0 2px;font-size:26px}.tthero p{margin:0;opacity:.9}.tthero small{opacity:.7;font-size:12px}
+.ttava{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font:800 24px Unbounded,sans-serif;color:#05170e;background:radial-gradient(circle at 30% 30%,#b6ffd6,#3ddc84);box-shadow:0 0 0 4px rgba(61,220,132,.3),0 0 24px rgba(61,220,132,.6);position:relative;animation:pop .6s}
+.ttlive{display:flex;gap:12px;padding:14px;border-radius:20px;margin-bottom:12px;background:var(--card);border:2px solid #d64045;box-shadow:0 8px 22px rgba(214,64,69,.18);animation:pageIn .5s both}
+.ttlive b{display:block;font-size:16px}.ttlive p{margin:4px 0}.ttlive em{color:var(--muted);font-size:14px}.ttlive small{color:var(--muted)}
+.livedot{align-self:flex-start;flex:none;background:#d64045;color:#fff;font:800 11px Onest;border-radius:8px;padding:3px 8px;animation:pulse 1s infinite}
+.medals{display:flex;justify-content:space-around;text-align:center}
+.medals span{font-size:40px;display:block;animation:floaty 3s ease-in-out infinite}.medals div:nth-child(2) span{animation-delay:-1s}.medals div:nth-child(3) span{animation-delay:-2s}
+.medals b{font:800 24px Unbounded,sans-serif}
+.ttfact{padding:8px 10px;border-radius:12px;background:var(--bg);margin:6px 0;animation:pageIn .4s both;animation-delay:calc(var(--i)*90ms)}
+.ttchart{width:100%;height:auto;overflow:visible}
+.ttchart .ttln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 1.8s ease forwards}
+.ttchart .ttarea{animation:pageIn 1.2s ease both}
+.ttchart .ttax{font:600 9px Onest,sans-serif;fill:var(--muted)}
+.ttchart .ttlast{animation:pulse 1.2s infinite;transform-box:fill-box;transform-origin:center}
+.ttyears{display:flex;align-items:flex-end;gap:6px;height:150px;padding-top:6px}
+.ty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.tycol{width:100%;max-width:34px;height:var(--h);border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#5ee7df,#3a7bd5);position:relative;overflow:hidden;animation:growUp .9s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*80ms);transform-origin:bottom}
+.tyg{position:absolute;left:0;right:0;bottom:0;height:var(--g);background:linear-gradient(180deg,#ffd76a,#c9a24a)}
+@keyframes growUp{from{transform:scaleY(0)}}
+.ty b{font-size:12px;margin-top:3px}.ty small{font-size:10px;color:var(--muted)}
+.ttchips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:8px}
+.ttchips button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:5px 12px;font:700 13px Onest;cursor:pointer}
+.ttchips button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.ttrow{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);animation:pageIn .3s both;animation-delay:calc(var(--i)*25ms)}
+.ttrow div{flex:1;min-width:0}.ttrow b{display:block;font-size:14px}.ttrow small{color:var(--muted);font-size:12px}
+.ttplace{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;font:800 14px Unbounded,sans-serif;background:var(--bg);color:var(--muted)}
+.ttplace.p1{background:radial-gradient(circle at 30% 30%,#fff3c4,#e6b43a);color:#5a3d00}
+.ttplace.p2{background:radial-gradient(circle at 30% 30%,#fff,#b9c2cc);color:#333}
+.ttplace.p3{background:radial-gradient(circle at 30% 30%,#ffd9b0,#c77d3a);color:#4a2500}
+.ttmb{font-size:12px;font-weight:700;color:var(--ok);flex:none}
+.ttonair{position:relative;overflow:hidden;border-radius:24px;padding:16px;margin-bottom:12px;color:#d8ffe9;background:radial-gradient(120% 140% at 0% 0%,#1d6b45,#0c3b24 50%,#05170e);box-shadow:0 12px 30px rgba(5,23,14,.45);animation:pop .5s}
+.ttonair::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 2px,transparent 2px 4px);pointer-events:none}
+.oa-top{display:flex;align-items:center;gap:8px}.oa-top small{opacity:.8}
+.oa-name{display:block;font:700 18px Unbounded,Onest,sans-serif;color:#fff;margin:8px 0 2px}
+.oa-team{margin:2px 0;font-weight:700}.oa-mem{opacity:.75;font-size:12px}
+.oa-place{display:flex;align-items:center;gap:12px;margin:12px 0 6px}
+.oa-place span{font:800 56px Unbounded,sans-serif;line-height:1;color:#7dffb6;text-shadow:0 0 18px rgba(125,255,182,.6)}
+.oa-place b{display:block;font-size:16px;color:#fff}.oa-place small{opacity:.85}.oa-place em{font-style:normal;font-size:40px;margin-left:auto;animation:floaty 2.5s ease-in-out infinite}
+.oa-com{margin:6px 0;padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.08)}
+.oa-chart{margin:8px 0}.oa-chart .ttax{fill:#9fd8b8}
+.oa-links{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}.oa-links a{color:#7dffb6;font-weight:700;font-size:14px}
+.oa-chk{opacity:.6;font-size:11px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -683,6 +738,7 @@ table{display:block;overflow-x:auto;max-width:100%}
 <script src="dd.js"></script>
 <script src="ddui.js"></script>
 <script src="extra.js"></script>
+<script src="tatarkin.js"></script>
 <script src="fx.js"></script>
 <script src="hub.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
