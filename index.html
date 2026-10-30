@@ -196,10 +196,15 @@ input[type=number],select{font:700 16px Manrope,sans-serif;padding:8px 10px;bord
 .trick{grid-area:t;position:relative;height:170px}
 .tc{position:absolute;width:44px;height:62px;border-radius:7px;background:var(--pc-bg);color:var(--pc-ink);display:grid;place-items:center;font-weight:800;font-size:15px;box-shadow:0 3px 10px rgba(0,0,0,.35);transition:all .35s ease}
 .tc.rs,.tc .r{color:#d23a3f}
-.tc.n{left:calc(50% - 22px);top:0;animation:fromN .3s ease-out}
-.tc.s{left:calc(50% - 22px);bottom:0;animation:fromS .3s ease-out}
-.tc.w{left:6%;top:calc(50% - 31px);animation:fromW .3s ease-out}
-.tc.e{right:6%;top:calc(50% - 31px);animation:fromE .3s ease-out}
+.tc.n{left:calc(50% - 22px);top:0}
+.tc.s{left:calc(50% - 22px);bottom:0}
+.tc.w{left:6%;top:calc(50% - 31px)}
+.tc.e{right:6%;top:calc(50% - 31px)}
+.tc.n.new{animation:fromN .3s ease-out}.tc.s.new{animation:fromS .3s ease-out}.tc.w.new{animation:fromW .3s ease-out}.tc.e.new{animation:fromE .3s ease-out}
+.tc.dropped{animation:pop .25s ease-out}
+.pc.can{touch-action:none;cursor:grab}
+.pc.ghost{position:fixed!important;margin:0!important;z-index:60;pointer-events:none;box-shadow:0 18px 36px rgba(0,0,0,.45);cursor:grabbing;animation:none}
+.trick.drop{border-radius:18px;background:radial-gradient(circle,rgba(201,162,74,.35),transparent 70%);outline:2px dashed var(--gold);outline-offset:-6px;transition:background .2s}
 @keyframes fromN{from{transform:translateY(-70px);opacity:0}}
 @keyframes fromS{from{transform:translateY(90px);opacity:0}}
 @keyframes fromW{from{transform:translateX(-70px);opacity:0}}

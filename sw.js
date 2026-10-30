@@ -1,4 +1,4 @@
-const CACHE = 'bridge-sayc-v7';
+const CACHE = 'bridge-sayc-v8';
 const FILES = ['./', 'index.html', 'app.js', 'data.js', 'engine.js', 'compete.js', 'play.js', 'gamify.js', 'hub.js', 'theory.js', 'manifest.json', 'icon.svg'];
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(

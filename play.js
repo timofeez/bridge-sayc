@@ -108,9 +108,17 @@ function seatHtml(seat) {
     return `<div class="pc${c.s === 1 || c.s === 2 ? ' rs' : ''}${gap}${cls}" data-seat="${seat}" data-i="${i}"><b>${rankName(c.r)}</b><i>${SUITS[c.s]}</i><em>${SUITS[c.s]}</em></div>`;
   }).join('')}</div>`;
 }
+let dragCleanup = null;
 function playRender(msg = '') {
+  if (dragCleanup) dragCleanup();
+  document.querySelectorAll('.pc.ghost').forEach(g => g.remove());
   const pos = ['n', 'e', 's', 'w'];
-  const tr = P.trick.map(t => `<div class="tc ${pos[t.seat]}${t.card.s === 1 || t.card.s === 2 ? ' rs' : ''}">${cardStr(t.card)}</div>`).join('');
+  // Анимируем только что сыгранную карту; остальные уже лежат на столе
+  const tr = P.trick.map((t, k) => {
+    const anim = P.fresh && k === P.trick.length - 1 ? (P.dropped ? ' dropped' : ' new') : '';
+    return `<div class="tc ${pos[t.seat]}${t.card.s === 1 || t.card.s === 2 ? ' rs' : ''}${anim}">${cardStr(t.card)}</div>`;
+  }).join('');
+  P.fresh = false; P.dropped = false;
   const ns = P.tricks[0], ew = P.tricks[1], need = 6 + P.level;
   const declT = P.tricks[P.decl % 2];
   render(`<div class="pbar"><span class="pill big">${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} · ${SEAT_SHORT[P.decl]}</span>
@@ -125,7 +133,7 @@ function playRender(msg = '') {
   <div id="pmsg">${msg}</div>
   <div class="pbtns"><button class="btn ghost" id="hint">💡 Подсказка</button><button class="btn ghost" id="lastT" ${P.last ? '' : 'disabled'}>Последняя взятка</button><button class="btn ghost" id="restart">↺ Заново</button></div>`,
   'Розыгрыш', P.onBack, true);
-  $app.querySelectorAll('.pc.can').forEach(el => el.onclick = () => userPlay(+el.dataset.seat, +el.dataset.i));
+  $app.querySelectorAll('.pc.can').forEach(enableDrag);
   $('hint').onclick = () => {
     if (!controls(P.turn) || P.done) return;
     const c = robotCard(P.turn);
@@ -138,11 +146,47 @@ function playRender(msg = '') {
 
 // ---------- Ход игры ----------
 function doPlay(seat, card) {
-  sfx('card');
+  sfx('card'); P.fresh = true;
   P.hands[seat] = P.hands[seat].filter(c => c !== card);
   P.trick.push({ seat, card }); P.played.add(card.s * 100 + card.r);
   P.turn = (seat + 1) % 4;
   playRender(); playStep();
+}
+// Перетаскивание карты на стол (нажатие тоже работает)
+function enableDrag(el) {
+  el.onpointerdown = e => {
+    if (P.busy) return;
+    e.preventDefault();
+    if (dragCleanup) dragCleanup();
+    const r = el.getBoundingClientRect(), sx = e.clientX, sy = e.clientY, trick = $('trick');
+    let moved = false, over = false;
+    const ghost = el.cloneNode(true);
+    ghost.className = el.className.replace(' can', '') + ' ghost';
+    Object.assign(ghost.style, { left: r.left + 'px', top: r.top + 'px', width: r.width + 'px', height: r.height + 'px' });
+    const move = ev => {
+      const dx = ev.clientX - sx, dy = ev.clientY - sy;
+      if (!moved && Math.abs(dx) + Math.abs(dy) > 8) { moved = true; document.body.appendChild(ghost); el.style.visibility = 'hidden'; }
+      if (!moved) return;
+      ghost.style.transform = `translate(${dx}px,${dy}px) rotate(${dx / 25}deg) scale(1.15)`;
+      const t = trick.getBoundingClientRect();
+      over = ev.clientX > t.left && ev.clientX < t.right && ev.clientY > t.top - 30 && ev.clientY < t.bottom + 30;
+      trick.classList.toggle('drop', over || dy < -90);
+    };
+    const cleanup = () => {
+      window.removeEventListener('pointermove', move); window.removeEventListener('pointerup', up); window.removeEventListener('pointercancel', up);
+      trick.classList.remove('drop'); dragCleanup = null;
+    };
+    dragCleanup = () => { cleanup(); ghost.remove(); el.style.visibility = ''; };
+    const up = ev => {
+      cleanup();
+      const dy = ev.clientY - sy;
+      if (!moved) return userPlay(+el.dataset.seat, +el.dataset.i);
+      if (over || dy < -90) { ghost.remove(); P.dropped = true; return userPlay(+el.dataset.seat, +el.dataset.i); }
+      ghost.style.transition = 'transform .25s ease'; ghost.style.transform = 'none';
+      setTimeout(() => { ghost.remove(); el.style.visibility = ''; }, 250);
+    };
+    window.addEventListener('pointermove', move); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
+  };
 }
 function userPlay(seat, i) {
   if (P.busy || P.turn !== seat) return;

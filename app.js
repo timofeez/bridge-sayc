@@ -21,9 +21,12 @@ const srcHtml = keys => `<div class="src">Источники: ${keys.map(k => `<
 const cardStr = c => SUITS[c.s] + rankName(c.r);
 
 // Нарисованная рука веером
+// Раздача анимируется только при первом показе руки
+const dealtHands = new WeakSet();
 function fanHtml(h) {
   let prev = null;
-  return `<div class="fan">${h.map((c, i) => {
+  const seen = dealtHands.has(h); dealtHands.add(h);
+  return `<div class="fan${seen ? ' static' : ''}">${h.map((c, i) => {
     const gap = prev !== null && prev !== c.s ? ' gap' : ''; prev = c.s;
     return `<div class="pc${c.s === 1 || c.s === 2 ? ' rs' : ''}${gap}" style="--i:${i}"><b>${rankName(c.r)}</b><i>${SUITS[c.s]}</i><em>${SUITS[c.s]}</em></div>`;
   }).join('')}</div>`;
