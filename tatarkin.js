@@ -2,7 +2,7 @@
 // Данные собирает scripts/tatarkin.py (GitHub Actions по расписанию) с bridgesport.ru.
 const TT_RAW = 'https://raw.githubusercontent.com/timofeez/bridge-sayc/main/data/tatarkin.json';
 async function ttLoad() {
-  for (const url of [TT_RAW + '?t=' + Math.floor(Date.now() / 3e5), 'data/tatarkin.json']) {
+  for (const url of [TT_RAW + '?t=' + Date.now(), 'data/tatarkin.json']) {
     try { const r = await fetch(url, { cache: 'no-cache' }); if (r.ok) return await r.json(); } catch {}
   }
   return null;
