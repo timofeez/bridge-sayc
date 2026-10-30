@@ -78,14 +78,16 @@ function robotCard(seat) {
 }
 
 // ---------- Старт ----------
-function startPlay(hands, bid, decl, dbl, auction, onBack, board) {
+function startPlay(hands, bid, decl, dbl, auction, onBack, board, recId) {
+  // Каждая разыгранная сдача попадает в «Мои сдачи»
+  if (!recId) recId = saveDeal({ mode: 'play', board, hands, auction: auction || [], bid, decl, dbl });
   const strain = strainOf(bid);
   const partnerSuit = {};
   (auction || []).forEach(a => { if (isLevel(a.bid) && strainOf(a.bid) < 4) [(a.seat + 2) % 4].forEach(p => { if (partnerSuit[p] === undefined) partnerSuit[p] = strainOf(a.bid); }); });
   P = {
     hands: hands.map(h => sortHand(h)), orig: hands.map(h => h.slice()), level: lvlOf(bid), strain, bid, dbl, decl,
     trump: strain === 4 ? null : strain, dummy: (decl + 2) % 4, turn: (decl + 1) % 4, trick: [], last: null,
-    tricks: [0, 0], played: new Set(), partnerSuit, onBack, auction, busy: false, first: true, board, wins: [],
+    tricks: [0, 0], played: new Set(), partnerSuit, onBack, auction, busy: false, first: true, board, wins: [], recId, log: [],
   };
   P.userSide = decl % 2 === 0; // наша линия разыгрывает
   playRender(); playStep();
@@ -142,12 +144,12 @@ function playRender(msg = '') {
     if (el) { el.classList.add('hinted'); }
   };
   $('lastT').onclick = () => { if (P.last) $('pmsg').innerHTML = red(`<div><div class="fb">Последняя взятка: ${P.last.map(t => `${SEAT_SHORT[t.seat]} ${cardStr(t.card)}`).join(' · ')} → ${SEATS[P.lastWin]}</div></div>`); };
-  $('restart').onclick = () => { const again = P.onAgain; startPlay(P.orig, P.bid, P.decl, P.dbl, P.auction, P.onBack, P.board); P.onAgain = again; };
+  $('restart').onclick = () => { const again = P.onAgain; startPlay(P.orig, P.bid, P.decl, P.dbl, P.auction, P.onBack, P.board, P.recId); P.onAgain = again; };
 }
 
 // ---------- Ход игры ----------
 function doPlay(seat, card) {
-  sfx('card'); P.fresh = true;
+  sfx('card'); P.fresh = true; P.log.push({ seat, card: { s: card.s, r: card.r } });
   P.hands[seat] = P.hands[seat].filter(c => c !== card);
   P.trick.push({ seat, card }); P.played.add(card.s * 100 + card.r);
   P.turn = (seat + 1) % 4;
@@ -221,6 +223,7 @@ function playEnd() {
   const vul = P.board ? isVul(vulOf(P.board), P.decl) : false;
   const sc = contractScore(P.level, P.strain, P.dbl, got, vul);
   const nsScore = P.decl % 2 === 0 ? sc : -sc;
+  updateDeal(P.recId, { plays: P.log, got, score: nsScore });
   const made = got >= need;
   const word = made ? (got === need ? 'ровно' : `+${got - need}`) : `без ${need - got}`;
   playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b class="score" data-count="${nsScore}" data-plus="1">0</b> (${vul ? 'в зоне' : 'до зоны'}).</div>

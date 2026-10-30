@@ -169,13 +169,15 @@ function gameEnd() {
   const majFit = [3, 2].find(x => n.len[x] + s.len[x] >= 8);
   const target = tot >= 33 ? 'шлем' : tot >= 25 ? (majFit !== undefined ? '4' + SUITS[majFit] : '3БК (или минорный гейм)') : 'частичная запись';
   const mistakes = G.log.filter(x => !x.ok).length;
+  if (!G.recId) G.recId = saveDeal({ mode: G.mode, board: G.board, hands: G.hands, auction: G.auction, bid: lb ? lb.bid : null, decl: lb ? decl : null, dbl: dbl.trim().split(' ')[0], mistakes });
   render(`<div class="hero"><h2>${lb ? 'Контракт: ' + bidRu(lb.bid) + dbl : 'Все пас'}</h2><p>Сдача ${G.board} · ${VUL_RU[G.vul]}. ${lb ? 'Играет ' + SEATS[decl] + '. ' : ''}${mistakes ? 'Ошибок по SAYC: ' + mistakes : 'Без ошибок! 🎉'} Оценено заявок: ${graded}.</p><div class="big">🏁</div></div>
   <div class="card">${auctionHtml()}<p>У вашей пары <b>${tot} очков</b>${fit >= 0 ? `, лучший фит — ${n.len[fit] + s.len[fit]} карт в ${SUITS[fit]}` : ', фита из 8 карт нет'}. Ориентир: <b>${target}</b>.</p>
   ${handHtml(G.hands[0], `Север · ${n.hcp}`)}${handHtml(G.hands[2], `Юг (вы) · ${s.hcp}`)}
   <details class="expl"><summary>Пояснения ко всем заявкам</summary>${G.expl.map(x => `<p>${x}</p>`).join('')}</details>
   <details><summary>Руки противников</summary>${handHtml(G.hands[3], `Запад · ${evalHand(G.hands[3]).hcp}`)}${handHtml(G.hands[1], `Восток · ${evalHand(G.hands[1]).hcp}`)}</details></div>
-  ${lb ? '<button class="btn block" id="pl">▶ Разыграть эту сдачу</button>' : ''}<button class="btn ghost block" id="nx">Новая сдача</button>`, 'Торговля с роботом', bidMenu);
-  if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu, G.board); P.onAgain = () => gameStart(mode); };
+  ${lb ? '<button class="btn block" id="pl">▶ Разыграть эту сдачу</button>' : ''}<button class="btn ghost block" id="nx">Новая сдача</button><button class="btn ghost block" id="hist">📜 Сохранено в «Мои сдачи»</button>`, 'Торговля с роботом', bidMenu);
+  $('hist').onclick = historyPage;
+  if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu, G.board, G.recId); P.onAgain = () => gameStart(mode); };
   if (!mistakes && graded) { reward(30); if (G.mode === 'full') unlock('game'); }
   $('nx').onclick = () => gameStart(G.mode);
 }
