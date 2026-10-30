@@ -86,7 +86,7 @@ function meChip(bump) {
   const p = prof(), l = levelOf(p.xp), s = streakOf(p.days);
   const pct = Math.round(100 * (p.xp - xpFor(l)) / (xpFor(l + 1) - xpFor(l)));
   const c = document.getElementById('mechip');
-  c.innerHTML = `<span class="ring" style="--p:${pct}"><b>${l}</b></span>${s ? `<span class="fire">🔥${s}</span>` : ''}`;
+  c.innerHTML = `<span class="ring" style="--p:${pct}"><b>${look().avatar}</b></span><span class="lvn">${l}</span>${s ? `<span class="fire">🔥${s}</span>` : ''}`;
   if (bump) { c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
 }
 function profilePage() {
@@ -98,8 +98,10 @@ function profilePage() {
     <div><h2>${TITLES[Math.min(l - 1, TITLES.length - 1)]}</h2><p>${p.xp} XP · до следующего уровня ${xpFor(l + 1) - p.xp}</p><p>🔥 Серия: ${s} ${s === 1 ? 'день' : s >= 2 && s <= 4 ? 'дня' : 'дней'} · ⚡ Рекорд блица: ${p.best}</p></div></div>
   <div class="card"><h3 style="margin-top:0">Последние 7 дней</h3><div class="week">${week}</div></div>
   <div class="card"><h3 style="margin-top:0">Достижения · ${got}/${Object.keys(ACH).length}</h3><div class="achs">${Object.entries(ACH).map(([k, a], i) => `<div class="achv ${p.ach[k] ? 'on' : ''}" style="--i:${i}"><span>${a.e}</span><b>${a.t}</b><small>${a.d}</small></div>`).join('')}</div></div>
+  <button class="btn block" id="toWs">🎨 Мастерская: рубашки, сукно, аватар</button>
   <div class="card"><label class="switch"><input type="checkbox" id="snd" ${p.sound ? 'checked' : ''}><span></span> Звук и вибрация</label></div>`, 'Профиль', () => document.querySelector('nav.tabs button.on').click());
   document.querySelectorAll('nav.tabs button').forEach(x => x.classList.remove('on'));
+  $('toWs').onclick = workshop;
   $('snd').onchange = e => { const q = prof(); q.sound = e.target.checked; saveProf(q); if (q.sound) sfx('ok'); };
 }
 

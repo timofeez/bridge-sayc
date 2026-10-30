@@ -8,7 +8,8 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
 };
 // Красим ♥ и ♦ в красный (только в тексте, не в атрибутах)
-const red = html => html.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/[♥♦]/g, '<span class="r">$&</span>') + '<');
+const red = html => html.replace(/>([^<]*)</g, (m, t) => '>' + t.replace(/[♥♦♣]/g, c => `<span class="${c === '♥' ? 'r' : c === '♦' ? 'r d' : 'cl'}">${c}</span>`) + '<');
+const suitCls = s => (s === 1 || s === 2 ? ' rs' : '') + ' s' + s;
 function render(html, title, backTo, quiet) {
   $app.innerHTML = red(`<div class="${quiet ? '' : 'page'}">` + html + '</div>');
   $title.textContent = title;
@@ -28,7 +29,7 @@ function fanHtml(h) {
   const seen = dealtHands.has(h); dealtHands.add(h);
   return `<div class="fan${seen ? ' static' : ''}">${h.map((c, i) => {
     const gap = prev !== null && prev !== c.s ? ' gap' : ''; prev = c.s;
-    return `<div class="pc${c.s === 1 || c.s === 2 ? ' rs' : ''}${gap}" style="--i:${i}"><b>${rankName(c.r)}</b><i>${SUITS[c.s]}</i><em>${SUITS[c.s]}</em></div>`;
+    return `<div class="pc${suitCls(c.s)}${gap}" style="--i:${i}"><b>${rankName(c.r)}</b><i>${SUITS[c.s]}</i><em>${SUITS[c.s]}</em></div>`;
   }).join('')}</div>`;
 }
 const handHtml = (h, label) => `<div class="table-felt">${label ? `<div class="hand-label">${label}</div>` : ''}${fanHtml(h)}</div>`;
@@ -112,7 +113,7 @@ function drillResp() {
 
 // ---------------- Игра с роботами ----------------
 let G;
-function gameStart(mode = G ? G.mode : 'quiet') { G = { mode, hands: deal(), dealer: Math.floor(Math.random() * 4), auction: [], log: [], expl: [] }; gameStep(); }
+function gameStart(mode = G ? G.mode : 'quiet') { const board = nextBoard(); G = { mode, board, vul: vulOf(board), hands: deal(), dealer: dealerOf(board), auction: [], log: [], expl: [] }; gameStep(); }
 const lastBid = () => lastLevel(G.auction);
 // Рекомендация движка для места seat в текущем режиме
 function recFor(seat) {
@@ -128,20 +129,20 @@ function gameStep() {
     const s = seatToAct(); let b = 'P';
     let why = 'Противники в этом режиме пасуют.';
     if (s === 0 || G.mode === 'full') { const r = recFor(s); if (r) { b = r.bid; why = r.why; } else why = 'Ситуация вне упрощённого движка → пас.'; }
-    G.auction.push({ seat: s, bid: b }); G.expl.push(`<b>${SEATS[s]} — ${bidRu(b)}:</b> ${why}`);
+    G.auction.push({ seat: s, bid: b }); G.expl.push(`<b>${seatName(s)} — ${bidRu(b)}:</b> ${why}`);
   }
   if (ended()) return gameEnd();
   gameRender();
 }
 function auctionHtml() {
-  const cells = ['<b>Север</b>', '<b>Восток</b>', '<b>Юг</b>', '<b>Запад</b>'];
+  const cells = [0, 1, 2, 3].map(s => `<b class="${isVul(G.vul, s) ? 'vulh' : ''}">${SEATS[s]}</b>`);
   for (let i = 0; i < G.dealer; i++) cells.push('<span></span>');
-  G.auction.forEach(a => cells.push(`<span class="${a.seat === 2 ? 'me' : a.seat % 2 ? 'opp' : ''}">${a.bid === 'X' || a.bid === 'XX' ? a.bid : bidRu(a.bid)}</span>`));
+  G.auction.forEach((a, k) => cells.push(`<span class="bt ${a.bid === 'P' ? 'bp' : a.bid === 'X' ? 'bx' : a.bid === 'XX' ? 'bxx' : 'bl'} ${k === G.auction.length - 1 ? 'fresh' : ''}">${a.bid === 'P' ? 'Пас' : a.bid === 'X' || a.bid === 'XX' ? a.bid : bidRu(a.bid)}</span>`));
   return `<div class="auction">${cells.join('')}</div>`;
 }
 function gameRender(fb = '') {
   const ex = G.expl.filter(x => !x.startsWith('<b>Юг')).slice(-4);
-  render(`<div class="card"><p class="muted" style="margin:0">${G.mode === 'full' ? '⚔️ Полная игра' : '🤝 Противники пасуют'} · сдающий: ${SEATS[G.dealer]}. Вы — Юг, партнёр — Север.</p>${auctionHtml()}
+  render(`<div class="card">${boardInfo(G.board)}<p class="muted" style="margin:6px 0 0">${G.mode === 'full' ? '⚔️ Полная игра' : '🤝 Противники пасуют'} · партнёр: ${seatName(0)}</p>${auctionHtml()}
   ${ex.length ? `<details class="expl"><summary>Что означают заявки роботов</summary>${ex.map(x => `<p>${x}</p>`).join('')}</details>` : ''}
   ${handHtml(G.hands[2], 'Ваша рука')}<div id="fb">${fb}</div><div id="bb"></div></div>`, G.mode === 'full' ? 'Полная игра' : 'Торговля с роботом', bidMenu);
   if (!fb) $('bb').appendChild(bidBox(lastBid(), userBid, { x: canDouble(G.auction, 2), xx: canRedouble(G.auction, 2) }));
@@ -168,13 +169,13 @@ function gameEnd() {
   const majFit = [3, 2].find(x => n.len[x] + s.len[x] >= 8);
   const target = tot >= 33 ? 'шлем' : tot >= 25 ? (majFit !== undefined ? '4' + SUITS[majFit] : '3БК (или минорный гейм)') : 'частичная запись';
   const mistakes = G.log.filter(x => !x.ok).length;
-  render(`<div class="hero"><h2>${lb ? 'Контракт: ' + bidRu(lb.bid) + dbl : 'Все пас'}</h2><p>${lb ? 'Играет ' + SEATS[decl] + '. ' : ''}${mistakes ? 'Ошибок по SAYC: ' + mistakes : 'Без ошибок! 🎉'} Оценено заявок: ${graded}.</p><div class="big">🏁</div></div>
+  render(`<div class="hero"><h2>${lb ? 'Контракт: ' + bidRu(lb.bid) + dbl : 'Все пас'}</h2><p>Сдача ${G.board} · ${VUL_RU[G.vul]}. ${lb ? 'Играет ' + SEATS[decl] + '. ' : ''}${mistakes ? 'Ошибок по SAYC: ' + mistakes : 'Без ошибок! 🎉'} Оценено заявок: ${graded}.</p><div class="big">🏁</div></div>
   <div class="card">${auctionHtml()}<p>У вашей пары <b>${tot} очков</b>${fit >= 0 ? `, лучший фит — ${n.len[fit] + s.len[fit]} карт в ${SUITS[fit]}` : ', фита из 8 карт нет'}. Ориентир: <b>${target}</b>.</p>
   ${handHtml(G.hands[0], `Север · ${n.hcp}`)}${handHtml(G.hands[2], `Юг (вы) · ${s.hcp}`)}
   <details class="expl"><summary>Пояснения ко всем заявкам</summary>${G.expl.map(x => `<p>${x}</p>`).join('')}</details>
   <details><summary>Руки противников</summary>${handHtml(G.hands[3], `Запад · ${evalHand(G.hands[3]).hcp}`)}${handHtml(G.hands[1], `Восток · ${evalHand(G.hands[1]).hcp}`)}</details></div>
   ${lb ? '<button class="btn block" id="pl">▶ Разыграть эту сдачу</button>' : ''}<button class="btn ghost block" id="nx">Новая сдача</button>`, 'Торговля с роботом', bidMenu);
-  if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu); P.onAgain = () => gameStart(mode); };
+  if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu, G.board); P.onAgain = () => gameStart(mode); };
   if (!mistakes && graded) { reward(30); if (G.mode === 'full') unlock('game'); }
   $('nx').onclick = () => gameStart(G.mode);
 }
@@ -223,7 +224,7 @@ function countSetup() {
 function countRun({ n, ms }) {
   const cards = shuffle(newDeck()).slice(0, n); let i = 0;
   render(`<div class="card" style="text-align:center"><p class="muted">Карта <b id="k">1</b> из ${n}</p><div class="table-felt" style="padding:20px"><div id="big"></div></div></div>`, 'Счёт карт', memMenu);
-  const show = () => { const c = cards[i]; $('k').textContent = i + 1; $('big').innerHTML = `<div class="bigcard${c.s === 1 || c.s === 2 ? ' rs' : ''}">${cardStr(c)}</div>`; };
+  const show = () => { const c = cards[i]; $('k').textContent = i + 1; $('big').innerHTML = `<div class="bigcard${suitCls(c.s)}">${cardStr(c)}</div>`; };
   show();
   const iv = setInterval(() => { i++; if (!$('big')) return clearInterval(iv); if (i >= n) { clearInterval(iv); ask(); } else show(); }, ms);
   function ask() {

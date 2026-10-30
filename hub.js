@@ -139,7 +139,7 @@ const WIDGETS = {
   },
   // Блэквуд / Гербер
   aces(w) {
-    w.innerHTML = red(`<div class="wtitle">👑 Нажмите на тузы, которые есть у вас</div><div class="acerow">${[3, 2, 1, 0].map(s => `<div class="pc big${s === 1 || s === 2 ? ' rs' : ''}" data-s="${s}"><b>A</b><i>${SUITS[s]}</i><em>${SUITS[s]}</em></div>`).join('')}</div><div class="wres"></div>`);
+    w.innerHTML = red(`<div class="wtitle">👑 Нажмите на тузы, которые есть у вас</div><div class="acerow">${[3, 2, 1, 0].map(s => `<div class="pc big${suitCls(s)}" data-s="${s}"><b>A</b><i>${SUITS[s]}</i><em>${SUITS[s]}</em></div>`).join('')}</div><div class="wres"></div>`);
     const upd = () => {
       const n = w.querySelectorAll('.acerow .on').length;
       bigAnswer(w.querySelector('.wres'), `${['5♣', '5♦', '5♥', '5♠', '5♣'][n]} <small>Блэквуд</small> · ${['4♦', '4♥', '4♠', '4БК', '4♦'][n]} <small>Гербер</small>`, `${n} ${n === 1 ? 'туз' : n >= 2 && n <= 4 ? 'туза' : 'тузов'}${n === 0 || n === 4 ? ' — 0 и 4 показываются одинаково, партнёр поймёт по торговле' : ''}`);
@@ -193,9 +193,10 @@ const GAMES = [
 ];
 function gamesHub() {
   const p = prof();
-  render(`<a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
+  render(`<a href="#" class="wscta" id="g_ws"><span class="cardback" data-b="${look().back}"></span><span class="cardback" data-b="${look().back}"></span><div><b>🎨 Мастерская</b><small>Рубашки, сукно, колода, аватар</small></div><i>›</i></a>
+  <a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
   ${GAMES.map(g => `<h3 class="gsec">${g.sec}</h3><div class="ggrid">${g.items.map(([id, em, t, d, c], i) => `<a href="#" class="gcard ${c}" id="${id}" style="--i:${i}"><span class="gem">${em}</span><b>${t}</b><small>${d}</small></a>`).join('')}</div>`).join('')}`, 'Игры');
-  on('g_blitz', blitzStart);
+  on('g_blitz', blitzStart); on('g_ws', workshop);
   GAMES.forEach(g => g.items.forEach(([id, , , , , f]) => on(id, f)));
   // Наклон карточек за пальцем/мышью
   $app.querySelectorAll('.gcard,.blitzcard').forEach(c => {
