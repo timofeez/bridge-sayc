@@ -138,6 +138,7 @@ function playRender(msg = '') {
 
 // ---------- Ход игры ----------
 function doPlay(seat, card) {
+  sfx('card');
   P.hands[seat] = P.hands[seat].filter(c => c !== card);
   P.trick.push({ seat, card }); P.played.add(card.s * 100 + card.r);
   P.turn = (seat + 1) % 4;
@@ -177,7 +178,7 @@ function playEnd() {
   const word = made ? (got === need ? 'ровно' : `+${got - need}`) : `без ${need - got}`;
   playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b>${nsScore > 0 ? '+' : ''}${nsScore}</b> (до зоны).</div>
   <button class="btn block" id="again2">Новая сдача</button>`);
-  if (nsScore > 0) burst();
+  if (nsScore > 0) { reward(made ? 40 : 15); if (made && P.decl % 2 === 0) unlock('made'); if (made && P.level >= 6 && P.decl % 2 === 0) unlock('slam'); } else oops();
   $('again2').onclick = () => P.onAgain ? P.onAgain() : P.onBack();
 }
 
@@ -225,11 +226,11 @@ function buildHand() {
   $app.querySelectorAll('.grid52 button').forEach(b => b.onclick = () => {
     const [s, r] = b.dataset.c.split('-').map(Number), i = sel.findIndex(c => c.s === s && c.r === r);
     if (i >= 0) sel.splice(i, 1); else if (sel.length < 13) sel.push({ s, r }); else return;
-    b.classList.toggle('sel'); upd();
+    b.classList.toggle('sel'); sfx('card'); upd();
   });
   $('chk').onclick = () => {
     const r = opening(sel), ok = r.bid === target;
-    if (ok) burst();
+    if (ok) { reward(20); unlock('builder'); } else oops();
     $('fb').innerHTML = red(`<div><div class="fb ${ok ? 'ok' : 'bad'}">${ok ? '✅ Да! ' : `❌ С такой рукой открывают <b>${bidRu(r.bid)}</b>. `}${r.why}</div><button class="btn block" id="nx">${ok ? 'Новое задание' : 'Другое задание'}</button></div>`);
     $('nx').onclick = buildHand;
   };

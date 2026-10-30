@@ -60,14 +60,23 @@ const on = (id, f) => $(id).onclick = e => { e.preventDefault(); f(); };
 function theoryList() {
   const read = store.get('read', {});
   const n = THEORY.filter(t => read[t.id]).length;
-  render(`<div class="hero"><h2>Торговля SAYC</h2><p>Простыми словами, с примерами. Прочитано ${n} из ${THEORY.length}.</p>
+  const pr = prof(), lv = levelOf(pr.xp), st = streakOf(pr.days);
+  render(`<div class="dash">
+    <a href="#" class="dcard lvl" id="dprof"><span class="ring" style="--p:${Math.round(100 * (pr.xp - xpFor(lv)) / (xpFor(lv + 1) - xpFor(lv)))}"><b>${lv}</b></span><div><b>${TITLES[Math.min(lv - 1, TITLES.length - 1)]}</b><small>${pr.xp} XP</small></div></a>
+    <a href="#" class="dcard fire" id="dprof2"><span class="big2">🔥</span><div><b>${st}</b><small>${st ? 'дней подряд' : 'начните серию'}</small></div></a>
+  </div>
+  <a href="#" class="blitzcta" id="dblitz"><span>⚡</span><div><b>Блиц · 60 секунд</b><small>Рекорд: ${pr.best}. Побьёте?</small></div><i>›</i></a>
+  <div class="hero"><h2>Торговля SAYC</h2><p>Простыми словами, с примерами. Прочитано ${n} из ${THEORY.length}.</p>
   <div class="progress"><i style="width:${100 * n / THEORY.length}%"></i></div><div class="big">♠</div></div>
   <div class="tiles">${THEORY.map((t, i) => tile('t_' + t.id, t.emoji, t.title, t.sub, i, read[t.id] ? '<span class="done">✓</span>' : '')).join('')}</div>`, 'Теория');
   THEORY.forEach(t => on('t_' + t.id, () => theoryItem(t.id)));
+  on('dprof', profilePage); on('dprof2', profilePage); on('dblitz', blitzStart);
 }
 function theoryItem(id) {
   const i = THEORY.findIndex(t => t.id === id), t = THEORY[i];
-  const read = store.get('read', {}); read[id] = 1; store.set('read', read);
+  const read = store.get('read', {}); const fresh = !read[id]; read[id] = 1; store.set('read', read);
+  if (fresh) setTimeout(() => addXP(20), 400);
+  if (THEORY.every(x => read[x.id])) unlock('theory');
   const next = THEORY[i + 1];
   const exs = (t.ex || []).map((e, k) => `<div class="ex" id="ex${k}"><b>${e.q}</b>${e.hand ? handHtml(parseHand(e.hand)) : ''}
     <button class="btn ghost" data-k="${k}">Показать ответ</button><div class="ans"><span class="bigans">${e.a}</span><p>${e.why}</p></div></div>`).join('');
@@ -92,9 +101,10 @@ function quizRun(qs, i = 0, score = 0) {
   if (i >= qs.length) {
     const pct = Math.round(100 * score / qs.length);
     if (pct > store.get('quizBest', -1)) store.set('quizBest', pct);
+    if (pct === 100 && qs.length >= 10) unlock('quiz100');
     render(`<div class="hero" style="text-align:center"><div style="font-size:56px">${pct >= 80 ? '🏆' : pct >= 50 ? '👍' : '📚'}</div><h2>${score} из ${qs.length}</h2><p>${pct}% правильных</p></div>
     <button class="btn block" id="again">Ещё раз</button>`, 'Тесты', quizStart);
-    if (pct >= 80) burst(); $('again').onclick = quizStart; return;
+    if (pct >= 80) reward(20); $('again').onclick = quizStart; return;
   }
   const q = qs[i];
   const order = shuffle(q.o.map((t, k) => k));
@@ -104,7 +114,7 @@ function quizRun(qs, i = 0, score = 0) {
   $app.querySelectorAll('.opt').forEach(b => b.onclick = () => {
     const ok = +b.dataset.k === q.a;
     $app.querySelectorAll('.opt').forEach(x => { x.disabled = true; if (+x.dataset.k === q.a) x.classList.add('ok'); });
-    if (!ok) b.classList.add('bad'); else burst(b);
+    if (!ok) { b.classList.add('bad'); oops(); } else reward(10, b);
     $('fb').innerHTML = red(`<div><div class="fb ${ok ? 'ok' : 'bad'}">${ok ? '✅ Верно!' : '❌ Неверно.'} ${q.e}</div><button class="btn block" id="nq">Дальше</button></div>`);
     $('nq').onclick = () => quizRun(qs, i + 1, score + (ok ? 1 : 0));
   });
@@ -126,6 +136,7 @@ const verdict = (ok, b, rec) => `<div class="fb ${ok ? 'ok' : 'bad'}">${ok ? '�
 function bidMenu() {
   const a = store.get('st_open', { ok: 0, n: 0 }), b = store.get('st_resp', { ok: 0, n: 0 }), g = store.get('st_game', { ok: 0, n: 0 }), f = store.get('st_full', { ok: 0, n: 0 });
   render(`<div class="hero"><h2>Тренажёр торговли</h2><p>Каждая сдача тасуется случайно — одинаковых не будет.</p><div class="big">🤖</div></div>
+  <a href="#" class="blitzcta" id="m0"><span>⚡</span><div><b>Блиц · 60 секунд</b><small>Аркада на скорость: комбо, множитель, рекорд</small></div><i>›</i></a>
   <div class="tiles">${tile('m1', '🚀', 'Открытие', `Что открыть с этой рукой? · ${a.ok}/${a.n}`, 0)}
   ${tile('m2', '💬', 'Ответ партнёру', `Партнёр открылся — ваш ответ · ${b.ok}/${b.n}`, 1)}
   ${tile('m3', '🤝', 'Торговля с роботом', `Противники всегда пасуют — чистая торговля пары · ${g.ok}/${g.n}`, 2)}
@@ -133,7 +144,7 @@ function bidMenu() {
   ${tile('m5', '🃏', 'Сыграть сдачу', 'Роботы торгуются, вы разыгрываете контракт картами', 4)}
   ${tile('m6', '🧩', 'Конструктор руки', 'Соберите из колоды руку под заданное открытие', 5)}</div>
   <p class="muted">Робот оценивает ваши первые заявки по SAYC (открытие, ответ, повторная заявка, вход в торговлю, ответ на вход партнёра). В более глубоких ситуациях заявки не оцениваются.</p>`, 'Торговля');
-  on('m1', drillOpen); on('m2', drillResp); on('m3', () => gameStart('quiet')); on('m4', () => gameStart('full')); on('m5', playRandom); on('m6', buildHand);
+  on('m0', blitzStart); on('m1', drillOpen); on('m2', drillResp); on('m3', () => gameStart('quiet')); on('m4', () => gameStart('full')); on('m5', playRandom); on('m6', buildHand);
 }
 function drillOpen() {
   let h; do { h = deal()[0]; } while (evalHand(h).hcp < 8 && Math.random() < .7);
@@ -141,7 +152,7 @@ function drillOpen() {
   render(`<div class="card"><h3 style="margin-top:0">Вы сдающий. Что откроете?</h3>${handHtml(h, 'Ваша рука')}<div id="bb"></div><div id="fb"></div></div>`, 'Открытие', bidMenu);
   $('bb').appendChild(bidBox('P', b => {
     const ok = okBid(rec, b), s = stats('st_open', ok);
-    $('bb').innerHTML = ''; if (ok) burst();
+    $('bb').innerHTML = ''; if (ok) reward(15); else oops();
     $('fb').innerHTML = red(`<div>${verdict(ok, b, rec)}<p class="muted">Очков в руке: ${evalHand(h).hcp}. Счёт: ${s.ok}/${s.n}</p><button class="btn block" id="nx">Следующая рука</button></div>`);
     $('nx').onclick = drillOpen;
   }));
@@ -154,7 +165,7 @@ function drillResp() {
   <h3>Партнёр открыл ${bidRu(o)}. Ваш ответ?</h3>${handHtml(h, 'Ваша рука')}<div id="bb"></div><div id="fb"></div></div>`, 'Ответ партнёру', bidMenu);
   $('bb').appendChild(bidBox(o, b => {
     const ok = okBid(rec, b), s = stats('st_resp', ok);
-    $('bb').innerHTML = ''; if (ok) burst();
+    $('bb').innerHTML = ''; if (ok) reward(15); else oops();
     $('fb').innerHTML = red(`<div>${verdict(ok, b, rec)}<details><summary>Рука партнёра</summary>${handHtml(hs[0])}</details><p class="muted">Счёт: ${s.ok}/${s.n}</p><button class="btn block" id="nx">Следующая</button></div>`);
     $('nx').onclick = drillResp;
   }));
@@ -197,6 +208,7 @@ function gameRender(fb = '') {
   if (!fb) $('bb').appendChild(bidBox(lastBid(), userBid, { x: canDouble(G.auction, 2), xx: canRedouble(G.auction, 2) }));
 }
 function userBid(b) {
+  sfx('card');
   const rec = recFor(2);
   const commit = bid => { G.auction.push({ seat: 2, bid }); G.expl.push(`<b>Юг — ${bidRu(bid)}</b>`); G.log.push({ graded: !!rec, ok: !rec || okBid(rec, bid) }); gameStep(); };
   if (!rec) return commit(b);
@@ -224,7 +236,7 @@ function gameEnd() {
   <details><summary>Руки противников</summary>${handHtml(G.hands[3], `Запад · ${evalHand(G.hands[3]).hcp}`)}${handHtml(G.hands[1], `Восток · ${evalHand(G.hands[1]).hcp}`)}</details></div>
   ${lb ? '<button class="btn block" id="pl">▶ Разыграть эту сдачу</button>' : ''}<button class="btn ghost block" id="nx">Новая сдача</button>`, 'Торговля с роботом', bidMenu);
   if (lb) $('pl').onclick = () => { const mode = G.mode; startPlay(G.hands, lb.bid, decl, dbl.trim().split(' ')[0], G.auction, bidMenu); P.onAgain = () => gameStart(mode); };
-  if (!mistakes) burst();
+  if (!mistakes && graded) { reward(30); if (G.mode === 'full') unlock('game'); }
   $('nx').onclick = () => gameStart(G.mode);
 }
 
@@ -255,7 +267,7 @@ function memHand(sec) {
     $('chk').onclick = () => {
       const want = new Set(h.map(c => c.s + '-' + c.r)); let hit = 0;
       $app.querySelectorAll('.grid52 button').forEach(b => { const k = b.dataset.c; b.disabled = true; b.classList.remove('sel'); if (want.has(k) && sel.has(k)) { b.classList.add('ok'); hit++; } else if (want.has(k)) b.classList.add('miss'); else if (sel.has(k)) b.classList.add('bad'); });
-      const chk = $('chk'); if (hit === 13) burst();
+      const chk = $('chk'); if (hit === 13) { reward(25); unlock('memory'); } else if (hit >= 9) addXP(8);
       chk.insertAdjacentHTML('beforebegin', `<div class="fb ${hit >= 11 ? 'ok' : ''}">Угадано <b>${hit} из 13</b>, лишних: ${[...sel].filter(k => !want.has(k)).length}. <span class="muted">Зелёные — верно, обведённые — пропущены, красные — лишние.</span></div>`);
       chk.textContent = 'Ещё раз'; chk.onclick = () => memHand(sec);
     };
@@ -289,7 +301,7 @@ function countRun({ n, ms }) {
       const lines = [3, 2, 1, 0].map(s => { const v = +$('s' + s).value; if (v === cnt[s]) good++; return `${SUITS[s]}: ${v === cnt[s] ? '✅' : '❌'} ${cnt[s]}`; });
       const got = [...$app.querySelectorAll('input[type=checkbox]:checked')].map(x => +x.value).sort().join();
       const okH = got === out.slice().sort().join();
-      if (good === 4 && okH) burst();
+      if (good === 4 && okH) reward(20); else oops();
       $('fb').innerHTML = red(`<div><div class="fb ${good === 4 && okH ? 'ok' : ''}">${lines.join('<br>')}<br>Не вышли из ${SUITS[qs]}: ${out.map(rankName).join(' ') || 'все вышли'} ${okH ? '✅' : '❌'}<br><span class="muted">Все карты: ${cards.map(cardStr).join(' ')}</span></div><button class="btn block" id="re">Ещё раз</button></div>`);
       $('re').onclick = () => countRun({ n, ms });
     };
@@ -301,7 +313,7 @@ function hcpDrill() {
   <p><input type="number" id="v" style="width:90px" placeholder="?"> <button class="btn" id="chk">Проверить</button></p><div id="fb"></div></div>`, 'Подсчёт очков', memMenu);
   const v = $('v'); v.focus();
   const check = () => {
-    const ok = +v.value === e.hcp, t = ((Date.now() - t0) / 1000).toFixed(1); if (ok) burst();
+    const ok = +v.value === e.hcp, t = ((Date.now() - t0) / 1000).toFixed(1); if (ok) reward(8); else oops();
     $('fb').innerHTML = red(`<div><div class="fb ${ok ? 'ok' : 'bad'}">${ok ? '✅' : '❌'} ${e.hcp} очков, расклад ${e.len.slice().reverse().join('-')} (♠-♥-♦-♣)${e.balanced ? ', ровная' : ''}. Время: ${t} с.</div><button class="btn block" id="nx">Дальше</button></div>`);
     $('nx').onclick = hcpDrill;
   };
@@ -329,7 +341,7 @@ function flash(items) {
   <div class="flip" id="fl"><div class="in"><div class="f"><h2>${it[0]}</h2></div><div class="b"><h2>${it[1]}</h2></div></div></div>
   <p class="muted" style="text-align:center" id="hint">Нажмите на карточку, чтобы перевернуть</p><div id="rate" style="display:none;text-align:center"><button class="btn ghost" id="no">Не помнил</button><button class="btn" id="yes">Помнил</button></div>`, 'Карточки', factsMenu);
   $('fl').onclick = () => { $('fl').classList.toggle('on'); $('rate').style.display = 'block'; $('hint').style.display = 'none'; };
-  const go = up => { box[it[0]] = up ? Math.min(3, lvl + 1) : 0; store.set('leitner', box); flash(items); };
+  const go = up => { if (up) { sfx('ok'); addXP(3); } box[it[0]] = up ? Math.min(3, lvl + 1) : 0; store.set('leitner', box); flash(items); };
   $('no').onclick = () => go(false);
   $('yes').onclick = () => go(true);
 }
@@ -340,5 +352,6 @@ document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => {
   document.querySelectorAll('nav.tabs button').forEach(x => x.classList.toggle('on', x === b));
   store.set('tab', b.dataset.tab); TABS[b.dataset.tab]();
 });
+meChip(); $('mechip').onclick = profilePage;
 const startTab = TABS[store.get('tab', 'theory')] ? store.get('tab', 'theory') : 'theory';
 document.querySelector(`nav.tabs button[data-tab="${startTab}"]`).click();
