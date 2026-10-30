@@ -215,7 +215,11 @@ function playStep() {
   if (controls(P.turn)) return;
   const me = P;
   P.busy = true;
-  setTimeout(() => { if (P !== me || !document.querySelector('.ptable')) return; P.busy = false; doPlay(P.turn, robotCard(P.turn)); }, 550);
+  const t0 = Date.now();
+  robotChoose(P.turn).then(card => setTimeout(() => {
+    if (P !== me || !document.querySelector('.ptable')) return;
+    P.busy = false; doPlay(P.turn, card);
+  }, Math.max(0, 550 - (Date.now() - t0))));
 }
 function playEnd() {
   P.done = true;
@@ -228,6 +232,7 @@ function playEnd() {
   const word = made ? (got === need ? 'ровно' : `+${got - need}`) : `без ${need - got}`;
   playRender(`<div class="fb ${nsScore >= 0 ? 'ok' : 'bad'}"><b>${bidRu(P.bid)}${P.dbl ? ' ' + P.dbl : ''} ${word}</b> — ${SEATS[P.decl]} взял ${got} из 13.<br>Запись для СЮ: <b class="score" data-count="${nsScore}" data-plus="1">0</b> (${vul ? 'в зоне' : 'до зоны'}).</div>
   <button class="btn block" id="again2">Новая сдача</button>`);
+  if (P.onEnd) P.onEnd(got, nsScore);
   if (nsScore > 0) { reward(made ? 40 : 15); if (made && P.decl % 2 === 0) unlock('made'); if (made && P.level >= 6 && P.decl % 2 === 0) unlock('slam'); } else oops();
   $('again2').onclick = () => P.onAgain ? P.onAgain() : P.onBack();
 }

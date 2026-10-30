@@ -13,6 +13,9 @@ const ACH = {
   slam: { e: '👑', t: 'Шлем!', d: 'Выполнить шлем' },
   memory: { e: '🧠', t: 'Фотопамять', d: 'Восстановить все 13 карт' },
   builder: { e: '🧩', t: 'Архитектор', d: 'Собрать руку в конструкторе' },
+  daily: { e: '📅', t: 'Сдача дня', d: 'Выполнить контракт в сдаче дня' },
+  daily3: { e: '🗓', t: 'Три дня подряд', d: 'Сыграть сдачу дня 3 дня подряд' },
+  lead: { e: '🎯', t: 'Учебный ход', d: 'Найти правильный первый ход 5 раз' },
   lvl5: { e: '🚀', t: 'Турнирный уровень', d: 'Достичь 5-го уровня' },
 };
 const xpFor = l => 50 * l * (l - 1); // порог уровня l
@@ -98,10 +101,11 @@ function profilePage() {
     <div><h2>${TITLES[Math.min(l - 1, TITLES.length - 1)]}</h2><p>${p.xp} XP · до следующего уровня ${xpFor(l + 1) - p.xp}</p><p>🔥 Серия: ${s} ${s === 1 ? 'день' : s >= 2 && s <= 4 ? 'дня' : 'дней'} · ⚡ Рекорд блица: ${p.best}</p></div></div>
   <div class="card"><h3 style="margin-top:0">Последние 7 дней</h3><div class="week">${week}</div></div>
   <div class="card"><h3 style="margin-top:0">Достижения · ${got}/${Object.keys(ACH).length}</h3><div class="achs">${Object.entries(ACH).map(([k, a], i) => `<div class="achv ${p.ach[k] ? 'on' : ''}" style="--i:${i}"><span>${a.e}</span><b>${a.t}</b><small>${a.d}</small></div>`).join('')}</div></div>
+  <button class="btn ghost block" id="toStats">📊 Статистика</button>
   <button class="btn block" id="toWs">🎨 Мастерская: рубашки, сукно, аватар</button>
   <div class="card"><label class="switch"><input type="checkbox" id="snd" ${p.sound ? 'checked' : ''}><span></span> Звук и вибрация</label></div>`, 'Профиль', () => document.querySelector('nav.tabs button.on').click());
   document.querySelectorAll('nav.tabs button').forEach(x => x.classList.remove('on'));
-  $('toWs').onclick = workshop;
+  $('toWs').onclick = workshop; $('toStats').onclick = statsPage;
   $('snd').onchange = e => { const q = prof(); q.sound = e.target.checked; saveProf(q); if (q.sound) sfx('ok'); };
 }
 

@@ -172,6 +172,8 @@ function dealQuiz(w, ctx, gen, key, full) {
   w.querySelector('.wnew').onclick = () => WIDGETS[key](w);
 }
 
+Object.assign(WIDGETS, EXTRA_WIDGETS); Object.assign(WIDGET, EXTRA_WIDGET);
+
 // ================= ИГРЫ =================
 const GAMES = [
   { sec: '🗣 Торговля', items: [
@@ -181,8 +183,10 @@ const GAMES = [
     ['g_full', '⚔️', 'Полная игра', 'Противники торгуются + розыгрыш', 'c4', () => gameStart('full')],
     ['g_build', '🧩', 'Конструктор руки', 'Соберите руку под открытие', 'c5', () => buildHand()],
   ]},
-  { sec: '🃏 Розыгрыш', items: [
-    ['g_play', '♠️', 'Сыграть сдачу', 'Возьмите свои взятки', 'c6', () => playRandom()],
+  { sec: '🃏 Розыгрыш и защита', items: [
+    ['g_play', '♠️', 'Сыграть сдачу', 'Возьмите свои взятки. Роботы в концовке играют идеально', 'c6', () => playRandom()],
+    ['g_lead', '🎯', 'Первый ход', 'Какой картой выйти против контракта', 'c11', () => leadProblem()],
+    ['g_stats', '📊', 'Статистика', 'Точность по темам, графики', 'c12', () => statsPage()],
   ]},
   { sec: '🧠 Память', items: [
     ['g_mem', '👀', 'Запомни руку', '13 карт за секунды', 'c7', () => memHandSetup()],
@@ -192,12 +196,13 @@ const GAMES = [
   ]},
 ];
 function gamesHub() {
-  const p = prof();
-  render(`<a href="#" class="wscta" id="g_ws"><span class="cardback" data-b="${look().back}"></span><span class="cardback" data-b="${look().back}"></span><div><b>🎨 Мастерская</b><small>Рубашки, сукно, колода, аватар</small></div><i>›</i></a>
+  const p = prof(), dl = dailyStatus();
+  render(`<a href="#" class="dailycard" id="g_daily"><div class="dc-cal"><small>${new Date().toLocaleDateString('ru-RU', { month: 'short' })}</small><b>${new Date().getDate()}</b></div><div><b>Сдача дня</b><small>${dl ? `Сыграно: ${bidRu(dl.bid)}, взято ${dl.got} · ${dl.score > 0 ? '+' : ''}${dl.score}` : 'Одна сдача для всех — сыграйте сегодня!'}</small></div><i>${dl ? '✓' : '›'}</i></a>
+  <a href="#" class="wscta" id="g_ws"><span class="cardback" data-b="${look().back}"></span><span class="cardback" data-b="${look().back}"></span><div><b>🎨 Мастерская</b><small>Рубашки, сукно, колода, аватар</small></div><i>›</i></a>
   <a href="#" class="histcta" id="g_hist"><span>📜</span><div><b>Мои сдачи</b><small>${histAll().length ? `Сохранено: ${histAll().length}. Посмотреть торговлю и розыгрыш` : 'Здесь появятся сыгранные сдачи'}</small></div><i>›</i></a>
   <a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
   ${GAMES.map(g => `<h3 class="gsec">${g.sec}</h3><div class="ggrid">${g.items.map(([id, em, t, d, c], i) => `<a href="#" class="gcard ${c}" id="${id}" style="--i:${i}"><span class="gem">${em}</span><b>${t}</b><small>${d}</small></a>`).join('')}</div>`).join('')}`, 'Игры');
-  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage);
+  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_daily', dailyPlay);
   GAMES.forEach(g => g.items.forEach(([id, , , , , f]) => on(id, f)));
   // Наклон карточек за пальцем/мышью
   $app.querySelectorAll('.gcard,.blitzcard').forEach(c => {
@@ -218,4 +223,4 @@ document.querySelectorAll('nav.tabs button').forEach(b => b.onclick = () => {
 });
 meChip(); $('mechip').onclick = profilePage;
 const startTab = TABS[store.get('tab', 'theory')] ? store.get('tab', 'theory') : 'theory';
-document.querySelector(`nav.tabs button[data-tab="${startTab}"]`).click();
+if (!checkHashImport()) document.querySelector(`nav.tabs button[data-tab="${startTab}"]`).click();

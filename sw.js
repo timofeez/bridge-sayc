@@ -1,5 +1,5 @@
-const CACHE = 'bridge-sayc-v11';
-const FILES = ['./', 'index.html', 'app.js', 'data.js', 'engine.js', 'compete.js', 'play.js', 'gamify.js', 'hub.js', 'style.js', 'fx.js', 'history.js', 'theory.js', 'manifest.json', 'icon.svg'];
+const CACHE = 'bridge-sayc-v12';
+const FILES = ['./', 'index.html', 'app.js', 'data.js', 'engine.js', 'compete.js', 'play.js', 'gamify.js', 'hub.js', 'style.js', 'fx.js', 'history.js', 'theory2.js', 'dd.js', 'ddui.js', 'extra.js', 'theory.js', 'manifest.json', 'icon.svg'];
 self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
 self.addEventListener('activate', e => e.waitUntil(
   caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())

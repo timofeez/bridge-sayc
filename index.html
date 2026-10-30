@@ -588,6 +588,47 @@ header{background-size:200% 100%!important;animation:hdr 8s ease-in-out infinite
 .rctl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:22px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);transition:transform .1s}
 .rctl button:active{transform:scale(.9)}
 .rctl button.main{width:64px;height:64px;background:var(--acc);color:#fff;border:0;font-size:26px;box-shadow:0 6px 16px color-mix(in srgb,var(--acc) 50%,transparent)}
+/* ===== Сдача дня, анализ, статистика ===== */
+.dailycard{display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:12px;border-radius:22px;text-decoration:none;color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(120deg,#11998e,#38ef7d);box-shadow:0 10px 26px rgba(17,153,142,.35);animation:pageIn .4s both}
+.dailycard b{display:block;font-size:17px}.dailycard small{opacity:.9;font-size:12px}
+.dailycard i{margin-left:auto;font-style:normal;font-size:26px;font-weight:800}
+.dc-cal{width:52px;height:56px;flex:none;border-radius:12px;background:#fff;color:#0f5132;display:flex;flex-direction:column;align-items:center;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+.dc-cal small{display:block;width:100%;text-align:center;background:#d64045;color:#fff;font:800 10px Manrope;text-transform:uppercase;padding:2px 0}
+.dc-cal b{font-size:24px;line-height:1.4}
+.c11{background:linear-gradient(135deg,#f093fb,#f5576c)}
+.c12{background:linear-gradient(135deg,#5ee7df,#3a7bd5)}
+.suitq{display:grid;gap:4px;font-size:18px;margin:6px 0;padding:10px 12px;border-radius:12px;background:var(--bg)}
+.sharerow{display:flex;gap:6px;margin-top:6px}.sharerow .btn{flex:1;justify-content:center;padding:10px 6px;font-size:14px;text-decoration:none}
+.ddbox{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px;border-radius:18px;background:var(--card);border:1px solid var(--line);margin:10px 0;text-align:center}
+.ddbox.small{flex-direction:row;padding:10px 14px;justify-content:center}
+.ddbox small{color:var(--muted)}
+.ddspin{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--acc);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ddres{margin:10px 0}
+.ddpar{display:flex;align-items:center;gap:14px;padding:14px;border-radius:18px;color:#fff;background:linear-gradient(120deg,#7b2ff7,#c471f5);box-shadow:0 8px 22px rgba(123,47,247,.3);animation:pop .4s}
+.ddpar span{font-size:44px;font-weight:800;line-height:1}.ddpar b{display:block}.ddpar small{opacity:.9}
+.ddmiss{display:block;padding:10px 12px;margin:6px 0;border-radius:12px;background:color-mix(in srgb,var(--bad) 10%,var(--card));border-left:4px solid var(--bad);color:var(--ink);text-decoration:none;font-size:14px;animation:pageIn .3s both}
+.stats-hero{background:radial-gradient(120% 140% at 0% 0%,#5ee7df,#3a7bd5 55%,#1e3c72)}
+.statgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:30px;color:var(--acc)}.stat small{color:var(--muted)}
+.bar{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+.bar div{height:12px;border-radius:8px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:var(--w);border-radius:8px;background:var(--muted);animation:grow 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*.1s)}
+.bar i.g{background:linear-gradient(90deg,#2fa36b,#5be39b)}.bar i.y{background:linear-gradient(90deg,#e0a82e,#ffd76a)}.bar i.r{background:linear-gradient(90deg,#d64045,#ff8a8a)}
+.bar b{text-align:right}.bar small{grid-column:2;color:var(--muted);font-size:11px;margin-top:-6px}
+@keyframes grow{from{width:0}}
+.donutrow{display:flex;align-items:center;gap:16px}
+.donut{--p:0;width:96px;height:96px;flex:none;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--acc) calc(var(--p)*1%),var(--line) 0);animation:pop .6s}
+.donut b{width:72px;height:72px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:20px}
+.spark{width:100%;height:auto}
+.spark .zero{stroke:var(--line);stroke-dasharray:4 4}
+.spark .ln{fill:none;stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 1.5s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.spark .pt.pos{fill:var(--ok)}.spark .pt.neg{fill:var(--bad)}
+.leadfan .pc.can{cursor:pointer}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -601,6 +642,7 @@ header{background-size:200% 100%!important;animation:hdr 8s ease-in-out infinite
 </nav>
 <script src="data.js"></script>
 <script src="theory.js"></script>
+<script src="theory2.js"></script>
 <script src="engine.js"></script>
 <script src="compete.js"></script>
 <script src="play.js"></script>
@@ -608,6 +650,9 @@ header{background-size:200% 100%!important;animation:hdr 8s ease-in-out infinite
 <script src="app.js"></script>
 <script src="style.js"></script>
 <script src="history.js"></script>
+<script src="dd.js"></script>
+<script src="ddui.js"></script>
+<script src="extra.js"></script>
 <script src="fx.js"></script>
 <script src="hub.js"></script>
 <script>if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});</script>
