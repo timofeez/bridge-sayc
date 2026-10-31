@@ -5,20 +5,20 @@
   "dates": "30 октября - 1 ноября",
   "results_url": "https://bridgemoscow.ru/tournaments/results/m26top/m26tops.htm",
   "finished": false,
-  "checked": "2026-10-31T13:23:16+0300",
-  "team": "Рыси-RS",
-  "place": 11,
+  "checked": "2026-10-31T13:34:30+0300",
+  "team": "Кагульский удар",
+  "place": 6,
   "of": 21,
-  "members": "Ваганов Сергей, Купцов Евгений, Рыскин Александр, Рыскина Наталья, Татаркин Александр",
-  "score": 41.74,
-  "imps": 1.0,
-  "round": 4,
+  "members": "Зинковский Николай, Курсакова Лариса, Потемкин Николай, Татаркин Владимир",
+  "score": 57.05,
+  "imps": 16.0,
+  "round": 5,
   "match": {
-   "opponent": "Cosa Nostra",
-   "imps_for": 20,
-   "imps_against": 22,
-   "vp_for": 9.14,
-   "vp_against": 10.86,
+   "opponent": "Рыси-RS",
+   "imps_for": 27,
+   "imps_against": 11,
+   "vp_for": 15.5,
+   "vp_against": 4.5,
    "boards": 8
   }
  },
@@ -37,6 +37,14 @@
    "score": 41.74,
    "imps": 1.0,
    "round": 4
+  },
+  {
+   "tournament": "Командный чемпионат Москвы 2026",
+   "t": "2026-10-31T13:34:30+0300",
+   "place": 6,
+   "score": 57.05,
+   "imps": 16.0,
+   "round": 5
   }
  ],
  "player_id": 4899,
@@ -3266,5 +3274,5 @@
    "rating": 3625
   }
  ],
- "updated": "2026-10-31T10:24:24Z"
+ "updated": "2026-10-31T10:34:36Z"
 }
