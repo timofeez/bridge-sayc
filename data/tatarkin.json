@@ -5,20 +5,20 @@
   "dates": "30 октября - 1 ноября",
   "results_url": "https://bridgemoscow.ru/tournaments/results/m26top/m26tops.htm",
   "finished": false,
-  "checked": "2026-10-31T19:32:08+0300",
-  "team": "Кагульский удар",
-  "place": 6,
+  "checked": "2026-10-31T19:42:21+0300",
+  "team": "Феликс Фелицис",
+  "place": 9,
   "of": 21,
-  "members": "Зинковский Николай, Курсакова Лариса, Потемкин Николай, Татаркин Владимир",
-  "score": 87.05,
-  "imps": 18.0,
-  "round": 8,
+  "members": "Ильницкая Ангелина, Столяров Егор, Татаркин Иван, Улановский Леонид",
+  "score": 91.86,
+  "imps": 0.0,
+  "round": 9,
   "match": {
-   "opponent": "Il Cenacolo",
-   "imps_for": 3,
-   "imps_against": 17,
-   "vp_for": 5.04,
-   "vp_against": 14.96,
+   "opponent": "iflexible",
+   "imps_for": 52,
+   "imps_against": 13,
+   "vp_for": 19.62,
+   "vp_against": 0.38,
    "boards": 8
   }
  },
@@ -69,6 +69,14 @@
    "score": 87.05,
    "imps": 18.0,
    "round": 8
+  },
+  {
+   "tournament": "Командный чемпионат Москвы 2026",
+   "t": "2026-10-31T19:42:21+0300",
+   "place": 9,
+   "score": 91.86,
+   "imps": 0.0,
+   "round": 9
   }
  ],
  "player_id": 4899,
@@ -3298,5 +3306,5 @@
    "rating": 3625
   }
  ],
- "updated": "2026-10-31T16:32:15Z"
+ "updated": "2026-10-31T16:42:27Z"
 }
