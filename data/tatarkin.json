@@ -5,20 +5,20 @@
   "dates": "30 октября - 1 ноября",
   "results_url": "https://bridgemoscow.ru/tournaments/results/m26top/m26tops.htm",
   "finished": false,
-  "checked": "2026-11-01T14:48:14+0300",
+  "checked": "2026-11-01T14:58:25+0300",
   "team": "Феликс Фелицис",
-  "place": 9,
+  "place": 8,
   "of": 21,
   "members": "Ильницкая Ангелина, Столяров Егор, Татаркин Иван, Улановский Леонид",
-  "score": 127.12,
-  "imps": 16.0,
-  "round": 12,
+  "score": 139.17,
+  "imps": 21.0,
+  "round": 13,
   "match": {
-   "opponent": "Начало",
-   "imps_for": 39,
-   "imps_against": 20,
-   "vp_for": 16.23,
-   "vp_against": 3.77,
+   "opponent": "Дубы-Колдуны",
+   "imps_for": 14,
+   "imps_against": 9,
+   "vp_for": 12.05,
+   "vp_against": 7.95,
    "boards": 8
   }
  },
@@ -109,6 +109,14 @@
    "score": 127.12,
    "imps": 16.0,
    "round": 12
+  },
+  {
+   "tournament": "Командный чемпионат Москвы 2026",
+   "t": "2026-11-01T14:58:25+0300",
+   "place": 8,
+   "score": 139.17,
+   "imps": 21.0,
+   "round": 13
   }
  ],
  "player_id": 4899,
@@ -3338,5 +3346,5 @@
    "rating": 3625
   }
  ],
- "updated": "2026-11-01T11:48:20Z"
+ "updated": "2026-11-01T11:58:31Z"
 }
