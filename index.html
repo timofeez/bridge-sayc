@@ -839,6 +839,19 @@ svg circle.hot{r:7;stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px rgb
 .sprow{display:grid;grid-template-columns:minmax(84px,30%) 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
 .sprow:last-child{border:0}.sprow b{font-weight:700}
 .fb.spnote{background:color-mix(in srgb,#2a5298 12%,var(--card));margin-top:8px}
+.sptable{display:grid;gap:0;margin:10px 0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.sptr{display:grid;grid-template-columns:minmax(78px,32%) 1fr auto;gap:10px;align-items:center;padding:9px 10px;background:var(--card);border-bottom:1px solid var(--line);font-size:14px;line-height:1.4}
+.sptr:nth-child(even){background:color-mix(in srgb,var(--bg) 60%,var(--card))}
+.sptr:last-child{border:0}.sptr b{font-weight:700}
+.sptag{font:800 10px/1 Onest,sans-serif;padding:4px 6px;border-radius:8px;letter-spacing:.3px;white-space:nowrap}
+.t-nf{background:color-mix(in srgb,#2fa36b 18%,var(--card));color:#1f8a4c}.t-f1{background:color-mix(in srgb,#e0a82e 22%,var(--card));color:#a2700a}
+.t-fg{background:color-mix(in srgb,#d64045 16%,var(--card));color:#c62828}.t-inv{background:color-mix(in srgb,#2459c9 16%,var(--card));color:#2459c9}
+.spconf{padding:10px 12px;border-radius:12px;margin:10px 0;font-size:13.5px;line-height:1.45;background:color-mix(in srgb,#e0a82e 14%,var(--card));border-left:4px solid #e0a82e}
+.spopts{display:grid;gap:8px;margin-top:10px}
+.spopts button{text-align:left;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:600 14px/1.35 Onest,sans-serif;cursor:pointer;box-shadow:0 3px 0 var(--line)}
+.spopts button.ok{background:var(--ok);border-color:var(--ok);color:#fff;animation:pop .35s}
+.spopts button.bad{background:var(--bad);border-color:var(--bad);color:#fff;animation:shake .4s}
+.flip h2.spback{font-size:18px;line-height:1.35}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>

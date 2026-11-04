@@ -25,7 +25,7 @@ function theoryPage() {
   </section>`).join('');
   render(`<div class="tprog"><i id="tpbar"></i></div>
   <div class="cnav" id="cnav">${THEORY.map(t => `<button data-go="${t.id}">${t.emoji} ${t.title.split(':')[0]}</button>`).join('')}</div>
-  <a href="#" class="spcta" id="t_sp"><span class="sp-ico">🛰</span><div><b>Учите Спутник-стандарт?</b><small>Отличия от SAYC, шпаргалка, карточки и раздачи</small></div><i>›</i></a>
+  <a href="#" class="spcta" id="t_sp"><span class="sp-ico">🛰</span><div><b>Учите Спутник-стандарт?</b><small>Курс по порядку, карточки и раздачи</small></div><i>›</i></a>
   <div class="hero theory-hero"><div class="suits-float"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
     <h2>Торговля SAYC<br>от нуля до шлема</h2><p>Одна страница, ${THEORY.length} глав. Листайте, нажимайте, двигайте ползунки — всё живое.</p></div>
   ${secs}
