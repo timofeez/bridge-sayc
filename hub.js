@@ -25,10 +25,12 @@ function theoryPage() {
   </section>`).join('');
   render(`<div class="tprog"><i id="tpbar"></i></div>
   <div class="cnav" id="cnav">${THEORY.map(t => `<button data-go="${t.id}">${t.emoji} ${t.title.split(':')[0]}</button>`).join('')}</div>
+  <a href="#" class="spcta" id="t_sp"><span class="sp-ico">🛰</span><div><b>Учите Спутник-стандарт?</b><small>Отличия от SAYC, шпаргалка, карточки и раздачи</small></div><i>›</i></a>
   <div class="hero theory-hero"><div class="suits-float"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
     <h2>Торговля SAYC<br>от нуля до шлема</h2><p>Одна страница, ${THEORY.length} глав. Листайте, нажимайте, двигайте ползунки — всё живое.</p></div>
   ${secs}
   <div class="finish"><div style="font-size:54px">🏁</div><h2>Вы дошли до конца!</h2><p>Теперь закрепите в играх.</p><button class="btn block" id="toGames">🎮 К играм</button></div>`, 'Теория');
+  $('t_sp').onclick = e => { e.preventDefault(); spHome(); };
   $('toGames').onclick = () => document.querySelector('[data-tab=games]').click();
   $app.querySelectorAll('.flow>div').forEach((d, k) => d.style.setProperty('--i', k));
   $app.querySelectorAll('.cnav button').forEach(b => b.onclick = () => { const el = $('s_' + b.dataset.go); window.scrollTo({ top: el.offsetTop - 110, behavior: 'smooth' }); });
@@ -197,14 +199,15 @@ const GAMES = [
 ];
 function gamesHub() {
   const p = prof(), dl = dailyStatus();
-  render(`<a href="#" class="dailycard" id="g_daily"><div class="dc-cal"><small>${new Date().toLocaleDateString('ru-RU', { month: 'short' })}</small><b>${new Date().getDate()}</b></div><div><b>Сдача дня</b><small>${dl ? `Сыграно: ${bidRu(dl.bid)}, взято ${dl.got} · ${dl.score > 0 ? '+' : ''}${dl.score}` : 'Одна сдача для всех на сегодня'}</small></div><i>${dl ? '✓' : '›'}</i></a>
+  render(`<a href="#" class="spcta" id="g_sp"><span class="sp-ico">🛰</span><div><b>Спутник-стандарт</b><small>${spLearned()}/${SP_CARDS.length} выучено · учим систему</small></div><i>›</i></a>
+  <a href="#" class="dailycard" id="g_daily"><div class="dc-cal"><small>${new Date().toLocaleDateString('ru-RU', { month: 'short' })}</small><b>${new Date().getDate()}</b></div><div><b>Сдача дня</b><small>${dl ? `Сыграно: ${bidRu(dl.bid)}, взято ${dl.got} · ${dl.score > 0 ? '+' : ''}${dl.score}` : 'Одна сдача для всех на сегодня'}</small></div><i>${dl ? '✓' : '›'}</i></a>
   ${(() => { const last = histAll().find(x => x.plays && x.plays.length && x.bid); return `<button class="analyzecta" id="g_an"><span class="ac-ico">🧠</span><div><b>Разбор сдач</b><small>${last ? `Последняя: ${resultText(last)}` : 'Идеальный розыгрыш и ваши ошибки'}</small></div><span class="ac-new">NEW</span><i>›</i></button>`; })()}
   <a href="#" class="ttcta" id="g_tt"><div class="radar"><i></i><span class="blip"></span></div><div><b>Татаркин-радар</b><small>Турниры, места и импы Ивана</small></div><i>›</i></a>
   <a href="#" class="wscta" id="g_ws"><span class="cardback" data-b="${look().back}"></span><span class="cardback" data-b="${look().back}"></span><div><b>🎨 Мастерская</b><small>Рубашки, сукно, колода, аватар</small></div><i>›</i></a>
   <a href="#" class="histcta" id="g_hist"><span>📜</span><div><b>Мои сдачи</b><small>${histAll().length ? `Сохранено: ${histAll().length}` : 'Здесь появятся сыгранные сдачи'}</small></div><i>›</i></a>
   <a href="#" class="blitzcard" id="g_blitz"><div class="bz-bg">⚡</div><div class="bz-tag">ХИТ</div><h2>Блиц<br>60 секунд</h2><p>Заявки на скорость. Комбо, множитель, рекорд.</p><div class="bz-best">🏆 ${p.best}</div></a>
   ${GAMES.map(g => `<h3 class="gsec">${g.sec}</h3><div class="ggrid">${g.items.map(([id, em, t, d, c], i) => `<a href="#" class="gcard ${c}" id="${id}" style="--i:${i}"><span class="gem">${em}</span><b>${t}</b><small>${d}</small></a>`).join('')}</div>`).join('')}`, 'Игры');
-  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_tt', tatarkinPage); $('g_an').onclick = () => dealLab();  on('g_daily', dailyPlay);
+  on('g_blitz', blitzStart); on('g_ws', workshop); on('g_hist', historyPage); on('g_sp', spHome); on('g_tt', tatarkinPage); $('g_an').onclick = () => dealLab();  on('g_daily', dailyPlay);
   GAMES.forEach(g => g.items.forEach(([id, , , , , f]) => on(id, f)));
   // Наклон карточек за пальцем/мышью
   $app.querySelectorAll('.gcard,.blitzcard').forEach(c => {
