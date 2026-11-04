@@ -880,6 +880,17 @@ svg circle.hot{r:7;stroke:#fff;stroke-width:2.5;filter:drop-shadow(0 2px 4px rgb
 .podrow.heard .podnum{background:var(--ok);color:#fff}
 .podrow>i{font-style:normal;color:#7b2ff7;font-size:18px}
 .pod-text p{line-height:1.55;margin:0 0 10px}
+.pod-seekwrap{position:relative;margin-top:10px}
+.pod-marks{position:absolute;left:12px;right:12px;top:50%;height:10px;transform:translateY(-50%);pointer-events:none}
+.pod-marks i{position:absolute;top:0;width:2px;height:10px;background:rgba(255,255,255,.5);border-radius:1px}
+.pod-seek{position:relative;margin-top:0!important;height:34px}
+.pod-ctl{gap:10px!important}
+.pod-ctl button{width:48px!important;height:48px!important}
+.pod-ctl button.main{width:68px!important;height:68px!important}
+.pp{cursor:pointer;padding:8px 10px;margin:0 -10px 6px!important;border-radius:12px;transition:background .25s}
+.pp:hover{background:var(--bg)}
+.pp.now{background:color-mix(in srgb,#7b2ff7 12%,var(--card));box-shadow:inset 3px 0 0 #7b2ff7}
+.ppt{display:inline-block;font:700 11px Onest;color:#7b2ff7;background:color-mix(in srgb,#7b2ff7 12%,var(--card));border-radius:6px;padding:1px 6px;margin-right:6px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
