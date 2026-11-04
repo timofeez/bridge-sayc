@@ -17,7 +17,7 @@ async function podcastPage() {
     <small>Прослушано: ${Object.keys(heard).length} из ${eps.length}</small></div>
   <div class="podlist">${eps.map((e, i) => { const d = PODDUR[`ep${String(e.id).padStart(2, '0')}.mp3`]; return `<a href="#" class="podrow ${heard[e.id] ? 'heard' : ''}" data-id="${e.id}" style="--i:${i}">
     <span class="podnum">${heard[e.id] ? '✓' : e.id}</span><div><b>${e.title}</b><small>${d ? mmss(d) : ''}${pos[e.id] && !heard[e.id] ? ` · остановились на ${mmss(pos[e.id])}` : ''}</small></div><i>▶</i></a>`; }).join('')}</div>
-  <p class="muted">Голос — синтезатор речи. Текст каждого выпуска есть на его странице.</p>`, 'Подкаст', spHome);
+  <p class="muted">Озвучено нейросетевым голосом. Текст каждого выпуска есть на его странице.</p>`, 'Подкаст', spHome);
   $app.querySelectorAll('.podrow').forEach(a => a.onclick = e => { e.preventDefault(); podEpisode(+a.dataset.id); });
 }
 

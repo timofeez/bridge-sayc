@@ -202,7 +202,7 @@ function spHome() {
   render(`<div class="sp-hero"><div class="sp-orbit"><span>🛰</span></div>
     <h2>Спутник-стандарт</h2><p>Натуральная система 5533, 2-над-1 ФГ. Три шага: прочитать курс → запомнить карточками → применить на раздачах.</p>
     <div class="progress"><i style="width:${100 * n / tot}%"></i></div><small>Глав пройдено: ${rd}/${SPC.length} · карточек выучено: ${n}/${tot}</small></div>
-  <a href="#" class="spcta podcta" id="sp_pod"><span class="sp-ico">🎧</span><div><b>Подкаст «Спутник с нуля»</b><small>10 выпусков · ~47 минут · с самых основ</small></div><i>›</i></a>
+  <a href="#" class="spcta podcta" id="sp_pod"><span class="sp-ico">🎧</span><div><b>Подкаст «Спутник с нуля»</b><small>10 выпусков · ~40 минут · с самых основ</small></div><i>›</i></a>
   <a href="#" class="spcta" id="sp_course"><span class="sp-ico">📖</span><div><b>Курс по порядку</b><small>${SPC.length} простых глав с задачками</small></div><i>›</i></a>
   <div class="ggrid">
     <a href="#" class="gcard c3" id="sp_key" style="--i:0"><span class="gem">⚡</span><b>Главное за 5 минут</b><small>12 опорных фактов</small></a>
