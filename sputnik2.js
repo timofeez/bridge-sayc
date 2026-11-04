@@ -202,6 +202,7 @@ function spHome() {
   render(`<div class="sp-hero"><div class="sp-orbit"><span>🛰</span></div>
     <h2>Спутник-стандарт</h2><p>Натуральная система 5533, 2-над-1 ФГ. Три шага: прочитать курс → запомнить карточками → применить на раздачах.</p>
     <div class="progress"><i style="width:${100 * n / tot}%"></i></div><small>Глав пройдено: ${rd}/${SPC.length} · карточек выучено: ${n}/${tot}</small></div>
+  <a href="#" class="spcta podcta" id="sp_pod"><span class="sp-ico">🎧</span><div><b>Подкаст «Спутник с нуля»</b><small>10 выпусков · ~47 минут · с самых основ</small></div><i>›</i></a>
   <a href="#" class="spcta" id="sp_course"><span class="sp-ico">📖</span><div><b>Курс по порядку</b><small>${SPC.length} простых глав с задачками</small></div><i>›</i></a>
   <div class="ggrid">
     <a href="#" class="gcard c3" id="sp_key" style="--i:0"><span class="gem">⚡</span><b>Главное за 5 минут</b><small>12 опорных фактов</small></a>
@@ -220,7 +221,7 @@ function spHome() {
   </div>
   <div class="spconf" style="margin-top:14px">⚠️ Курс — по полной версии системы (30.06.2020). В краткой версии (Ver1) несколько диапазонов и правила виста другие — они отмечены в главах.</div>
   <p class="muted">Источник: «Система торговли Спутник-стандарт», клуб-школа бриджа «Спутник» (bridgeonline.ru).</p>`, 'Спутник-стандарт', gamesHub);
-  on('sp_course', spCourse); on('sp_key', spKey); on('sp_diff', spDiff); on('sp_sheet', spSheet);
+  on('sp_course', spCourse); on('sp_pod', podcastPage); on('sp_key', spKey); on('sp_diff', spDiff); on('sp_sheet', spSheet);
   on('sp_flash', () => spCatPick('flash')); on('sp_quiz', () => spCatPick('quiz')); on('sp_open', spDrillOpen); on('sp_resp', spDrillResp);
 }
 function spKey() {
