@@ -118,11 +118,11 @@
  "profile_url": "https://www.bridgesport.ru/players-and-ratings/search-player/4899/",
  "info": {
   "rank": -2.5,
-  "rating": 3625,
+  "rating": 3594,
   "place": 31,
   "best_place": 27,
   "pb": 109,
-  "mb": 12574,
+  "mb": 12592,
   "online_mb": 636,
   "nick_gambler": "ИванЧай",
   "nick_bbo": "ivankrut",
@@ -1065,6 +1065,17 @@
    "ro": 74,
    "pb": null,
    "mb": 20
+  },
+  {
+   "date": "2026-10-25",
+   "year": 2026,
+   "name": "Парный чемпионат Ярославской области (MP)",
+   "link": "https://www.bridgesport.ru/tournaments/82381/",
+   "partners": "Аграчев А.Ф.",
+   "place": 6,
+   "ro": 44,
+   "pb": null,
+   "mb": 12
   },
   {
    "date": "2023-10-01",
@@ -2367,6 +2378,12 @@
  ],
  "club_mb": [
   {
+   "month": "2026-10",
+   "source": "Москва клубный",
+   "mb": 6,
+   "online_mb": 0
+  },
+  {
    "month": "2026-08",
    "source": "Москва клубный",
    "mb": 149,
@@ -3345,5 +3362,5 @@
    "rating": 3594
   }
  ],
- "updated": "2026-11-01T19:38:17Z"
+ "updated": "2026-11-05T02:19:48Z"
 }
